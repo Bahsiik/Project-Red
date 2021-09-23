@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func (p *Personnage) TakePot() {
 	var test int
@@ -29,5 +32,20 @@ func (p *Personnage) TakePot() {
 	}
 	if test == 0 {
 		fmt.Println(p.nom, "n'as malheureusement pas de potion...")
+	}
+}
+
+func (p *Personnage) PoisonPot() {
+	test := 0
+	for i := 0; i < 3; i++ {
+		if test == 0 {
+			p.hp -= 10
+			fmt.Println(p.nom, "a maintenant", p.hp, "Hp")
+			if p.hp == 0 {
+				p.Death()
+				test++
+			}
+			time.Sleep(1 * time.Second)
+		}
 	}
 }

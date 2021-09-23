@@ -37,3 +37,11 @@ func (p Personnage) DisplayInfo() {
 	fmt.Println("HP actuels --> ", p.hp)
 	fmt.Println()
 }
+
+func (p *Personnage) Death() {
+	if p.hp <= 0 {
+		fmt.Println("Wasted ! Retente ta chance chacal..")
+		p.hp = p.hpmax / 2
+		fmt.Println("Grâce à John Cena,", p.nom, "a réssucité avec", p.hp, "HP")
+	}
+}
