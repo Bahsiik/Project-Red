@@ -28,7 +28,8 @@ func Menu() {
 			P1.DisplayInventory()
 			P1.AccessInventory()
 		case "C":
-			DisplayInvMarchand()
+			Marchand.DisplayInvMarchand()
+			P1.AccessInvMarchand()
 		case "D":
 			fmt.Println("Vous allez quitter le jeu")
 			os.Exit(0)
