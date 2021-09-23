@@ -13,7 +13,7 @@ func (p *Personnage) TakePot() {
 					fmt.Println()
 				} else {
 					fmt.Println(p.nom, "prend une potion de vie.")
-					p.inventaire = RemoveInv(p.inventaire, "Potion", i)
+					p.RemoveInv("Potion", i)
 					p.hp += 50
 					if p.hp >= p.hpmax {
 						p.hp = 100

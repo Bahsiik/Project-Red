@@ -41,16 +41,14 @@ func (p *Personnage) AccessInventory() {
 	}
 }
 
-func AddInventory() {
-
+func (p *Personnage) AddInventory(obj string) {
+	p.inventaire = append(p.inventaire, obj)
 }
 
-func RemoveInv(inv []string, obj string, i int) []string {
-	var newinv []string
-	for i := range inv {
-		if inv[i] == obj {
-			newinv = append(inv[:i], inv[i+1:]...)
+func (p *Personnage) RemoveInv(obj string, i int) {
+	for i := range p.inventaire {
+		if p.inventaire[i] == obj {
+			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
 		}
 	}
-	return newinv
 }

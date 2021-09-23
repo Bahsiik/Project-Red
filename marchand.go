@@ -31,11 +31,26 @@ func (p *Personnage) AccessInvMarchand() {
 		fmt.Println()
 		Menu()
 	case "1":
-		P1.TakePot()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		fmt.Println("Tenez Monsieur")
+		fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+		fmt.Print("-> ")
+		text4, _ := reader.ReadString('\n')
+		// convert CRLF to LF
+		text4 = strings.Replace(text4, "\r\n", "", -1)
+		P1.AddInventory("Potion")
+		switch text4 {
+		case "Oui":
+			fmt.Println("Que désirez-vous d'autres chacal ?")
+			fmt.Println()
+			P1.AccessInvMarchand()
+		case "Non":
+			fmt.Println("Très bien, au revoir")
+			fmt.Println()
+			Menu()
+		}
 	case "2":
 		fmt.Println("Désolé, cet article n'est pas encore disponible à la vente.")
+		fmt.Println()
 		P1.AccessInvMarchand()
 	default:
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
