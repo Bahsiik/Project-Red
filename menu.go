@@ -14,8 +14,6 @@ func Menu() {
 	fmt.Println("B - Accéder à l'inventaire du personnage")
 	fmt.Println("C - Accéder au marchand")
 	fmt.Println("D - Quitter le jeu")
-	fmt.Println("E - Suicide")
-	fmt.Println("F - Tu es sûr ?")
 	fmt.Println()
 
 	for {
@@ -27,6 +25,7 @@ func Menu() {
 		switch textmenu {
 		case "A":
 			P1.DisplayInfo()
+			AccessInfo()
 		case "B":
 			P1.DisplayInventory()
 			P1.AccessInventory()
@@ -35,10 +34,6 @@ func Menu() {
 			P1.AccessInvMarchand()
 		case "D":
 			Exit()
-		case "E":
-			P1.Death()
-		case "F":
-			P1.PoisonPot()
 		}
 	}
 }

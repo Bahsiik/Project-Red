@@ -22,39 +22,42 @@ func (p Personnage) DisplayInvMarchand() {
 func (p *Personnage) AccessInvMarchand() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
-	text3, _ := reader.ReadString('\n')
+	textmarchand, _ := reader.ReadString('\n')
 	// convert CRLF to LF
-	text3 = strings.Replace(text3, "\r\n", "", -1)
-	switch text3 {
+	textmarchand = strings.Replace(textmarchand, "\r\n", "", -1)
+	switch textmarchand {
 	case "Rien":
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
-		Menu()
+		RetourMenu()
 	case "1":
-		fmt.Println("Tenez Monsieur")
-		fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-		fmt.Print("-> ")
-		text4, _ := reader.ReadString('\n')
-		// convert CRLF to LF
-		text4 = strings.Replace(text4, "\r\n", "", -1)
-		P1.AddInventory("Potion")
-		switch text4 {
-		case "Oui":
-			fmt.Println("Que désirez-vous d'autres chacal ?")
-			fmt.Println()
-			P1.AccessInvMarchand()
-		case "Non":
-			fmt.Println("Très bien, au revoir")
-			fmt.Println()
-			Menu()
-		}
+		ContinueMarchand("Potion")
 	case "2":
-		fmt.Println("Désolé, cet article n'est pas encore disponible à la vente.")
-		fmt.Println()
-		P1.AccessInvMarchand()
+		ContinueMarchand("Potion de poison")
 	default:
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
 		fmt.Println()
 		P1.AccessInvMarchand()
+	}
+}
+
+func ContinueMarchand(choix string) {
+	fmt.Println("Tenez Monsieur")
+	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("-> ")
+	textmarchand2, _ := reader.ReadString('\n')
+	// convert CRLF to LF
+	textmarchand2 = strings.Replace(textmarchand2, "\r\n", "", -1)
+	P1.AddInventory(choix)
+	switch textmarchand2 {
+	case "Oui":
+		fmt.Println("Que désirez-vous d'autres chacal ?")
+		fmt.Println()
+		P1.AccessInvMarchand()
+	case "Non":
+		fmt.Println("Très bien, au revoir")
+		fmt.Println()
+		RetourMenu()
 	}
 }

@@ -23,10 +23,10 @@ func AccessInfo() {
 	fmt.Println()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
-	textainfo, _ := reader.ReadString('\n')
+	textinfo, _ := reader.ReadString('\n')
 	// convert CRLF to LF
-	textainfo = strings.Replace(textainfo, "\r\n", "", -1)
-	switch textainfo {
+	textinfo = strings.Replace(textinfo, "\r\n", "", -1)
+	switch textinfo {
 	case "Retour":
 		RetourMenu()
 	}
