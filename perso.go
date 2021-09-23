@@ -2,9 +2,6 @@ package main
 
 import "fmt"
 
-digdsi
-dspoidsfjvhqk
-
 type Personnage struct {
 	nom        string
 	classe     string
