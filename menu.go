@@ -9,6 +9,7 @@ import (
 
 func Menu() {
 	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("--- Menu Principal ---")
 	fmt.Println("A - Information du personnage")
 	fmt.Println("B - Accéder à l'inventaire du personnage")
 	fmt.Println("C - Accéder au marchand")
@@ -19,11 +20,11 @@ func Menu() {
 
 	for {
 		fmt.Print("-> ")
-		text, _ := reader.ReadString('\n')
+		textmenu, _ := reader.ReadString('\n')
 		// convert CRLF to LF
-		text = strings.Replace(text, "\r\n", "", -1)
+		textmenu = strings.Replace(textmenu, "\r\n", "", -1)
 
-		switch text {
+		switch textmenu {
 		case "A":
 			P1.DisplayInfo()
 		case "B":
@@ -33,12 +34,23 @@ func Menu() {
 			Marchand.DisplayInvMarchand()
 			P1.AccessInvMarchand()
 		case "D":
-			fmt.Println("Vous allez quitter le jeu")
-			os.Exit(0)
+			Exit()
 		case "E":
 			P1.Death()
 		case "F":
 			P1.PoisonPot()
 		}
 	}
+}
+
+func Exit() {
+	fmt.Println("Vous allez quitter le jeu")
+	fmt.Println()
+	os.Exit(0)
+}
+
+func RetourMenu() {
+	fmt.Println("Vous allez retourner au menu principal")
+	fmt.Println()
+	Menu()
 }

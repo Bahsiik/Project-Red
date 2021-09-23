@@ -33,7 +33,7 @@ func (p *Personnage) AccessInventory() {
 		P1.DisplayInventory()
 		P1.AccessInventory()
 	case "Rien":
-		Menu()
+		RetourMenu()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()

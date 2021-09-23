@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 type Personnage struct {
 	nom        string
@@ -36,6 +41,21 @@ func (p Personnage) DisplayInfo() {
 	fmt.Println("HP maximum --> ", p.hpmax)
 	fmt.Println("HP actuels --> ", p.hp)
 	fmt.Println()
+	AccessInfo()
+}
+
+func AccessInfo() {
+	fmt.Println("(Retour au menu --> Tapez retour)")
+	fmt.Println()
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("-> ")
+	textainfo, _ := reader.ReadString('\n')
+	// convert CRLF to LF
+	textainfo = strings.Replace(textainfo, "\r\n", "", -1)
+	switch textainfo {
+	case "Retour":
+		RetourMenu()
+	}
 }
 
 func (p *Personnage) Death() {
