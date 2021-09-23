@@ -10,15 +10,18 @@ func (p *Personnage) TakePot() {
 				test++
 				if p.hp == p.hpmax {
 					fmt.Println(p.nom, "est déja full HP ! Il ne peut pas prendre de potion..")
+					fmt.Println()
 				} else {
 					fmt.Println(p.nom, "prend une potion de vie.")
 					p.inventaire = RemoveInv(p.inventaire, "Potion", i)
 					p.hp += 50
 					if p.hp >= p.hpmax {
-						p.hp = 3000
+						p.hp = 100
 						fmt.Println(p.nom, "est maintenant full HP !")
+						fmt.Println()
 					} else {
 						fmt.Println(p.nom, "a maintenant", p.hp, "HP sur", p.hpmax, "HP.")
+						fmt.Println()
 					}
 				}
 			}
