@@ -47,8 +47,10 @@ func (p *Personnage) AddInventory(obj string) {
 
 func (p *Personnage) RemoveInv(obj string, i int) {
 	for i := range p.inventaire {
-		if p.inventaire[i] == obj {
-			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == obj {
+				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
+			}
 		}
 	}
 }
