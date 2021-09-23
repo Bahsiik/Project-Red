@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func (p Personnage) accessInventory() {
+func (p Personnage) AccessInventory() {
 	fmt.Print("--- Inventaire de ", p.nom, " ---  \n")
 	if len(p.inventaire) == 0 {
 		fmt.Println("L'inventaire de", p.nom, "est vide...")

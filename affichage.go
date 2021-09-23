@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func (p Personnage) displayInfo() {
+func (p Personnage) DisplayInfo() {
 	fmt.Println("--- Informations du personnage ---")
 	fmt.Println("Nom du personnage --> ", p.nom)
 	fmt.Println("Classe du personnage --> ", p.classe)
@@ -11,7 +11,7 @@ func (p Personnage) displayInfo() {
 	fmt.Println("HP actuels du personnage --> ", p.hp)
 }
 
-func removeInv(inv []string, obj string, i int) []string {
+func RemoveInv(inv []string, obj string, i int) []string {
 	var newinv []string
 	for i := range inv {
 		if inv[i] == obj {

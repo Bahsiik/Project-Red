@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func (p *Personnage) takePot() {
+func (p *Personnage) TakePot() {
 	var test int
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
@@ -12,7 +12,7 @@ func (p *Personnage) takePot() {
 					fmt.Println(p.nom, "est déja full HP ! Il ne peut pas prendre de potion..")
 				} else {
 					fmt.Println(p.nom, "prend une potion de vie.")
-					p.inventaire = removeInv(p.inventaire, "Potion", i)
+					p.inventaire = RemoveInv(p.inventaire, "Potion", i)
 					p.hp += 50
 					if p.hp >= p.hpmax {
 						p.hp = 3000
