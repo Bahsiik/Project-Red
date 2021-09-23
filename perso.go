@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+digdsi
+
 type Personnage struct {
 	nom        string
 	classe     string
