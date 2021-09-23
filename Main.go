@@ -13,13 +13,14 @@ type Personnage struct {
 
 func main() {
 	var p1 Personnage
-	p1.Init("Garen", "Combattant", 18, 3000, 2500, []string{"Potion", "Jambières du Berserker", "Arc-Bouclier de l'immortel", "Percepteur", "Lame d'infini", "Salutations de Dominik"})
+	p1.Init("Byleth", "Mercenaire", 1, 100, 50, []string{"Epée", "Potion", "Armure légère"})
 	p1.displayInfo()
 	fmt.Println()
 	p1.accessInventory()
 	fmt.Println()
 	p1.takePot()
-
+	fmt.Println()
+	p1.accessInventory()
 }
 
 func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string) {
@@ -40,6 +41,16 @@ func (p Personnage) displayInfo() {
 	fmt.Println("HP actuels du personnage --> ", p.hp)
 }
 
+func removeInv(inv []string, obj string, i int) []string {
+	var newinv []string
+	for i := range inv {
+		if inv[i] == obj {
+			newinv = append(inv[:i], inv[i+1:]...)
+		}
+	}
+	return newinv
+}
+
 func (p Personnage) accessInventory() {
 	fmt.Print("--- Inventaire de ", p.nom, " ---  \n")
 	if len(p.inventaire) == 0 {
@@ -54,18 +65,21 @@ func (p Personnage) accessInventory() {
 func (p *Personnage) takePot() {
 	var test int
 	for i := range p.inventaire {
-		if p.inventaire[i] == "Potion" {
-			test++
-			if p.hp == p.hpmax {
-				fmt.Println(p.nom, "est déja full HP ! Il ne peut pas prendre de potion..")
-			} else {
-				fmt.Println(p.nom, "prend une potion de vie.")
-				p.hp += 50
-				if p.hp >= p.hpmax {
-					p.hp = 3000
-					fmt.Println(p.nom, "est maintenant full HP !")
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == "Potion" {
+				test++
+				if p.hp == p.hpmax {
+					fmt.Println(p.nom, "est déja full HP ! Il ne peut pas prendre de potion..")
 				} else {
-					fmt.Println(p.nom, "a maintenant", p.hp, "HP sur", p.hpmax, "HP.")
+					fmt.Println(p.nom, "prend une potion de vie.")
+					p.inventaire = removeInv(p.inventaire, "Potion", i)
+					p.hp += 50
+					if p.hp >= p.hpmax {
+						p.hp = 100
+						fmt.Println(p.nom, "est maintenant full HP !")
+					} else {
+						fmt.Println(p.nom, "a maintenant", p.hp, "HP sur", p.hpmax, "HP.")
+					}
 				}
 			}
 		}
