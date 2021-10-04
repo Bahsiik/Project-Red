@@ -12,9 +12,10 @@ type Personnage struct {
 	hp         int
 	inventaire []string
 	skill      []string
+	money      int
 }
 
-func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, skill []string) {
+func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, skill []string, money int) {
 	p.nom = nom
 	p.classe = classe
 	p.niveau = niveau
@@ -22,14 +23,15 @@ func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp i
 	p.hp = hp
 	p.inventaire = inventaire
 	p.skill = skill
+	p.money = money
 }
 
 var P1 Personnage
 var Marchand Personnage
 
 func PersoInit(p *Personnage) {
-	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"})
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu"}, []string{"Coup de poing"})
+	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100)
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu"}, []string{"Coup de poing"}, 999)
 }
 
 func (p *Personnage) Death() {
