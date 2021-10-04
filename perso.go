@@ -39,7 +39,7 @@ var P1 Personnage
 var Marchand Personnage
 
 func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
-	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100, "", "", "")
+	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100, "chapeau de caca", "torse de caca", "pieds de caca")
 	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu"}, []string{"Coup de poing"}, 999, "Chapeau Gucci", "Veste Luis Vuitton", "Chaussures Geox")
 }
 
