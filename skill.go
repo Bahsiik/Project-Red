@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (p Personnage) DisplaySkill() {
+func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 	fmt.Print("--- Les sorts de ", p.nom, " sont ---  \n")
 	if len(p.skill) == 0 {
 		fmt.Println(" ", p.nom, "ne possède pas de sorts...")
@@ -19,7 +19,7 @@ func (p Personnage) DisplaySkill() {
 	fmt.Println()
 }
 
-func (p *Personnage) AccessSkill() {
+func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	fmt.Println("Quel sort", p.nom, "veut utiliser ? ( Rien)")
 	fmt.Println()
 	reader := bufio.NewReader(os.Stdin)
@@ -37,7 +37,7 @@ func (p *Personnage) AccessSkill() {
 	}
 }
 
-func (p *Personnage) SpellBook(sort string) {
+func (p *Personnage) SpellBook(sort string) { // Initialisation livre de sorts
 	verif := 0
 	for i := range p.skill {
 		if p.skill[i] == sort {
@@ -49,7 +49,7 @@ func (p *Personnage) SpellBook(sort string) {
 	}
 }
 
-func (p *Personnage) VerifSkill(sort string) bool {
+func (p *Personnage) VerifSkill(sort string) bool { // Vérification unicité des sorts dans le livre
 	for i := range p.skill {
 		if p.skill[i] == sort {
 			return false
