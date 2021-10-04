@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Personnage struct {
 	nom        string
@@ -28,16 +30,6 @@ var Marchand Personnage
 func PersoInit(p *Personnage) {
 	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"})
 	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison"}, []string{"Coup de poing"})
-}
-
-func (p Personnage) DisplayInfo() {
-	fmt.Println("--- Informations du personnage ---")
-	fmt.Println("Nom --> ", p.nom)
-	fmt.Println("Classe --> ", p.classe)
-	fmt.Println("Niveau --> ", p.niveau)
-	fmt.Println("HP maximum --> ", p.hpmax)
-	fmt.Println("HP actuels --> ", p.hp)
-	fmt.Println()
 }
 
 func (p *Personnage) Death() {

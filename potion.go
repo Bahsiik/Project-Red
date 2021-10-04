@@ -27,6 +27,7 @@ func (p *Personnage) TakePot() {
 						fmt.Println()
 					}
 				}
+				break
 			}
 		}
 	}

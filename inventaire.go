@@ -24,16 +24,17 @@ func (p *Personnage) AccessInventory() {
 	fmt.Println()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
-	text2, _ := reader.ReadString('\n')
+	textinv, _ := reader.ReadString('\n')
 	// convert CRLF to LF
-	text2 = strings.Replace(text2, "\r\n", "", -1)
-	switch text2 {
+	textinv = strings.Replace(textinv, "\r\n", "", -1)
+	switch textinv {
 	case "Potion":
 		P1.TakePot()
 		P1.DisplayInventory()
+		textinv = ""
 		P1.AccessInventory()
 	case "Rien":
-		Menu()
+		RetourMenu()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
@@ -47,8 +48,10 @@ func (p *Personnage) AddInventory(obj string) {
 
 func (p *Personnage) RemoveInv(obj string, i int) {
 	for i := range p.inventaire {
-		if p.inventaire[i] == obj {
-			p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == obj {
+				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
+			}
 		}
 	}
 }
