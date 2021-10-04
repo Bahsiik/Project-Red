@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func (p Personnage) DisplayInventory() {
+func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
 	fmt.Print("--- Inventaire de ", p.nom, " ---  \n")
 	if len(p.inventaire) == 0 {
 		fmt.Println("L'inventaire de", p.nom, "est vide...")
@@ -19,34 +19,33 @@ func (p Personnage) DisplayInventory() {
 	fmt.Println()
 }
 
-func (p *Personnage) AccessInventory() {
+func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans l'inventaire
 	fmt.Println("Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Rien)")
 	fmt.Println()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
 	textinv, _ := reader.ReadString('\n')
-	// convert CRLF to LF
 	textinv = strings.Replace(textinv, "\r\n", "", -1)
 	switch textinv {
-	case "Potion":
+	case "Potion": // Utilisation de la potion
 		P1.TakePot()
 		P1.DisplayInventory()
 		textinv = ""
 		P1.AccessInventory()
-	case "Rien":
+	case "Rien": // Retour au menu
 		RetourMenu()
-	default:
+	default: // Choix d'objet invalide
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		P1.AccessInventory()
 	}
 }
 
-func (p *Personnage) AddInventory(obj string) {
+func (p *Personnage) AddInventory(obj string) { // Fonction d'ajout d'un objet a l'inventaire
 	p.inventaire = append(p.inventaire, obj)
 }
 
-func (p *Personnage) RemoveInv(obj string, i int) {
+func (p *Personnage) RemoveInv(obj string, i int) { // Fonction de retrait d'un objet a l'inventaire
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
 			if p.inventaire[i] == obj {
