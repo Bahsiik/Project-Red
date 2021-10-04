@@ -7,8 +7,7 @@ import (
 	"strings"
 )
 
-// Affiche du menu de sélection
-func Menu() {
+func Menu() { // Affiche du menu de sélection
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("--- Menu Principal ---")
 	fmt.Println("A - Information du personnage")
@@ -18,46 +17,37 @@ func Menu() {
 	fmt.Println("E - Quitter le jeu")
 	fmt.Println()
 
-	// Lecture choix de menu
-	for {
+	for { // Lecture choix de menu
 		fmt.Print("-> ")
 		textmenu, _ := reader.ReadString('\n')
-		// convert CRLF to LF
 		textmenu = strings.Replace(textmenu, "\r\n", "", -1)
 
 		switch textmenu {
-		case "A":
-			// Affichage infos perso
+		case "A": // Affichage infos perso
 			P1.DisplayInfo()
 			AccessInfo()
-			// Affichage inventaire perso + accès à ce dernier
-		case "B":
+		case "B": // Affichage inventaire perso + accès à ce dernier
 			P1.DisplayInventory()
 			P1.AccessInventory()
-			// Affichage des sorts + accès à ces derniers
-		case "C":
+		case "C": // Affichage des sorts + accès à ces derniers
 			P1.DisplaySkill()
 			P1.AccessSkill()
-			// Affichage inventaire marchand + accès à ce dernier
-		case "D":
+		case "D": // Affichage inventaire marchand + accès à ce dernier
 			Marchand.DisplayInvMarchand()
 			P1.AccessInvMarchand()
-			// Sortie du jeu
-		case "E":
+		case "E": // Sortie du jeu
 			Exit()
 		}
 	}
 }
 
-// Commande sortie du jeu
-func Exit() {
+func Exit() { // Commande sortie du jeu
 	fmt.Println("Vous allez quitter le jeu")
 	fmt.Println()
 	os.Exit(0)
 }
 
-// Commande retour au menu
-func RetourMenu() {
+func RetourMenu() { // Commande retour au menu
 	fmt.Println("Vous allez retourner au menu principal")
 	fmt.Println()
 	Menu()
