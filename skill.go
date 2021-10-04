@@ -48,3 +48,12 @@ func (p *Personnage) SpellBook(sort string) {
 		p.skill = append(p.skill, sort)
 	}
 }
+
+func (p *Personnage) VerifSkill(sort string) bool {
+	for i := range p.skill {
+		if p.skill[i] == sort {
+			return false
+		}
+	}
+	return true
+}

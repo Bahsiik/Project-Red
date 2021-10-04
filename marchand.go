@@ -35,7 +35,13 @@ func (p *Personnage) AccessInvMarchand() {
 	case "2":
 		ContinueMarchandInv("Potion de poison")
 	case "3":
-		ContinueMarchandSkill("Livre de sort: Boule de Feu")
+		if p.VerifSkill("Livre de sort: Boule de Feu") {
+			ContinueMarchandSkill("Livre de sort: Boule de Feu")
+		} else {
+			fmt.Println("désolé monsieur, je ne peut pas vous fournir cet article..")
+			P1.AccessInvMarchand()
+		}
+
 	default:
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
 		fmt.Println()
