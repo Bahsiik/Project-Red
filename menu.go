@@ -12,8 +12,9 @@ func Menu() {
 	fmt.Println("--- Menu Principal ---")
 	fmt.Println("A - Information du personnage")
 	fmt.Println("B - Accéder à l'inventaire du personnage")
-	fmt.Println("C - Accéder au marchand")
-	fmt.Println("D - Quitter le jeu")
+	fmt.Println("C - Accéder aux sorts du personnage")
+	fmt.Println("D - Accéder au marchand")
+	fmt.Println("E - Quitter le jeu")
 	fmt.Println()
 
 	for {
@@ -30,9 +31,12 @@ func Menu() {
 			P1.DisplayInventory()
 			P1.AccessInventory()
 		case "C":
+			P1.DisplaySkill()
+			P1.AccessSkill()
+		case "D":
 			Marchand.DisplayInvMarchand()
 			P1.AccessInvMarchand()
-		case "D":
+		case "E":
 			Exit()
 		}
 	}
