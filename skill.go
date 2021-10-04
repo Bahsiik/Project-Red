@@ -17,7 +17,7 @@ func (p Personnage) DisplaySkill() {
 }
 
 func (p *Personnage) AddSkill(obj string) {
-	p.inventaire = append(p.inventaire, obj)
+	p.skill = append(p.skill, obj)
 }
 
 func (p *Personnage) SpellBook(sort string) {
