@@ -16,10 +16,6 @@ func (p Personnage) DisplaySkill() {
 	fmt.Println()
 }
 
-func (p *Personnage) AddSkill(obj string) {
-	p.skill = append(p.skill, obj)
-}
-
 func (p *Personnage) SpellBook(sort string) {
 	verif := 0
 	for i := range p.skill {
@@ -28,6 +24,6 @@ func (p *Personnage) SpellBook(sort string) {
 		}
 	}
 	if verif == 0 {
-		p.AddSkill(sort)
+		p.skill = append(p.skill, sort)
 	}
 }

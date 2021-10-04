@@ -29,7 +29,7 @@ var Marchand Personnage
 
 func PersoInit(p *Personnage) {
 	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"})
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison"}, []string{"Coup de poing"})
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu"}, []string{"Coup de poing"})
 }
 
 func (p *Personnage) Death() {

@@ -31,9 +31,11 @@ func (p *Personnage) AccessInvMarchand() {
 		fmt.Println()
 		RetourMenu()
 	case "1":
-		ContinueMarchand("Potion")
+		ContinueMarchandInv("Potion")
 	case "2":
-		ContinueMarchand("Potion de poison")
+		ContinueMarchandInv("Potion de poison")
+	case "3":
+		ContinueMarchandSkill("Livre de sort: Boule de Feu")
 	default:
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
 		fmt.Println()
@@ -41,7 +43,7 @@ func (p *Personnage) AccessInvMarchand() {
 	}
 }
 
-func ContinueMarchand(choix string) {
+func ContinueMarchandInv(choix string) {
 	fmt.Println("Tenez Monsieur")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
 	reader := bufio.NewReader(os.Stdin)
@@ -50,6 +52,27 @@ func ContinueMarchand(choix string) {
 	// convert CRLF to LF
 	textmarchand2 = strings.Replace(textmarchand2, "\r\n", "", -1)
 	P1.AddInventory(choix)
+	switch textmarchand2 {
+	case "Oui":
+		fmt.Println("Que désirez-vous d'autres chacal ?")
+		fmt.Println()
+		P1.AccessInvMarchand()
+	case "Non":
+		fmt.Println("Très bien, au revoir")
+		fmt.Println()
+		RetourMenu()
+	}
+}
+
+func ContinueMarchandSkill(choix string) {
+	fmt.Println("Tenez Monsieur")
+	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("-> ")
+	textmarchand2, _ := reader.ReadString('\n')
+	// convert CRLF to LF
+	textmarchand2 = strings.Replace(textmarchand2, "\r\n", "", -1)
+	P1.SpellBook(choix)
 	switch textmarchand2 {
 	case "Oui":
 		fmt.Println("Que désirez-vous d'autres chacal ?")
