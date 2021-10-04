@@ -32,7 +32,7 @@ var Marchand Personnage
 
 func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
 	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100)
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu"}, []string{"Coup de poing"}, 999)
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu", "Fourrure de Loup", "Peau de troll", "Cuir de Sanglier", "Plume de Corbeau"}, []string{"Coup de poing"}, 999)
 }
 
 func (p *Personnage) Death() { // Système de mort et de résurection

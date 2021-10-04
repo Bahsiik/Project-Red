@@ -14,12 +14,13 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 	fmt.Println("Niveau --> ", p.niveau)
 	fmt.Println("HP maximum --> ", p.hpmax)
 	fmt.Println("HP actuels --> ", p.hp)
+	fmt.Println("Argent actuel --> ", p.money)
 	fmt.Println()
 	AccessInfo()
 }
 
 func AccessInfo() { // Fonction pour quitter les infos du personnage
-	fmt.Println("(Retour au menu --> Tapez retour)")
+	fmt.Println("(Retour au menu --> Tapez Retour)")
 	fmt.Println()
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
