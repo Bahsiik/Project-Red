@@ -1,6 +1,6 @@
 package main
 
-func main() {
-	PersoInit(&P1)
-	Menu()
+func main() { // Fonction principale qui lance le jeu
+	PersoInit(&P1) // Initialisation du perso
+	Menu()         // Affichage du Menu
 }
