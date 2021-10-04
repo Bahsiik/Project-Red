@@ -40,9 +40,14 @@ var Marchand Personnage
 var Forgeron Personnage
 
 func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
+<<<<<<< HEAD
 	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100, "", "", "")
 	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç"}, []string{"Coup de poing"}, 999, "Chapeau Gucci", "Veste Luis Vuitton", "Chaussures Geox")
 	Forgeron.Init("Mickey", "Forgeron", 666, 666, 666, []string{"Chapeau de l'aventurier : 5ç", "Tunique de l'aventurier : 5ç", "Bottes de l'aventurier : 5ç"}, []string{"Coup de poing"}, 666, "", "", "")
+=======
+	P1.Init("Byleth", "Roturier", 1, 100, 50, []string{"Epée", "Armure légère", "Potion", "Potion"}, []string{"Coup de poing"}, 100, "chapeau de caca", "torse de caca", "pieds de caca")
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion", "Potion de poison", "Livre de sort: Boule de feu", "Fourrure de Loup", "Peau de troll", "Cuir de Sanglier", "Plume de Corbeau"}, []string{"Coup de poing"}, 999, "Chapeau Gucci", "Veste Luis Vuitton", "Chaussures Geox")
+>>>>>>> 61ca178b08ae86f4a292755a06ab3ba890c5617a
 }
 
 func (p *Personnage) Death() { // Système de mort et de résurection

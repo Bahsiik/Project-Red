@@ -50,6 +50,7 @@ func (p *Personnage) RemoveInv(obj string, i int) { // Fonction de retrait d'un 
 		if i < len(p.inventaire) {
 			if p.inventaire[i] == obj {
 				p.inventaire = append(p.inventaire[:i], p.inventaire[i+1:]...)
+				break
 			}
 		}
 	}
