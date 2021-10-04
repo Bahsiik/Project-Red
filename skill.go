@@ -15,3 +15,19 @@ func (p Personnage) DisplaySkill() {
 	}
 	fmt.Println()
 }
+
+func (p *Personnage) AddSkill(obj string) {
+	p.inventaire = append(p.inventaire, obj)
+}
+
+func (p *Personnage) SpellBook(sort string) {
+	verif := 0
+	for i := range p.skill {
+		if p.skill[i] == sort {
+			verif += 1
+		}
+	}
+	if verif == 0 {
+		p.AddSkill(sort)
+	}
+}
