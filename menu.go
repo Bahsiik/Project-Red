@@ -14,7 +14,8 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println("B - Accéder à l'inventaire du personnage")
 	fmt.Println("C - Accéder aux sorts du personnage")
 	fmt.Println("D - Accéder au marchand")
-	fmt.Println("E - Quitter le jeu")
+	fmt.Println("E - Accéder au Forgeron")
+	fmt.Println("F - Quitter le jeu")
 	fmt.Println()
 
 	for { // Lecture choix de menu
@@ -35,7 +36,10 @@ func Menu() { // Affiche du menu de sélection
 		case "D": // Affichage inventaire marchand + accès à ce dernier
 			Marchand.DisplayInvMarchand()
 			P1.AccessInvMarchand()
-		case "E": // Sortie du jeu
+		case "E": // Affichage Forge
+			Forgeron.DisplayInventory()
+			P1.AccessInvForegeron()
+		case "F": // Sortie du jeu
 			Exit()
 		}
 	}

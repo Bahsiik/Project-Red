@@ -30,45 +30,66 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		fmt.Println()
 		RetourMenu()
 	case "1": // Achat de la potion
-		P1.money -= 3 // Retrait cout d'achats pour personnage
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Potion")
-	case "2": // Achat de la potion de poison
-		P1.money -= 6
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Potion de poison")
-	case "3": // Achat du skill "Boule de Feu"
-		if p.VerifSkill("Livre de sort: Boule de Feu") {
-			P1.money -= 25
+		if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
-			ContinueMarchandSkill("Livre de sort: Boule de Feu")
+			ContinueMarchandInv("Potion")
+		} else {
+			p.Pauvre()
+		}
+	case "2": // Achat de la potion de poison
+		if (P1.money - 6) >= 0 {
+			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+			fmt.Println()
+			ContinueMarchandInv("Potion de poison")
+		} else {
+			p.Pauvre()
+		}
+	case "3": // Achat du skill "Boule de Feu"
+		if p.VerifSkill("Livre de sort: Boule de Feu") {
+			if (P1.money - 25) >= 0 {
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandSkill("Livre de sort: Boule de Feu")
+			} else {
+				p.Pauvre()
+			}
 		} else {
 			fmt.Println("désolé monsieur, je ne peut pas vous fournir cet article..")
 			P1.AccessInvMarchand()
 		}
 	case "4": // Achat de la Fourrure de Loup
-		P1.money -= 4
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Fourrure de Loup")
+		if (P1.money - 4) >= 0 {
+			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+			fmt.Println()
+			ContinueMarchandInv("Fourrure de Loup")
+		} else {
+			p.Pauvre()
+		}
 	case "5": // Achat de la Peau de troll
-		P1.money -= 7
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Peau de troll")
+		if (P1.money - 7) >= 0 {
+			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+			fmt.Println()
+			ContinueMarchandInv("Peau de troll")
+		} else {
+			p.Pauvre()
+		}
 	case "6": // Achat du Cuir de Sanglier
-		P1.money -= 3
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Cuir de Sanglier")
+		if (P1.money - 3) >= 0 {
+			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+			fmt.Println()
+			ContinueMarchandInv("Cuir de Sanglier")
+		} else {
+			p.Pauvre()
+		}
 	case "7": // Achat de la Plume de Corbeau
-		P1.money -= 1
-		fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-		fmt.Println()
-		ContinueMarchandInv("Plume de Corbeau")
+		if (P1.money - 1) >= 0 {
+			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+			fmt.Println()
+			ContinueMarchandInv("Plume de Corbeau")
+		} else {
+			p.Pauvre()
+		}
 	default: // Choix d'objet à acheter invalide
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
 		fmt.Println()
