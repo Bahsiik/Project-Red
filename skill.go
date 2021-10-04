@@ -25,7 +25,6 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
 	textskill, _ := reader.ReadString('\n')
-	// convert CRLF to LF
 	textskill = strings.Replace(textskill, "\r\n", "", -1)
 	switch textskill {
 	case "Rien":
