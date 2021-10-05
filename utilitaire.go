@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Input() string {
+func Input() string { // Fonction pour récupérer le texte écrit dans le cmd et l'utiliser
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
 	text, _ := reader.ReadString('\n')
