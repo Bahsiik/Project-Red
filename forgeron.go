@@ -61,9 +61,9 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	}
 }
 
-func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, prix int, equip string) {
-	var test1 int
-	var test2 int
+func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, prix int, equip string) { // Fonction de fabrication d'objet
+	var test1 int // Variable pour vérifier la présence du composant 1
+	var test2 int // Variable pour vérifier la présence du composant 2
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
 			if p.inventaire[i] == elem1 {
@@ -73,7 +73,7 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 			}
 		}
 	}
-	if test1 >= nbr1 && test2 >= nbr2 && p.money >= prix {
+	if test1 >= nbr1 && test2 >= nbr2 && p.money >= prix { // Si tout les éléments requis sont la, on retire l'argent et les composants puis on ajoute l'objet fabriqué
 		p.money -= prix
 		for i := 0; i < nbr1; i++ {
 			p.RemoveInv(elem1)
@@ -82,9 +82,9 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 			p.RemoveInv(elem2)
 		}
 		p.ContinueForgeronInv(equip)
-	} else if test1 < nbr1 && test2 < nbr2 {
+	} else if test1 < nbr1 && test2 < nbr2 { // Cas où il manque des composants
 		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
-	} else if p.money < prix {
+	} else if p.money < prix { // Cas où il manque de l'argent
 		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
 	}
 }
