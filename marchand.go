@@ -31,6 +31,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		RetourMenu()
 	case "1": // Achat de la potion
 		if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
+			P1.money -= 3
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Potion")
@@ -39,6 +40,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		}
 	case "2": // Achat de la potion de poison
 		if (P1.money - 6) >= 0 {
+			P1.money -= 6
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Potion de poison")
@@ -48,6 +50,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 	case "3": // Achat du skill "Boule de Feu"
 		if p.VerifSkill("Livre de sort: Boule de Feu") {
 			if (P1.money - 25) >= 0 {
+				P1.money -= 25
 				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 				fmt.Println()
 				ContinueMarchandSkill("Livre de sort: Boule de Feu")
@@ -60,6 +63,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		}
 	case "4": // Achat de la Fourrure de Loup
 		if (P1.money - 4) >= 0 {
+			P1.money -= 4
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Fourrure de Loup")
@@ -68,6 +72,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		}
 	case "5": // Achat de la Peau de troll
 		if (P1.money - 7) >= 0 {
+			P1.money -= 7
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Peau de troll")
@@ -76,6 +81,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		}
 	case "6": // Achat du Cuir de Sanglier
 		if (P1.money - 3) >= 0 {
+			P1.money -= 3
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Cuir de Sanglier")
@@ -84,6 +90,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		}
 	case "7": // Achat de la Plume de Corbeau
 		if (P1.money - 1) >= 0 {
+			P1.money -= 1
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Plume de Corbeau")
