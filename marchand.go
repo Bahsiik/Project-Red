@@ -75,7 +75,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			P1.money -= 7
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
-			ContinueMarchandInv("Peau de troll")
+			ContinueMarchandInv("Peau de Troll")
 		} else {
 			p.Pauvre()
 		}

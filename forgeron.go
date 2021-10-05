@@ -31,6 +31,10 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		RetourMenu()
 	case "1": // Craft Chapeau de l'aventurier
 		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
+	case "2":
+		p.CraftItem("Fourrure de Loup", "Peau de Troll", 2, 1, 5, "Tunique de l'aventurier")
+	case "3":
+		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 1, 1, 5, "Bottes de l'aventurier")
 	default:
 		fmt.Print("désolé mais je ne comprend pas \n")
 	}
