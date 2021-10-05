@@ -45,7 +45,7 @@ func (p *Personnage) AddInventory(obj string) { // Fonction d'ajout d'un objet a
 	p.inventaire = append(p.inventaire, obj)
 }
 
-func (p *Personnage) RemoveInv(obj string, i int) { // Fonction de retrait d'un objet a l'inventaire
+func (p *Personnage) RemoveInv(obj string) { // Fonction de retrait d'un objet a l'inventaire
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
 			if p.inventaire[i] == obj {

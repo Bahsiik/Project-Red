@@ -16,9 +16,9 @@ func (p *Personnage) TakePot() { // Fonction de prise de potion de soins
 					fmt.Println()
 				} else {
 					fmt.Println(p.nom, "prend une potion de vie.")
-					p.RemoveInv("Potion", i) // Retrait de la potion de l'inventaire après son utilisation
-					p.hp += 50               // Gain de santé par potion
-					if p.hp >= p.hpmax {     // Condition en cas d'excédent de soin
+					p.RemoveInv("Potion") // Retrait de la potion de l'inventaire après son utilisation
+					p.hp += 50            // Gain de santé par potion
+					if p.hp >= p.hpmax {  // Condition en cas d'excédent de soin
 						p.hp = 100
 						fmt.Println(p.nom, "est maintenant full HP !")
 						fmt.Println()

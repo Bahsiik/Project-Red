@@ -30,74 +30,52 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		fmt.Println()
 		RetourMenu()
 	case "1": // Craft Chapeau de l'aventurier
-		var test int
-		for i := range p.inventaire { 
-			if i < len(p.inventaire) {
-				if p.inventaire[i] == "Plume de Corbeau : 1ç"  && p.inventaire[i] == "Cuir de Sanglier : 3ç" { // Incrémentattion du compteur de composants par rapport à l'inventaire
-					test++	
-					if (P1.money - 5) >= 0 {
-						fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-						fmt.Println()
-						ContinueForegronInv("Chapeau de l'aventurier")
-					} else {
-						p.Pauvre()
-					} 
-					}
-				}
-			}
-			if test == 0 { // Dans l'absence des composants dans l'inventaire
-		fmt.Println(p.nom, "n'as malheureusement pas les composants nécessaire...")
+		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
 	}
-	case "2" :// Craft Tunique de l'aventurier
-	var test int
-		for i := range p.inventaire { 
-			if i < len(p.inventaire) {
-				if p.inventaire[i] == "Fourrure de Loup : 4ç"  && p.inventaire[i] == "Peau de troll : 7ç" { // Incrémentattion du compteur de composants par rapport à l'inventaire
-					for c := range p.inventaire {
-						if c != i && c < len(p.inventaire[i]) {	
-							if p.inventaire[c] == "Fourrure de Loup : 4ç"{					
-								test++	
-									if (P1.money - 5) >= 0 {
-										fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-										fmt.Println()
-										ContinueForegronInv("Tunique de l'aventurier")
-									} else {
-										p.Pauvre()
-									}
-								}
-							}
-						} 
-					}
-				}
-			}
-			if test == 0 { // Dans l'absence des composants dans l'inventaire
-		fmt.Println(p.nom, "n'as malheureusement pas les composants nécessaire...")
-	}
-	case "3" : // Craft Bottes de l'aventurier
-		var test int
-		for i := range p.inventaire { 
-			if i < len(p.inventaire) {
-				if p.inventaire[i] == "Cuir de Sanglier : 3ç"  && p.inventaire[i] == "Fourrure de Loup : 4ç" { // Incrémentattion du compteur de composants par rapport à l'inventaire
-					test++	
-					if (P1.money - 5) >= 0 {
-						fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-						fmt.Println()
-						ContinueForgeronInv("Bottes de l'aventurier")
-					} else {
-						p.Pauvre()
-					} 
-					}
-				}
-			}
-			if test == 0 { // Dans l'absence des composants dans l'inventaire
-		fmt.Println(p.nom, "n'as malheureusement pas les composants nécessaire...")
-	}
-
 }
 
-	case "2" :
+func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
+	fmt.Println("Et voilà monsieur, c'est prêt !")
+	fmt.Print("Il reste ", p.money, "ç à ", p.nom)
+	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("-> ")
+	textforgeron2, _ := reader.ReadString('\n')
+	textforgeron2 = strings.Replace(textforgeron2, "\r\n", "", -1)
+	P1.AddInventory(choix) // Ajout de l'objet
+	switch textforgeron2 {
+	case "Oui": // Continuation des achats
+		fmt.Println("Que voulez vous fabriquer d'autre ?")
+		fmt.Println()
+		P1.AccessInvMarchand()
+	case "Non": // Retour au menu
+		fmt.Println("Très bien, au revoir")
+		fmt.Println()
+		RetourMenu()
+	}
+}
+
+func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, prix int, equipement string) {
+	var test1 int
+	var test2 int
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
-			if p.inventaire[i] == "Potion" { // Incrémentattion du compteur de potions par rapport à l'inventaire
-				test++
+			if p.inventaire[i] == elem1 {
+				test1++
+			} else if p.inventaire[i] == elem2 {
+				test2++
+			}
+		}
+	}
+	if test1 >= nbr1 && test2 >= nbr2 && p.money >= prix {
+		p.money -= prix
+		p.RemoveInv(elem1)
+		p.RemoveInv(elem2)
+		p.AddInventory(equipement)
+		p.ContinueForgeronInv(equipement)
+	} else if test1 < nbr1 && test2 < nbr2 {
+		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires...")
+	} else if p.money < prix {
+		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent...")
+	}
 }
