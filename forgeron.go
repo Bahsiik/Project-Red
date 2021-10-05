@@ -31,6 +31,8 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		RetourMenu()
 	case "1": // Craft Chapeau de l'aventurier
 		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
+	default:
+		fmt.Print("désolé mais je ne comprend pas \n")
 	}
 }
 
@@ -55,7 +57,7 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	}
 }
 
-func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, prix int, equipement string) {
+func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, prix int, equip string) {
 	var test1 int
 	var test2 int
 	for i := range p.inventaire {
@@ -71,11 +73,10 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 		p.money -= prix
 		p.RemoveInv(elem1)
 		p.RemoveInv(elem2)
-		p.AddInventory(equipement)
-		p.ContinueForgeronInv(equipement)
+		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 {
-		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires...")
+		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
 	} else if p.money < prix {
-		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent...")
+		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
 	}
 }
