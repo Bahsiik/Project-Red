@@ -30,3 +30,15 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 		P1.AccessEquipment()
 	}
 }
+
+func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un objet a l'equipement Tete
+	p.Equipement.tete = obj
+}
+
+func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un objet a l'equipement Tete
+	p.Equipement.torse = obj
+}
+
+func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un objet a l'equipement Tete
+	p.Equipement.pieds = obj
+}
