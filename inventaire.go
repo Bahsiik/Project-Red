@@ -32,6 +32,15 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		P1.DisplayInventory()
 		textinv = ""
 		P1.AccessInventory()
+	case "Chapeau de l'aventurier":
+		P1.AddEquipementTete("Chapeau de l'aventurier")
+		p.hpmax += 10
+	case "Tunique de l'aventurier":
+		P1.AddEquipementTorse("Tunique de l'aventurier")
+		p.hpmax += 25
+	case "Bottes de l'aventurier":
+		P1.AddEquipementPieds("Bottes de l'aventurier")
+		p.hpmax += 15
 	case "Rien": // Retour au menu
 		RetourMenu()
 	default: // Choix d'objet invalide
