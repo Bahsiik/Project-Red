@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 var Marchand Personnage
@@ -26,10 +23,7 @@ func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventai
 }
 
 func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textmarchand, _ := reader.ReadString('\n')
-	textmarchand = strings.Replace(textmarchand, "\r\n", "", -1)
+	textmarchand := Input()
 	switch textmarchand {
 	case "Rien": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
@@ -113,10 +107,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Tenez Monsieur")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textmarchand2, _ := reader.ReadString('\n')
-	textmarchand2 = strings.Replace(textmarchand2, "\r\n", "", -1)
+	textmarchand2 := Input()
 	P1.AddInventory(choix) // Ajout de l'objet
 	switch textmarchand2 {
 	case "Oui": // Continuation des achats
@@ -133,10 +124,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 func ContinueMarchandSkill(choix string) { // Fonction d'ajout du sort choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Tenez Monsieur")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textmarchand2, _ := reader.ReadString('\n')
-	textmarchand2 = strings.Replace(textmarchand2, "\r\n", "", -1)
+	textmarchand2 := Input()
 	P1.SpellBook(choix) // Ajout du sort
 	switch textmarchand2 {
 	case "Oui": // Continuation des achats

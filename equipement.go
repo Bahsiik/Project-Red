@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func (p Personnage) DisplayEquipment() { // Fonction d'affichage de l'equipement du personnage
@@ -17,11 +14,8 @@ func (p Personnage) DisplayEquipment() { // Fonction d'affichage de l'equipement
 
 func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement du personnage
 	fmt.Print("Que va faire ", p.nom, " ? (Rien)\n")
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textequ, _ := reader.ReadString('\n')
-	textequ = strings.Replace(textequ, "\r\n", "", -1)
-	switch textequ {
+	textequip := Input()
+	switch textequip {
 	case "Rien":
 		RetourMenu()
 	default:

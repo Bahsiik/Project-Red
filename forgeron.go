@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 var Forgeron Personnage
@@ -26,10 +23,7 @@ func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventai
 }
 
 func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textforgeron, _ := reader.ReadString('\n')
-	textforgeron = strings.Replace(textforgeron, "\r\n", "", -1)
+	textforgeron := Input()
 	switch textforgeron {
 	case "Rien": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
@@ -50,10 +44,7 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	fmt.Println("Et voilà monsieur, c'est prêt !")
 	fmt.Print("Il reste ", p.money, " ç à ", p.nom, "\n")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textforgeron2, _ := reader.ReadString('\n')
-	textforgeron2 = strings.Replace(textforgeron2, "\r\n", "", -1)
+	textforgeron2 := Input()
 	P1.AddInventory(choix) // Ajout de l'objet
 	switch textforgeron2 {
 	case "Oui": // Continuation des achats

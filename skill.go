@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
@@ -22,10 +19,7 @@ func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	fmt.Println("Quel sort", p.nom, "veut utiliser ? ( Rien)")
 	fmt.Println()
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textskill, _ := reader.ReadString('\n')
-	textskill = strings.Replace(textskill, "\r\n", "", -1)
+	textskill := Input()
 	switch textskill {
 	case "Rien":
 		RetourMenu()

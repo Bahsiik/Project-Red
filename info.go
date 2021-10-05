@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
@@ -22,10 +19,7 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 func AccessInfo() { // Fonction pour quitter les infos du personnage
 	fmt.Println("(Retour au menu --> Tapez Retour)")
 	fmt.Println()
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textinfo, _ := reader.ReadString('\n')
-	textinfo = strings.Replace(textinfo, "\r\n", "", -1)
+	textinfo := Input()
 	switch textinfo {
 	case "Retour":
 		RetourMenu() // Retour au menu si le joueur tape "Retour"

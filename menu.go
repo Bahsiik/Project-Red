@@ -1,14 +1,11 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func Menu() { // Affiche du menu de sélection
-	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("--- Menu Principal ---")
 	fmt.Println("A - Information du personnage")
 	fmt.Println("B - Accéder à l'inventaire du personnage")
@@ -20,9 +17,7 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println()
 
 	for { // Lecture choix de menu
-		fmt.Print("-> ")
-		textmenu, _ := reader.ReadString('\n')
-		textmenu = strings.Replace(textmenu, "\r\n", "", -1)
+		textmenu := Input()
 
 		switch textmenu {
 		case "A": // Affichage infos perso

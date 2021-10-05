@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 )
 
 func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
@@ -22,10 +19,7 @@ func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
 func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans l'inventaire
 	fmt.Println("Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Rien)")
 	fmt.Println()
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("-> ")
-	textinv, _ := reader.ReadString('\n')
-	textinv = strings.Replace(textinv, "\r\n", "", -1)
+	textinv := Input()
 	switch textinv {
 	case "Potion": // Utilisation de la potion
 		P1.TakePot()
