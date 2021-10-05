@@ -83,9 +83,6 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 		}
 		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 {
-		p.RemoveInv(elem1)
-		p.RemoveInv(elem2)
-		fmt.Print(p.inventaire)
 		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
 	} else if p.money < prix {
 		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
