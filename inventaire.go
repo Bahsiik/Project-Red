@@ -33,16 +33,19 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		textinv = ""
 		P1.AccessInventory()
 	case "Chapeau de l'aventurier":
+		P1.AddInventory(p.Equipement.tete)
 		P1.AddEquipementTete("Chapeau de l'aventurier")
 		p.hpmax += 10
 		fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax)
 		P1.AccessInventory()
 	case "Tunique de l'aventurier":
+		P1.AddInventory(p.Equipement.torse)
 		P1.AddEquipementTorse("Tunique de l'aventurier")
 		p.hpmax += 25
 		fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax)
 		P1.AccessInventory()
 	case "Bottes de l'aventurier":
+		P1.AddInventory(p.Equipement.pieds)
 		P1.AddEquipementPieds("Bottes de l'aventurier")
 		p.hpmax += 15
 		fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax)
