@@ -32,11 +32,11 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		P1.DisplayInventory()
 		textinv = ""
 		P1.AccessInventory()
-	case "Chapeau de l'aventurier":
-		P1.AddInventory(p.Equipement.tete)
-		P1.AddEquipementTete("Chapeau de l'aventurier")
-		p.RemoveInv("Chapeau de l'aventurier")
-		p.hpmax += 10
+	case "Chapeau de l'aventurier": // Craft du Chapeau de laventurier
+		P1.AddInventory(p.Equipement.tete)              // Ajout à l'inventaire de l'item précédent
+		P1.AddEquipementTete("Chapeau de l'aventurier") // Changement d'équipement de tête
+		p.RemoveInv("Chapeau de l'aventurier")          // Retirer l'item de l'inventaire
+		p.hpmax += 10                                   // Bonus d'équipement
 		fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax, " en équipant Chapeau de l'aventurier")
 		fmt.Println()
 		P1.AccessInventory()
