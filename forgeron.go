@@ -75,8 +75,12 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 	}
 	if test1 >= nbr1 && test2 >= nbr2 && p.money >= prix {
 		p.money -= prix
-		p.RemoveInv(elem1)
-		p.RemoveInv(elem2)
+		for i := 0; i < nbr1; i++ {
+			p.RemoveInv(elem1)
+		}
+		for i := 0; i < nbr2; i++ {
+			p.RemoveInv(elem2)
+		}
 		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 {
 		p.RemoveInv(elem1)
