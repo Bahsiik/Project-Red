@@ -42,7 +42,7 @@ func Menu() { // Affiche du menu de sélection
 			P1.AccessInvMarchand()
 		case "F": // Affichage Forge
 			Forgeron.DisplayInventory()
-			Forgeron.AccessInvForgeron()
+			P1.AccessInvForgeron()
 		case "H": // Sortie du jeu
 			Exit()
 		}

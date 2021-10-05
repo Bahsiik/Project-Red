@@ -38,7 +38,7 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 
 func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Et voilà monsieur, c'est prêt !")
-	fmt.Print("Il reste ", p.money, "ç à ", p.nom)
+	fmt.Print("Il reste ", p.money, " ç à ", p.nom, "\n")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("-> ")
@@ -75,6 +75,9 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 		p.RemoveInv(elem2)
 		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 {
+		p.RemoveInv(elem1)
+		p.RemoveInv(elem2)
+		fmt.Print(p.inventaire)
 		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
 	} else if p.money < prix {
 		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
