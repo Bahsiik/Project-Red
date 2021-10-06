@@ -27,3 +27,17 @@ func AttaqueGobelin(p *Personnage, m *Monstre) {
 		RetourMenu()
 	}
 }
+
+func AttaqueCritGobelin(p *Personnage, m *Monstre) {
+	fmt.Println()
+	fmt.Println("C'est au ", m.nom, "d'agir") // Tour du Gobelin
+	fmt.Println(m.nom, " inflige une attaque critique à ", p.nom)
+	p.hp -= m.atk * 2
+	fmt.Println(p.nom, " a maintenant ", p.hp, " Hp") // Affichage pv perso fin tour
+	fmt.Println()
+	if p.hp <= 0 { // Condition pv à 0 du perso
+		p.Death()
+		fmt.Println()
+		RetourMenu()
+	}
+}
