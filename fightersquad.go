@@ -37,7 +37,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 					RetourMenu()
 				}
 			case "666":
-				fmt.Println(" Vous avez détruit le monde !!!!")
+				fmt.Println(" Vous avez détruit le monde Mao-sama !!!!")
+				fmt.Println()
 				os.Exit(0)
 
 			}
