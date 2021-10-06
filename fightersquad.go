@@ -35,9 +35,9 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 				m.hp -= 10
 				fmt.Println(m.nom, " a maintenant ", m.hp, " Hp") // Affichage pv monstre fin tour
 				if m.hp <= 0 {
-					fmt.Println(p.nom, "a gagné le combat :))) uwu")
+					fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
 					fmt.Println()
-					m.hp = m.hpmax
+					m.hp = m.hpmax // Réinitialisation pv monstre
 					RetourMenu()
 				}
 				fmt.Println()
@@ -46,17 +46,10 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 				p.hp -= m.atk
 				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp")
 				fmt.Println()
-				if m.hp <= 0 {
-					fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+				if p.hp <= 0 {
+					p.Death()
 					fmt.Println()
-					m.hp = m.hpmax // Réinitialisation pv monstre
 					RetourMenu()
-				} else if p.hp <= 0 {
-					if p.hp <= 0 {
-						p.Death()
-						fmt.Println()
-						RetourMenu()
-					}
 				}
 			case "666": // Fin du monde
 				fmt.Println(" Vous avez détruit le monde Mao-sama !!!!")
