@@ -19,16 +19,17 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 			textfight := Input()
 			switch textfight {
 			case "1":
-				AttaqueGobelin(p, m)
+				fmt.Println(p.nom, "ne fait rien..")
+				fmt.Println()
 			case "2":
 				CoupPoing(p, m)
-				AttaqueGobelin(p, m)
 			case "666": // Fin du monde
 				fmt.Println(" Vous avez détruit le monde Mao-sama !!!!")
 				fmt.Println()
 				os.Exit(0)
 
 			}
+			GoblinPattern(p, m, tour)
 		}
 	}
 }
