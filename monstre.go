@@ -17,5 +17,5 @@ func (m *Monstre) InitMonstre(nom string, hpmax int, hp int, atk int) {
 var Gobelin Monstre
 
 func GobelinInit(m *Monstre) {
-	Gobelin.InitMonstre("Goblin d'entrainement", 40, 40, 5)
+	Gobelin.InitMonstre("Goblin d'entrainement", 40, 20, 5)
 }

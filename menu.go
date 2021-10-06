@@ -13,6 +13,7 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println("D - Accéder aux sorts du personnage")
 	fmt.Println("E - Accéder au marchand")
 	fmt.Println("F - Accéder au Forgeron")
+	fmt.Println("G - Combat d'entrainement")
 	fmt.Println("H - Quitter le jeu")
 	fmt.Println()
 
@@ -38,6 +39,8 @@ func Menu() { // Affiche du menu de sélection
 		case "F": // Affichage Forge
 			Forgeron.DisplayInventory()
 			P1.AccessInvForgeron()
+		case "G": // Lancement du combat d'entrainement
+			TrainingFight(&P1, &Gobelin)
 		case "H": // Sortie du jeu
 			Exit()
 		}
