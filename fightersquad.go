@@ -20,7 +20,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 				fmt.Println()
 				if p.hp <= 0 {
 					p.Death()
-					break
+					fmt.Println()
+					RetourMenu()
 				}
 			case "Coup de poing":
 				fmt.Println(p.nom, " effectue un Coup de poing")
@@ -29,7 +30,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 				fmt.Println()
 				if m.hp <= 0 {
 					fmt.Println(p.nom, "a gagné le combat :))) uwu")
-					break
+					fmt.Println()
+					RetourMenu()
 				}
 			}
 		}
