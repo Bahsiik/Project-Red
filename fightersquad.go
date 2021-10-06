@@ -14,14 +14,14 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 			fmt.Println("======== Tour ", tour, " ========")
 			fmt.Println("C'est à ", p.nom, "d'agir")
 			fmt.Println("Que va faire ", p.nom, " ?")
-			fmt.Println("Rien ou Coup de poing")
+			fmt.Println("Rien (1) ou Coup de poing (2)")
 			textfight := Input()
 			switch textfight {
-			case "Rien":
+			case "1":
 				fmt.Println()
 				fmt.Println("C'est au ", m.nom, "d'agir")
 				fmt.Println(m.nom, " attaque ", p.nom)
-				p.hp -= 25
+				p.hp -= m.atk
 				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp")
 				fmt.Println()
 				if p.hp <= 0 {
@@ -29,21 +29,23 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 					fmt.Println()
 					RetourMenu()
 				}
-			case "Coup de poing":
+			case "2":
 				fmt.Println(p.nom, " effectue un Coup de poing")
 				m.hp -= 10
 				fmt.Println(m.nom, " a maintenant ", m.hp, " Hp")
-				fmt.Println()
-				fmt.Println("C'est au ", m.nom, "d'agir")
-				fmt.Println(m.nom, " attaque ", p.nom)
-				p.hp -= 25
-				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp")
-				fmt.Println()
 				if m.hp <= 0 {
 					fmt.Println(p.nom, "a gagné le combat :))) uwu")
 					fmt.Println()
+					m.hp = m.hpmax
 					RetourMenu()
-				} else if p.hp <= 0 {
+				}
+				fmt.Println()
+				fmt.Println("C'est au ", m.nom, "d'agir")
+				fmt.Println(m.nom, " attaque ", p.nom)
+				p.hp -= m.atk
+				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp")
+				fmt.Println()
+				if p.hp <= 0 {
 					p.Death()
 					fmt.Println()
 					RetourMenu()
