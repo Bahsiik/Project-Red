@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entrainement
-	var tour int
 	fmt.Println(p.nom, " engage le combat d'entrainement")
 	fmt.Println()
 	fmt.Println("FIGHT !!!")
-	if p.hp != 0 || m.hp != 0 { // Condition de fin de combat
+	for tour := 1; p.hp != 0 || m.hp != 0; tour++ { // Condition de fin de combat
+		fmt.Println("======== Tour ", tour, " ========")
 		textfight := Input()
 		switch textfight {
 		case "Rien":
