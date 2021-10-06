@@ -14,7 +14,7 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 			fmt.Println("======== Tour ", tour, " ========") // Initialisation n° de tours
 			fmt.Println("C'est à ", p.nom, "d'agir")
 			fmt.Println("Que va faire ", p.nom, " ?")
-			fmt.Println("Rien (1) / Coup de poing (2) / Boule de feu (3)") // Choix d'actions du personnage
+			fmt.Println("Rien (1) / Coup de poing (2) / Boule de feu (3) / Attaque basique (4)") // Choix d'actions du personnage
 			fmt.Println()
 			textfight := Input()
 			switch textfight {
@@ -25,6 +25,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 				CoupPoing(p, m)
 			case "3":
 				BouleFeu(p, m)
+			case "4":
+				AttaqueBasique(p, m)
 			case "666": // Fin du monde
 				fmt.Println(" Vous avez détruit le monde Mao-sama !!!!")
 				fmt.Println()

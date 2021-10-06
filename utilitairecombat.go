@@ -14,6 +14,18 @@ func CoupPoing(p *Personnage, m *Monstre) {
 	}
 }
 
+func AttaqueBasique(p *Personnage, m *Monstre) {
+	fmt.Println(p.nom, " effectue un Coup de poing")
+	m.hp -= 5
+	fmt.Println(m.nom, " a maintenant ", m.hp, " Hp") // Affichage pv monstre fin tour
+	if m.hp <= 0 {
+		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+		fmt.Println()
+		m.hp = m.hpmax // Réinitialisation pv monstre
+		RetourMenu()
+	}
+}
+
 func BouleFeu(p *Personnage, m *Monstre) {
 	fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
 	m.hp -= 20
