@@ -19,38 +19,10 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 			textfight := Input()
 			switch textfight {
 			case "1":
-				fmt.Println()
-				fmt.Println("C'est au ", m.nom, "d'agir") // Tour du Gobelin
-				fmt.Println(m.nom, " attaque ", p.nom)
-				p.hp -= m.atk
-				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp") // Affichage pv perso fin tour
-				fmt.Println()
-				if p.hp <= 0 { // Condition pv à 0 du perso
-					p.Death()
-					fmt.Println()
-					RetourMenu()
-				}
+				AttaqueGobelin(p, m)
 			case "2":
-				fmt.Println(p.nom, " effectue un Coup de poing")
-				m.hp -= 10
-				fmt.Println(m.nom, " a maintenant ", m.hp, " Hp") // Affichage pv monstre fin tour
-				if m.hp <= 0 {
-					fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
-					fmt.Println()
-					m.hp = m.hpmax // Réinitialisation pv monstre
-					RetourMenu()
-				}
-				fmt.Println()
-				fmt.Println("C'est au ", m.nom, "d'agir")
-				fmt.Println(m.nom, " attaque ", p.nom)
-				p.hp -= m.atk
-				fmt.Println(p.nom, " a maintenant ", p.hp, " Hp")
-				fmt.Println()
-				if p.hp <= 0 {
-					p.Death()
-					fmt.Println()
-					RetourMenu()
-				}
+				CoupPoing(p, m)
+				AttaqueGobelin(p, m)
 			case "666": // Fin du monde
 				fmt.Println(" Vous avez détruit le monde Mao-sama !!!!")
 				fmt.Println()
