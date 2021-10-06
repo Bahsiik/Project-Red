@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entrainement
 	fmt.Println(p.nom, " engage le combat d'entrainement")
@@ -33,6 +36,10 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation ocmbat d'entra
 					fmt.Println()
 					RetourMenu()
 				}
+			case "666":
+				fmt.Println(" Vous avez détruit le monde !!!!")
+				os.Exit(0)
+
 			}
 		}
 	}
