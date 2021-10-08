@@ -7,7 +7,7 @@ import (
 var Marchand Personnage
 
 func MarchandInit(p *Personnage) {
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç"}, []string{"Coup de poing"}, 999, "Chapeau Gucci", "Veste Luis Vuitton", "Chaussures Geox")
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç"}, []string{"Coup de poing"}, 999, "", "", "")
 }
 
 func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
