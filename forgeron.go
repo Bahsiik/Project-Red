@@ -62,15 +62,17 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
 	textforgeron2 := Input()
 	P1.AddInventory(choix) // Ajout de l'objet
-	switch textforgeron2 {
-	case "Oui": // Continuation des achats
-		fmt.Println("Que voulez vous fabriquer d'autre ?")
-		fmt.Println()
-		P1.AccessInvForgeron()
-	case "Non": // Retour au menu
-		fmt.Println("Très bien, au revoir")
-		fmt.Println()
-		RetourMenu()
+	for {
+		switch textforgeron2 {
+		case "Oui": // Continuation des achats
+			fmt.Println("Que voulez vous fabriquer d'autre ?")
+			fmt.Println()
+			P1.AccessInvForgeron()
+		case "Non": // Retour au menu
+			fmt.Println("Très bien, au revoir")
+			fmt.Println()
+			RetourMenu()
+		}
 	}
 }
 

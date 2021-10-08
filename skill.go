@@ -39,6 +39,9 @@ func (p *Personnage) SpellBook(sort string) { // Initialisation livre de sorts
 	}
 	if verif == 0 {
 		p.skill = append(p.skill, sort)
+		fmt.Println(p.nom, "a appris le sort Boule de Feu ")
+	} else {
+		fmt.Println(p.nom, "connait déjà ce sort..")
 	}
 }
 

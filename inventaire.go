@@ -50,6 +50,10 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax, " en équipant Bottes de l'aventurier")
 		fmt.Println()
 		P1.AccessInventory()
+	case "Livre de sort : Boule de Feu":
+		P1.SpellBook("Boule de Feu")
+		fmt.Println()
+		P1.AccessInventory()
 	case "Rien": // Retour au menu
 		RetourMenu()
 	default: // Choix d'objet invalide

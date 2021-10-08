@@ -65,7 +65,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 				P1.money -= 25
 				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 				fmt.Println()
-				ContinueMarchandSkill("Livre de sort: Boule de Feu")
+				ContinueMarchandInv("Livre de sort: Boule de Feu")
 			} else {
 				p.Pauvre()
 			}
@@ -132,22 +132,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 		fmt.Println("Très bien, au revoir")
 		fmt.Println()
 		RetourMenu()
-	}
-}
+	default:
 
-func ContinueMarchandSkill(choix string) { // Fonction d'ajout du sort choisi dans l'inventaire + choix de continuer les achats ou non
-	fmt.Println("Tenez Monsieur")
-	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-	textmarchand2 := Input()
-	P1.SpellBook(choix) // Ajout du sort
-	switch textmarchand2 {
-	case "Oui": // Continuation des achats
-		fmt.Println("Que désirez-vous d'autres chacal ?")
-		fmt.Println()
-		P1.AccessInvMarchand()
-	case "Non": // Retour au menu
-		fmt.Println("Très bien, au revoir")
-		fmt.Println()
-		RetourMenu()
 	}
 }
