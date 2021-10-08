@@ -23,6 +23,11 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	case "2":
 		p.DisplayInventory()
 		p.AccessInvFight(m)
+	default: // Choix d'action invalide
+		fmt.Println()
+		fmt.Println("Désolé, cette commande est invalide, veuillez faire un autre choix.")
+		fmt.Println()
+		P1.CharTurn(m)
 	}
 }
 

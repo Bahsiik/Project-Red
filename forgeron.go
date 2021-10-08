@@ -50,7 +50,7 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	case "Oui": // Continuation des achats
 		fmt.Println("Que voulez vous fabriquer d'autre ?")
 		fmt.Println()
-		P1.AccessInvMarchand()
+		P1.AccessInvForgeron()
 	case "Non": // Retour au menu
 		fmt.Println("Très bien, au revoir")
 		fmt.Println()
