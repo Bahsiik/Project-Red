@@ -22,6 +22,18 @@ func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventai
 	fmt.Println()
 }
 
+func (p Personnage) DisplayInvForgeron2() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
+	fmt.Println("Que souhaitez vous crafter d'autres ? (Numéro d'article / Rien)")
+	if len(p.inventaire) == 0 {
+		fmt.Println("Désolé, je n'ai rien a vous proposer...")
+	} else {
+		for i := range p.inventaire {
+			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+		}
+	}
+	fmt.Println()
+}
+
 func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 	textforgeron := Input()
 	switch textforgeron {
@@ -36,7 +48,11 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 	case "3":
 		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 1, 1, 5, "Bottes de l'aventurier")
 	default:
-		fmt.Print("désolé mais je ne comprend pas \n")
+		fmt.Println()
+		fmt.Print("Désolé mais je ne comprend pas, veuillez faire un autre choix \n")
+		fmt.Println()
+		Forgeron.DisplayInvForgeron2()
+		Forgeron.AccessInvForgeron()
 	}
 }
 

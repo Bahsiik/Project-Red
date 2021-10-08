@@ -22,6 +22,18 @@ func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventai
 	fmt.Println()
 }
 
+func (p Personnage) DisplayInvMarchand2() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
+	fmt.Println("Que souhaitez vous acheter d'autres ? (Numéro d'article / Rien)")
+	if len(p.inventaire) == 0 {
+		fmt.Println("Désolé, je n'ai rien a vous vendre...")
+	} else {
+		for i := range p.inventaire {
+			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+		}
+	}
+	fmt.Println()
+}
+
 func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 	textmarchand := Input()
 	switch textmarchand {
@@ -98,9 +110,11 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			p.Pauvre()
 		}
 	default: // Choix d'objet à acheter invalide
+		fmt.Println()
 		fmt.Println("Désolé, je n'ai pas cette article, veuillez faire un autre choix.")
 		fmt.Println()
-		P1.AccessInvMarchand()
+		Marchand.DisplayInvMarchand2()
+		Marchand.AccessInvMarchand()
 	}
 }
 
@@ -111,7 +125,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 	P1.AddInventory(choix) // Ajout de l'objet
 	switch textmarchand2 {
 	case "Oui": // Continuation des achats
-		fmt.Println("Que désirez-vous d'autres chacal ?")
+		Marchand.DisplayInvMarchand2()
 		fmt.Println()
 		P1.AccessInvMarchand()
 	case "Non": // Retour au menu
