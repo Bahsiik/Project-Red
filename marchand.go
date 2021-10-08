@@ -121,18 +121,18 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Tenez Monsieur")
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
-	textmarchand2 := Input()
 	P1.AddInventory(choix) // Ajout de l'objet
-	switch textmarchand2 {
-	case "Oui": // Continuation des achats
-		Marchand.DisplayInvMarchand2()
-		fmt.Println()
-		P1.AccessInvMarchand()
-	case "Non": // Retour au menu
-		fmt.Println("Très bien, au revoir")
-		fmt.Println()
-		RetourMenu()
-	default:
-
+	for {
+		textmarchand2 := Input()
+		switch textmarchand2 {
+		case "Oui": // Continuation des achats
+			Marchand.DisplayInvMarchand2()
+			fmt.Println()
+			P1.AccessInvMarchand()
+		case "Non": // Retour au menu
+			fmt.Println("Très bien, au revoir")
+			fmt.Println()
+			RetourMenu()
+		}
 	}
 }
