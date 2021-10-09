@@ -25,6 +25,10 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		P1.TakePot()
 		P1.DisplayInventory()
 		P1.AccessInventory()
+	case "Potion de poison":
+		P1.PoisonPot()
+		P1.DisplayInventory()
+		P1.AccessInventory()
 	case "Chapeau de l'aventurier":
 		P1.AddEquipementTete(textinv)
 		fmt.Println()

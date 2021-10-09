@@ -2,27 +2,34 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println("Que va faire ", p.nom, " ?")
 	fmt.Println("1 - Attaquer")
 	fmt.Println("2 - Inventaire")
+	fmt.Println("3 - Fuir")
 	textmenucharturn := Input()
 	switch textmenucharturn {
 	case "1":
 		fmt.Println("1 - Attaque de base")
 		fmt.Println("2 - Coup de poing")
+		fmt.Println("3 - Boule de feu")
 		textattcharturn := Input()
 		switch textattcharturn {
 		case "1":
 			AttaqueBasique(p, m)
 		case "2":
 			CoupPoing(p, m)
+		case "3":
+			BouleFeu(p, m)
 		}
 	case "2":
 		p.DisplayInventory()
 		p.AccessInvFight(m)
+	case "3":
+		RetourMenu()
 	default: // Choix d'action invalide
 		fmt.Println()
 		fmt.Println("Désolé, cette commande est invalide, veuillez faire un autre choix.")
@@ -102,7 +109,40 @@ func (p *Personnage) AccessInvFight(m *Monstre) {
 	switch textinvfight {
 	case "Potion":
 		p.TakePot()
+	case "Potion de poison":
+		p.PoisonPotComb(m)
 	case "Retour":
 		p.CharTurn(m)
+	}
+}
+
+func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
+	var test2 int
+	for i := range p.inventaire {
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == "Potion de poison" { // Incrémentattion du compteur de potions par rapport à l'inventaire
+				test2++
+				fmt.Println(p.nom, " utilise une potion de poison sur ", m.nom)
+				p.RemoveInv("Potion de poison")
+				test := 0
+				for i := 0; i < 3; i++ { // Initialisation des 3s d'effet de la potion
+					if test == 0 { // Dégats/sec
+						m.hp -= 10
+						fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+						if m.hp <= 0 {
+							fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+							fmt.Println()
+							m.hp = m.hpmax // Réinitialisation pv monstre
+							RetourMenu()
+						}
+						time.Sleep(1 * time.Second) // Timer dégats par secondes
+					}
+				}
+			}
+		}
+	}
+	if test2 == 0 { // Dans l'absence de potions dans l'inventaire
+		fmt.Println(p.nom, "n'as malheureusement pas de potion...")
+		fmt.Println()
 	}
 }

@@ -37,15 +37,30 @@ func (p *Personnage) TakePot() { // Fonction de prise de potion de soins
 }
 
 func (p *Personnage) PoisonPot() { // Fonction potion de poison
-	test := 0
-	for i := 0; i < 3; i++ { // Initialisation des 3s d'effet de la potion
-		if test == 0 { // Dégats/sec
-			fmt.Println(p.nom, "a maintenant", p.hp, "Hp")
-			if p.hp == 0 { // Condition de mort
-				p.Death()
-				test++
+	var test2 int
+	for i := range p.inventaire {
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == "Potion de poison" { // Incrémentattion du compteur de potions par rapport à l'inventaire
+				test2++
+				fmt.Println(p.nom, " prend une potion de poison.")
+				p.RemoveInv("Potion de poison") // Retrait de la potion de l'inventaire après son utilisation
+				test := 0
+				for i := 0; i < 3; i++ { // Initialisation des 3s d'effet de la potion
+					if test == 0 { // Dégats/sec
+						p.hp -= 10
+						fmt.Println(p.nom, "a maintenant", p.hp, "HP sur", p.hpmax, "HP.")
+						if p.hp == 0 { // Condition de mort
+							p.Death()
+							test++
+						}
+						time.Sleep(1 * time.Second) // Timer dégats par secondes
+					}
+				}
 			}
-			time.Sleep(1 * time.Second) // Timer dégats par secondes
 		}
+	}
+	if test2 == 0 { // Dans l'absence de potions dans l'inventaire
+		fmt.Println(p.nom, "n'as malheureusement pas cette potion...")
+		fmt.Println()
 	}
 }
