@@ -10,12 +10,22 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println("1 - Attaquer")
 	fmt.Println("2 - Inventaire")
 	fmt.Println("3 - Fuir")
+	fmt.Println()
 	textmenucharturn := Input()
 	switch textmenucharturn {
 	case "1":
 		fmt.Println("1 - Attaque de base")
 		fmt.Println("2 - Coup de poing")
-		fmt.Println("3 - Boule de feu")
+		verif := 0
+		for i := range p.skill {
+			if p.skill[i] == "Boule de Feu" {
+				verif += 1
+			}
+		}
+		if verif != 0 {
+			fmt.Println("3 - Boule de Feu")
+		}
+		fmt.Println(" - Retour - ")
 		textattcharturn := Input()
 		switch textattcharturn {
 		case "1":
@@ -24,6 +34,13 @@ func (p *Personnage) CharTurn(m *Monstre) {
 			CoupPoing(p, m)
 		case "3":
 			BouleFeu(p, m)
+		case "Retour":
+			P1.CharTurn(m)
+		default: // Choix d'action invalide
+			fmt.Println()
+			fmt.Println("Désolé, cette commande est invalide, veuillez faire un autre choix.")
+			fmt.Println()
+			P1.CharTurn(m)
 		}
 	case "2":
 		p.DisplayInventory()
@@ -42,6 +59,7 @@ func CoupPoing(p *Personnage, m *Monstre) {
 	fmt.Println(p.nom, " effectue un Coup de poing")
 	m.hp -= 10
 	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+	fmt.Println()
 	if m.hp <= 0 {
 		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
 		fmt.Println()
@@ -63,14 +81,27 @@ func AttaqueBasique(p *Personnage, m *Monstre) {
 }
 
 func BouleFeu(p *Personnage, m *Monstre) {
-	fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
-	m.hp -= 20
-	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
-	if m.hp <= 0 {
-		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+	verif := 0
+	for i := range p.skill {
+		if p.skill[i] == "Boule de Feu" {
+			verif += 1
+		}
+	}
+	if verif == 0 {
 		fmt.Println()
-		m.hp = m.hpmax // Réinitialisation pv monstre
-		RetourMenu()
+		fmt.Println(p.nom, " ne possède pas ce sort...")
+		fmt.Println()
+		P1.CharTurn(m)
+	} else {
+		fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
+		m.hp -= 20
+		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+		if m.hp <= 0 {
+			fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+			fmt.Println()
+			m.hp = m.hpmax // Réinitialisation pv monstre
+			RetourMenu()
+		}
 	}
 }
 
@@ -113,6 +144,10 @@ func (p *Personnage) AccessInvFight(m *Monstre) {
 		p.PoisonPotComb(m)
 	case "Retour":
 		p.CharTurn(m)
+	default:
+		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println()
+		p.CharTurn(m)
 	}
 }
 
@@ -141,8 +176,9 @@ func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
 			}
 		}
 	}
-	if test2 == 0 { // Dans l'absence de potions dans l'inventaire
-		fmt.Println(p.nom, "n'as malheureusement pas de potion...")
+	if test2 == 0 { // Dans l'absence de potions dans l'inventaire de combat
+		fmt.Println(p.nom, "n'as malheureusement pas cette potion...")
 		fmt.Println()
+		p.CharTurn(m)
 	}
 }
