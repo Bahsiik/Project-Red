@@ -60,12 +60,12 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			p.Pauvre()
 		}
 	case "3": // Achat du skill "Boule de Feu"
-		if p.VerifSkill("Livre de sort: Boule de Feu") {
+		if p.VerifSpellBook("Livre de sort : Boule de Feu") && p.VerifSkill("Boule de Feu") {
 			if (P1.money - 25) >= 0 {
 				P1.money -= 25
 				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 				fmt.Println()
-				ContinueMarchandInv("Livre de sort: Boule de Feu")
+				ContinueMarchandInv("Livre de sort : Boule de Feu")
 			} else {
 				p.Pauvre()
 			}
