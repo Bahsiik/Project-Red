@@ -27,7 +27,9 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		textinv = ""
 		P1.AccessInventory()
 	case "Chapeau de l'aventurier": // Craft du Chapeau de laventurier
-		P1.AddInventory(p.Equipement.tete)              // Ajout à l'inventaire de l'item précédent
+		if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
+			P1.AddInventory(p.Equipement.tete)
+		}
 		P1.AddEquipementTete("Chapeau de l'aventurier") // Changement d'équipement de tête
 		p.RemoveInv("Chapeau de l'aventurier")          // Retirer l'item de l'inventaire
 		p.hpmax += 10                                   // Bonus d'équipement
@@ -35,7 +37,9 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		fmt.Println()
 		P1.AccessInventory()
 	case "Tunique de l'aventurier":
-		P1.AddInventory(p.Equipement.torse)
+		if p.Equipement.torse != "" {
+			P1.AddInventory(p.Equipement.torse)
+		}
 		P1.AddEquipementTorse("Tunique de l'aventurier")
 		p.RemoveInv("Tunique de l'aventurier")
 		p.hpmax += 25
@@ -43,7 +47,9 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		fmt.Println()
 		P1.AccessInventory()
 	case "Bottes de l'aventurier":
-		P1.AddInventory(p.Equipement.pieds)
+		if p.Equipement.pieds != "" {
+			P1.AddInventory(p.Equipement.pieds)
+		}
 		P1.AddEquipementPieds("Bottes de l'aventurier")
 		p.RemoveInv("Bottes de l'aventurier")
 		p.hpmax += 15
