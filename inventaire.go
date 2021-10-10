@@ -78,3 +78,11 @@ func (p *Personnage) RemoveInv(obj string) { // Fonction de retrait d'un objet a
 		}
 	}
 }
+
+func (p *Personnage) VerifTailleInv() bool { // Fonction pour vérifier la taille de l'inventaire (true=taille correcte / false=taille max atteinte)
+	if len(p.inventaire) < p.tailleinv {
+		return true
+	} else {
+		return false
+	}
+}

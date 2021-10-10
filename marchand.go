@@ -7,7 +7,7 @@ import (
 var Marchand Personnage
 
 func MarchandInit(p *Personnage) {
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç"}, []string{"Coup de poing"}, 999, 20)
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, []string{"Potion : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç"}, 10, []string{"Coup de poing"}, 999, 20)
 }
 
 func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
@@ -42,13 +42,18 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		fmt.Println()
 		RetourMenu()
 	case "1": // Achat de la potion
-		if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
-			P1.money -= 3
-			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-			fmt.Println()
-			ContinueMarchandInv("Potion")
+		if p.VerifTailleInv() {
+			if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
+				P1.money -= 3
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandInv("Potion")
+			} else {
+				p.Pauvre()
+			}
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			RetourMenu()
 		}
 	case "2": // Achat de la potion de poison
 		if (P1.money - 6) >= 0 {
