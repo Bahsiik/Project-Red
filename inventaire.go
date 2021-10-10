@@ -86,3 +86,26 @@ func (p *Personnage) VerifTailleInv() bool { // Fonction pour vérifier la taill
 		return false
 	}
 }
+
+func (p *Personnage) UpgradeInventorySlot() { // Fonction pour augmenter la taille de l'inventaire
+	if p.tailleinv < 40 {
+		p.tailleinv += 10
+		fmt.Println(p.nom, "a acheté une nouvelle sacoche. Il peut désormais transporté 10 objets supplémentaires !")
+	} else {
+		fmt.Println("Je suis désolé mais vous ne pouvez pas porter une sacoche de plus..")
+	}
+	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	for {
+		textmarchand2 := Input()
+		switch textmarchand2 {
+		case "Oui": // Continuation des achats
+			Marchand.DisplayInvMarchand2()
+			fmt.Println()
+			P1.AccessInvMarchand()
+		case "Non": // Retour au menu
+			fmt.Println("Très bien, au revoir")
+			fmt.Println()
+			RetourMenu()
+		}
+	}
+}

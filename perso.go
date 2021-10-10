@@ -39,7 +39,7 @@ func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp i
 var P1 Personnage
 
 func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
-	P1.Init("Byleth", "Humain", 1, 100, 50, []string{"Potion", "Potion"}, 10, []string{"Coup de poing"}, 100, 15)
+	P1.Init("Byleth", "Humain", 1, 100, 50, []string{"Potion", "Potion"}, 10, []string{"Coup de poing"}, 500, 15)
 }
 
 func (p *Personnage) Death() { // Système de mort et de résurection
