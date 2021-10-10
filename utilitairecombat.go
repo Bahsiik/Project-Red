@@ -9,14 +9,17 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println("C'est à ", p.nom, "d'agir")
 	fmt.Println("Que va faire ", p.nom, " ?")
 	fmt.Println("1 - Attaquer")
-	fmt.Println("2 - Inventaire")
-	fmt.Println("3 - Fuir")
+	fmt.Println("2 - Utiliser un sort")
+	fmt.Println("3 - Inventaire")
+	fmt.Println("4 - Fuir")
 	fmt.Println()
 	textmenucharturn := Input()
 	switch textmenucharturn {
 	case "1":
-		fmt.Println("1 - Attaque de base")
-		fmt.Println("2 - Coup de poing")
+		AttaqueBasique(p, m)
+	case "2":
+		fmt.Println("0 - Retour")
+		fmt.Println("1 - Coup de poing")
 		verif := 0
 		for i := range p.skill {
 			if p.skill[i] == "Boule de Feu" {
@@ -24,18 +27,15 @@ func (p *Personnage) CharTurn(m *Monstre) {
 			}
 		}
 		if verif != 0 {
-			fmt.Println("3 - Boule de Feu")
+			fmt.Println("2 - Boule de Feu")
 		}
-		fmt.Println(" - Retour - ")
 		textattcharturn := Input()
 		switch textattcharturn {
 		case "1":
-			AttaqueBasique(p, m)
-		case "2":
 			CoupPoing(p, m)
-		case "3":
+		case "2":
 			BouleFeu(p, m)
-		case "Retour":
+		case "0":
 			P1.CharTurn(m)
 		default: // Choix d'action invalide
 			fmt.Println()
@@ -43,10 +43,10 @@ func (p *Personnage) CharTurn(m *Monstre) {
 			fmt.Println()
 			P1.CharTurn(m)
 		}
-	case "2":
+	case "3":
 		p.DisplayInventory()
 		p.AccessInvFight(m)
-	case "3":
+	case "4":
 		RetourMenu()
 	default: // Choix d'action invalide
 		fmt.Println()
@@ -58,7 +58,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 
 func CoupPoing(p *Personnage, m *Monstre) {
 	fmt.Println(p.nom, " effectue un Coup de poing")
-	m.hp -= 10
+	m.hp -= 8
 	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 	fmt.Println()
 	if m.hp <= 0 {
@@ -95,7 +95,7 @@ func BouleFeu(p *Personnage, m *Monstre) {
 		P1.CharTurn(m)
 	} else {
 		fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
-		m.hp -= 20
+		m.hp -= 18
 		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 		if m.hp <= 0 {
 			fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
