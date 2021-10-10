@@ -107,8 +107,6 @@ func BouleFeu(p *Personnage, m *Monstre) {
 }
 
 func AttaqueGobelin(p *Personnage, m *Monstre) {
-	fmt.Println()
-	fmt.Println("C'est au ", m.nom, "d'agir") // Tour du Gobelin
 	fmt.Println(m.nom, " attaque ", p.nom)
 	p.hp -= m.atk
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
@@ -121,8 +119,6 @@ func AttaqueGobelin(p *Personnage, m *Monstre) {
 }
 
 func AttaqueCritGobelin(p *Personnage, m *Monstre) {
-	fmt.Println()
-	fmt.Println("C'est au ", m.nom, "d'agir") // Tour du Gobelin
 	fmt.Println(m.nom, " inflige une attaque critique à ", p.nom)
 	p.hp -= m.atk * 2
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour

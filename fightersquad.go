@@ -16,8 +16,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 				p.CharTurn(m)
 				GoblinPattern(p, m, tour)
 			} else {
-				p.CharTurn(m)
 				GoblinPattern(p, m, tour)
+				p.CharTurn(m)
 			}
 		}
 	}

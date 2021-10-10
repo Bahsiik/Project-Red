@@ -31,7 +31,7 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 }
 
 func (p *Personnage) SpellBook(sort string, livre string) { // Initialisation livre de sorts
-	if p.VerifSkill(sort) {
+	if !p.VerifSkill(sort) {
 		p.skill = append(p.skill, sort)
 		fmt.Println(p.nom, "a appris le sort", sort)
 		p.RemoveInv(livre)
