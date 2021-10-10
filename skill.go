@@ -31,13 +31,7 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 }
 
 func (p *Personnage) SpellBook(sort string, livre string) { // Initialisation livre de sorts
-	verif := 0
-	for i := range p.skill {
-		if p.skill[i] == sort {
-			verif += 1
-		}
-	}
-	if verif == 0 {
+	if p.VerifSkill(sort) {
 		p.skill = append(p.skill, sort)
 		fmt.Println(p.nom, "a appris le sort", sort)
 		p.RemoveInv(livre)
@@ -46,20 +40,20 @@ func (p *Personnage) SpellBook(sort string, livre string) { // Initialisation li
 	}
 }
 
-func (p *Personnage) VerifSpellBook(livre string) bool { // Vérification unicité des sorts dans le livre
+func (p *Personnage) VerifSpellBook(livre string) bool { // Vérification si le livre est présent (true=présent / false=absent)
 	for i := range p.inventaire {
 		if p.inventaire[i] == livre {
-			return false
+			return true
 		}
 	}
-	return true
+	return false
 }
 
-func (p *Personnage) VerifSkill(sort string) bool { // Vérification unicité des sorts dans le livre
+func (p *Personnage) VerifSkill(sort string) bool { // Vérification si le sort est présent dans les skill (true=présent / false=absent)
 	for i := range p.skill {
 		if p.skill[i] == sort {
-			return false
+			return true
 		}
 	}
-	return true
+	return false
 }

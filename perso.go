@@ -18,9 +18,10 @@ type Personnage struct { // Création structure Perso
 		torse string
 		pieds string
 	}
+	initiative int
 }
 
-func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, skill []string, money int) { // Paramètres à initialiser
+func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, skill []string, money int, init int) { // Paramètres à initialiser
 	p.nom = nom
 	p.classe = classe
 	p.niveau = niveau
@@ -29,13 +30,14 @@ func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp i
 	p.inventaire = inventaire
 	p.skill = skill
 	p.money = money
+	p.initiative = init
 }
 
 // Création variable Perso 1 et Marchand
 var P1 Personnage
 
 func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
-	P1.Init("Byleth", "Humain", 1, 100, 50, []string{"Potion", "Potion"}, []string{"Coup de poing"}, 100)
+	P1.Init("Byleth", "Humain", 1, 100, 50, []string{"Potion", "Potion"}, []string{"Coup de poing"}, 100, 15)
 }
 
 func (p *Personnage) Death() { // Système de mort et de résurection

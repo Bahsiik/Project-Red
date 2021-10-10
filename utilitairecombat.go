@@ -6,6 +6,7 @@ import (
 )
 
 func (p *Personnage) CharTurn(m *Monstre) {
+	fmt.Println("C'est à ", p.nom, "d'agir")
 	fmt.Println("Que va faire ", p.nom, " ?")
 	fmt.Println("1 - Attaquer")
 	fmt.Println("2 - Inventaire")

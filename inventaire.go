@@ -45,7 +45,7 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		P1.DisplayInventory()
 		P1.AccessInventory()
 	case "Livre de sort : Boule de Feu":
-		if !p.VerifSpellBook("Livre de sort : Boule de Feu") {
+		if p.VerifSpellBook("Livre de sort : Boule de Feu") {
 			P1.SpellBook("Boule de Feu", "Livre de sort : Boule de Feu")
 			fmt.Println()
 			P1.DisplayInventory()

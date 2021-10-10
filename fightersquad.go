@@ -12,9 +12,13 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 		if p.hp > 0 || m.hp > 0 {
 			fmt.Println("======== Tour ", tour, " ========") // Initialisation n° de tours
 			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |||", m.nom, " :", m.hp, "/", m.hpmax, "HP")
-			fmt.Println("C'est à ", p.nom, "d'agir")
-			p.CharTurn(m)
-			GoblinPattern(p, m, tour)
+			if p.initiative >= m.initiative {
+				p.CharTurn(m)
+				GoblinPattern(p, m, tour)
+			} else {
+				p.CharTurn(m)
+				GoblinPattern(p, m, tour)
+			}
 		}
 	}
 }

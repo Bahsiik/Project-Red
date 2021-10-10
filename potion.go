@@ -49,7 +49,7 @@ func (p *Personnage) PoisonPot() { // Fonction potion de poison
 					if test == 0 { // Dégats/sec
 						p.hp -= 10
 						fmt.Println(p.nom, "a maintenant", p.hp, "HP sur", p.hpmax, "HP.")
-						if p.hp == 0 { // Condition de mort
+						if p.hp <= 0 { // Condition de mort
 							p.Death()
 							test++
 						}
