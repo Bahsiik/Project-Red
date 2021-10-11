@@ -35,12 +35,8 @@ func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp i
 	p.initiative = init
 }
 
-// Création variable Perso 1 et Marchand
+// Création variable globale Perso 1
 var P1 Personnage
-
-func PersoInit(p *Personnage) { // Fonction pour initialiser les personnages
-	P1.Init("Byleth", "Humain", 1, 100, 50, []string{"Potion", "Potion"}, 10, []string{"Coup de poing"}, 500, 15)
-}
 
 func (p *Personnage) Death() { // Système de mort et de résurection
 	if p.hp <= 0 {
@@ -54,4 +50,70 @@ func (p *Personnage) Pauvre() {
 	if p.money <= 0 {
 		fmt.Println("Vous n'avez plus d'argent...")
 	}
+}
+
+func NameCreation() string {
+
+	fmt.Println("Veuillez choisir votre nom :")
+	textnom := Input()
+	if !IsLetter(textnom) {
+		fmt.Println("Ce nom n'est pas valide, choisissez en un autre")
+		NameCreation()
+	}
+	Capitalize(textnom)
+	return textnom
+}
+
+func ClassChoice() string {
+	var class string
+	fmt.Println("Veuillez choisir votre classe :")
+	fmt.Println("1 - Humain")
+	fmt.Println("2 - Elfe")
+	fmt.Println("3 - Nain")
+	textclass := Input()
+	switch textclass {
+	case "1":
+		class = "Humain"
+	case "2":
+		class = "Elfe"
+	case "3":
+		class = "Nain"
+	default:
+		fmt.Println()
+		fmt.Println("Choix de classe invalide, refaites votre choix")
+		ClassChoice()
+	}
+	return class
+}
+
+func (p *Personnage) CharCreation() {
+	var hpmax int
+	var init int
+	nom := NameCreation()
+	classe := ClassChoice()
+	niveau := 1
+	if classe == "Humain" {
+		hpmax = 100
+	}
+	if classe == "Elfe" {
+		hpmax = 80
+	}
+	if classe == "Nain" {
+		hpmax = 120
+	}
+	hp := hpmax / 2
+	inventaire := []string{"Potion", "Potion"}
+	tailleinv := 10
+	skill := []string{"Coup de poing"}
+	money := 100
+	if classe == "Humain" {
+		init = 15
+	}
+	if classe == "Elfe" {
+		init = 20
+	}
+	if classe == "Nain" {
+		init = 5
+	}
+	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init)
 }
