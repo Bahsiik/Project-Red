@@ -98,26 +98,22 @@ func (p *Personnage) CharCreation() {
 	niveau := 1
 	if classe == "Humain" {
 		hpmax = 100
+		init = 15
 	}
 	if classe == "Elfe" {
 		hpmax = 80
+		init = 20
 	}
 	if classe == "Nain" {
 		hpmax = 120
+		init = 5
 	}
 	hp := hpmax / 2
 	inventaire := []string{"Potion", "Potion"}
 	tailleinv := 10
 	skill := []string{"Coup de poing"}
 	money := 100
-	if classe == "Humain" {
-		init = 15
-	}
-	if classe == "Elfe" {
-		init = 20
-	}
-	if classe == "Nain" {
-		init = 5
-	}
-	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init)
+	manamax := 50
+	mana := manamax
+	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init, mana, manamax)
 }
