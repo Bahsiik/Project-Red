@@ -11,7 +11,7 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 	fmt.Println("Niveau --> ", p.niveau)
 	fmt.Println("HP actuels --> ", p.hp, " sur ", p.hpmax)
 	fmt.Println("Mana actuel --> ", p.mana, " sur ", p.manamax)
-	fmt.Println(" Exp actuel --> ", p.exp, " sur ", p.expmax)
+	fmt.Println("Exp actuel --> ", p.exp, " sur ", p.expmax)
 	fmt.Println("Argent actuel --> ", p.money)
 	fmt.Println()
 	AccessInfo()
