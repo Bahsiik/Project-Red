@@ -62,10 +62,9 @@ func NameCreation() string {
 	textnom := Input()
 	if !IsLetter(textnom) {
 		fmt.Println("Ce nom n'est pas valide, choisissez en un autre")
-		NameCreation()
+		return NameCreation()
 	}
-	Capitalize(textnom)
-	return textnom
+	return Capitalize(textnom)
 }
 
 func ClassChoice() string {
