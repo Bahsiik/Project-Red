@@ -57,15 +57,23 @@ func (p *Personnage) CharTurn(m *Monstre) {
 }
 
 func CoupPoing(p *Personnage, m *Monstre) {
-	fmt.Println(p.nom, " effectue un Coup de poing")
-	m.hp -= 8
-	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
-	fmt.Println()
-	if m.hp <= 0 {
-		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+	if p.mana >= 5 {
+		fmt.Println(p.nom, " effectue un Coup de poing")
+		m.hp -= 8
+		p.mana -= 5
+		fmt.Println(m.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
+		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 		fmt.Println()
-		m.hp = m.hpmax // Réinitialisation pv monstre
-		RetourMenu()
+		if m.hp <= 0 {
+			fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+			fmt.Println()
+			m.hp = m.hpmax // Réinitialisation pv monstre
+			RetourMenu()
+		}
+	} else {
+		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
+		fmt.Println()
+		P1.CharTurn(m)
 	}
 }
 
@@ -82,27 +90,35 @@ func AttaqueBasique(p *Personnage, m *Monstre) {
 }
 
 func BouleFeu(p *Personnage, m *Monstre) {
-	verif := 0
-	for i := range p.skill {
-		if p.skill[i] == "Boule de Feu" {
-			verif += 1
+	if p.mana >= 10 {
+		verif := 0
+		for i := range p.skill {
+			if p.skill[i] == "Boule de Feu" {
+				verif += 1
+			}
 		}
-	}
-	if verif == 0 {
-		fmt.Println()
-		fmt.Println(p.nom, " ne possède pas ce sort...")
+		if verif == 0 {
+			fmt.Println()
+			fmt.Println(p.nom, " ne possède pas ce sort...")
+			fmt.Println()
+			P1.CharTurn(m)
+		} else {
+			fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
+			m.hp -= 18
+			p.mana -= 10
+			fmt.Println(m.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
+			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+			if m.hp <= 0 {
+				fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+				fmt.Println()
+				m.hp = m.hpmax // Réinitialisation pv monstre
+				RetourMenu()
+			}
+		}
+	} else {
+		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
 		P1.CharTurn(m)
-	} else {
-		fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
-		m.hp -= 18
-		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
-		if m.hp <= 0 {
-			fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
-			fmt.Println()
-			m.hp = m.hpmax // Réinitialisation pv monstre
-			RetourMenu()
-		}
 	}
 }
 
