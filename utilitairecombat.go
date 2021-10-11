@@ -64,12 +64,7 @@ func CoupPoing(p *Personnage, m *Monstre) {
 		fmt.Println(m.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
 		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 		fmt.Println()
-		if m.hp <= 0 {
-			fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
-			fmt.Println()
-			m.hp = m.hpmax // Réinitialisation pv monstre
-			RetourMenu()
-		}
+		DeathMonstre(p, m)
 	} else {
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
@@ -81,12 +76,7 @@ func AttaqueBasique(p *Personnage, m *Monstre) {
 	fmt.Println(p.nom, " effectue une attaque basique")
 	m.hp -= 5
 	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
-	if m.hp <= 0 {
-		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
-		fmt.Println()
-		m.hp = m.hpmax // Réinitialisation pv monstre
-		RetourMenu()
-	}
+	DeathMonstre(p, m)
 }
 
 func BouleFeu(p *Personnage, m *Monstre) {
@@ -108,12 +98,7 @@ func BouleFeu(p *Personnage, m *Monstre) {
 			p.mana -= 10
 			fmt.Println(m.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
 			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
-			if m.hp <= 0 {
-				fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
-				fmt.Println()
-				m.hp = m.hpmax // Réinitialisation pv monstre
-				RetourMenu()
-			}
+			DeathMonstre(p, m)
 		}
 	} else {
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
@@ -179,6 +164,7 @@ func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
 						fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 						if m.hp <= 0 {
 							fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+							p.exp += 10
 							fmt.Println()
 							m.hp = m.hpmax // Réinitialisation pv monstre
 							RetourMenu()

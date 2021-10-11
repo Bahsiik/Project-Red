@@ -131,3 +131,35 @@ func ToUpper(s string) string {
 	}
 	return string(phrase)
 }
+
+func DeathMonstre(p *Personnage, m *Monstre) {
+	if m.hp <= 0 {
+		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+		GainExp(p, m)
+		GainNiveau(p)
+		fmt.Println()
+		m.hp = m.hpmax // Réinitialisation pv monstre
+		RetourMenu()
+	}
+}
+
+func GainExp(p *Personnage, m *Monstre) {
+	switch m.nom {
+	case "Goblin d'entrainement":
+		p.exp += 1000
+		fmt.Println(p.nom, " a gagné", p.exp, " Xp")
+	}
+}
+
+func GainNiveau(p *Personnage) {
+	if p.exp == p.expmax {
+		p.niveau += 1
+		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau)
+		p.expmax *= 2
+	} else if p.exp > p.expmax {
+		p.niveau += 1
+		p.exp = p.expmax - p.exp
+		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau, " et a, ", p.exp, " Xp")
+		p.expmax *= 2
+	}
+}

@@ -7,7 +7,7 @@ import (
 var Forgeron Personnage
 
 func ForgeronInit(p *Personnage) {
-	Forgeron.Init("Mickey", "Forgeron", 666, 666, 666, []string{"Chapeau de l'aventurier : 5ç (1 Plume de Corbeau / 1 Cuir de Sanglier)", "Tunique de l'aventurier : 5ç (2 Fourrure de Loup / 1 Peau de Troll)", "Bottes de l'aventurier : 5ç (1 Fourrure de Loup / 1 Cuir de Sanglier)"}, 100, []string{"Coup de poing"}, 666, 5, 666, 666)
+	Forgeron.Init("Mickey", "Forgeron", 666, 666, 666, []string{"Chapeau de l'aventurier : 5ç (1 Plume de Corbeau / 1 Cuir de Sanglier)", "Tunique de l'aventurier : 5ç (2 Fourrure de Loup / 1 Peau de Troll)", "Bottes de l'aventurier : 5ç (1 Fourrure de Loup / 1 Cuir de Sanglier)"}, 100, []string{"Coup de poing"}, 666, 5, 666, 666, 0, 100)
 }
 
 func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)

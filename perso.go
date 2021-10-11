@@ -22,9 +22,11 @@ type Personnage struct { // Création structure Perso
 	initiative int
 	mana       int
 	manamax    int
+	exp        int
+	expmax     int
 }
 
-func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int) { // Paramètres à initialiser
+func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int, exp int, expmax int) { // Paramètres à initialiser
 	p.nom = nom
 	p.classe = classe
 	p.niveau = niveau
@@ -37,6 +39,8 @@ func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp i
 	p.initiative = init
 	p.mana = mana
 	p.manamax = manamax
+	p.exp = exp
+	p.expmax = expmax
 }
 
 // Création variable globale Perso 1
@@ -117,5 +121,7 @@ func (p *Personnage) CharCreation() {
 	skill := []string{"Coup de poing"}
 	money := 100
 	mana := manamax
-	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init, mana, manamax)
+	exp := 0
+	expmax := 100
+	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init, mana, manamax, exp, expmax)
 }
