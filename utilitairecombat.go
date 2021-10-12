@@ -114,6 +114,7 @@ func AttaqueGobelin(p *Personnage, m *Monstre) {
 	fmt.Println()
 	if p.hp <= 0 { // Condition pv à 0 du perso
 		p.Death()
+		time.Sleep(1 * time.Second)
 		fmt.Println()
 		RetourMenu()
 	}
@@ -126,6 +127,7 @@ func AttaqueCritGobelin(p *Personnage, m *Monstre) {
 	fmt.Println()
 	if p.hp <= 0 { // Condition pv à 0 du perso
 		p.Death()
+		time.Sleep(1 * time.Second)
 		fmt.Println()
 		RetourMenu()
 	}

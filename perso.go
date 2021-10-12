@@ -68,6 +68,7 @@ func NameCreation() string {
 		fmt.Println("Ce nom n'est pas valide, choisissez en un autre")
 		return NameCreation()
 	}
+	EffacerTerminal()
 	return Capitalize(textnom)
 }
 
@@ -90,6 +91,7 @@ func ClassChoice() string {
 		fmt.Println("Choix de classe invalide, refaites votre choix")
 		ClassChoice()
 	}
+	EffacerTerminal()
 	return class
 }
 

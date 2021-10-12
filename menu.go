@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
 )
 
 func Menu() { // Affiche du menu de sélection
@@ -22,24 +23,31 @@ func Menu() { // Affiche du menu de sélection
 
 		switch textmenu {
 		case "A": // Affichage infos perso
+			EffacerTerminal()
 			P1.DisplayInfo()
 			AccessInfo()
 		case "B": // Affichage inventaire perso + accès à ce dernier
+			EffacerTerminal()
 			P1.DisplayInventory()
 			P1.AccessInventory()
 		case "C": // Affichage de l'equipement du personnage
+			EffacerTerminal()
 			P1.DisplayEquipment()
 			P1.AccessEquipment()
 		case "D": // Affichage des sorts + accès à ces derniers
+			EffacerTerminal()
 			P1.DisplaySkill()
 			P1.AccessSkill()
 		case "E": // Affichage inventaire marchand + accès à ce dernier
+			EffacerTerminal()
 			Marchand.DisplayInvMarchand()
 			P1.AccessInvMarchand()
 		case "F": // Affichage Forge
+			EffacerTerminal()
 			Forgeron.DisplayInventory()
 			P1.AccessInvForgeron()
 		case "G": // Lancement du combat d'entrainement
+			EffacerTerminal()
 			TrainingFight(&P1, &Gobelin)
 		case "H": // Sortie du jeu
 			Exit()
@@ -49,12 +57,16 @@ func Menu() { // Affiche du menu de sélection
 
 func Exit() { // Commande sortie du jeu
 	fmt.Println("Vous allez quitter le jeu")
+	time.Sleep(1 * time.Second)
 	fmt.Println()
+	EffacerTerminal()
 	os.Exit(0)
 }
 
 func RetourMenu() { // Commande retour au menu
 	fmt.Println("Vous allez retourner au menu principal")
+	time.Sleep(1 * time.Second)
 	fmt.Println()
+	EffacerTerminal()
 	Menu()
 }

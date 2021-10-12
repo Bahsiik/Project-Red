@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"time"
 )
 
 func Input() string { // Fonction pour récupérer le texte écrit dans le cmd et l'utiliser
@@ -137,6 +138,7 @@ func DeathMonstre(p *Personnage, m *Monstre) {
 		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
 		GainExp(p, m)
 		GainNiveau(p)
+		time.Sleep(1 * time.Second)
 		fmt.Println()
 		m.hp = m.hpmax // Réinitialisation pv monstre
 		RetourMenu()
@@ -168,4 +170,8 @@ func GainNiveau(p *Personnage) {
 			GainNiveau(p)
 		}
 	}
+}
+
+func EffacerTerminal() {
+	os.Stdout.WriteString("\x1b[3;J\x1b[H\x1b[2J")
 }

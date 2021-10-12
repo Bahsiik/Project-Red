@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() { // Fonction principale qui lance le jeu
+	EffacerTerminal()
 	fmt.Println("Bienvenue dans ce jeu de dingue !")
 	P1.CharCreation()       // Initialisation du perso
 	MarchandInit(&Marchand) // Initialisation du marchand
