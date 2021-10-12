@@ -72,8 +72,7 @@ func NameCreation() string {
 	return Capitalize(textnom)
 }
 
-func ClassChoice() string {
-	var class string
+func (p *Personnage) ClassChoice() {
 	fmt.Println("Veuillez choisir votre classe :")
 	fmt.Println("1 - Humain")
 	fmt.Println("2 - Elfe")
@@ -81,49 +80,43 @@ func ClassChoice() string {
 	textclass := Input()
 	switch textclass {
 	case "1":
-		class = "Humain"
+		p.classe = "Humain"
 	case "2":
-		class = "Elfe"
+		p.classe = "Elfe"
 	case "3":
-		class = "Nain"
+		p.classe = "Nain"
 	default:
 		fmt.Println()
 		fmt.Println("Choix de classe invalide, refaites votre choix")
-		ClassChoice()
+		p.ClassChoice()
 	}
 	EffacerTerminal()
-	return class
 }
 
 func (p *Personnage) CharCreation() {
-	var hpmax int
-	var init int
-	var manamax int
-	nom := NameCreation()
-	classe := ClassChoice()
-	niveau := 1
-	if classe == "Humain" {
-		hpmax = 100
-		init = 15
-		manamax = 50
+	p.nom = NameCreation()
+	p.ClassChoice()
+	switch p.classe {
+	case "Humain":
+		p.hpmax = 100
+		p.initiative = 15
+		p.manamax = 50
+	case "Elfe":
+		p.hpmax = 80
+		p.initiative = 20
+		p.manamax = 100
+	case "Nain":
+		p.hpmax = 120
+		p.initiative = 5
+		p.manamax = 25
 	}
-	if classe == "Elfe" {
-		hpmax = 80
-		init = 20
-		manamax = 100
-	}
-	if classe == "Nain" {
-		hpmax = 120
-		init = 5
-		manamax = 25
-	}
-	hp := hpmax / 2
-	inventaire := []string{"Potion", "Potion"}
-	tailleinv := 10
-	skill := []string{"Coup de poing"}
-	money := 100
-	mana := manamax
-	exp := 0
-	expmax := 100
-	P1.Init(nom, classe, niveau, hpmax, hp, inventaire, tailleinv, skill, money, init, mana, manamax, exp, expmax)
+	p.niveau = 1
+	p.hp = p.hpmax / 2
+	p.inventaire = []string{"Potion", "Potion"}
+	p.tailleinv = 10
+	p.skill = []string{"Coup de poing"}
+	p.money = 100
+	p.mana = p.manamax
+	p.exp = 0
+	p.expmax = 100
 }

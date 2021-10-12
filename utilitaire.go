@@ -19,15 +19,15 @@ func Input() string { // Fonction pour récupérer le texte écrit dans le cmd e
 func IsLetter(s string) bool {
 	phrase := []rune(s)
 	counter := 0
+	if s == "" {
+		return false
+	}
 	for i := 0; i < len(phrase); i++ {
 		if (phrase[i] >= 65 && phrase[i] <= 90) || (phrase[i] >= 97 && phrase[i] <= 122) {
 			counter++
 		}
 	}
-	if counter == len(s) {
-		return true
-	}
-	return false
+	return counter == len(s)
 }
 
 func Capitalize(s string) string {
@@ -79,10 +79,7 @@ func IsAlpha(s string) bool {
 			counter++
 		}
 	}
-	if counter == len(s) {
-		return true
-	}
-	return false
+	return counter == len(s)
 }
 
 func IsLower(s string) bool {
@@ -93,10 +90,7 @@ func IsLower(s string) bool {
 			counter++
 		}
 	}
-	if counter == len(s) {
-		return true
-	}
-	return false
+	return counter == len(s)
 }
 
 func IsUpper(s string) bool {
@@ -107,10 +101,7 @@ func IsUpper(s string) bool {
 			counter++
 		}
 	}
-	if counter == len(s) {
-		return true
-	}
-	return false
+	return counter == len(s)
 }
 
 func ToLower(s string) string {
