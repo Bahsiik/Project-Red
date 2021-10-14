@@ -8,48 +8,26 @@ import (
 
 func Menu() { // Affiche du menu de sélection
 	fmt.Println("--- Menu Principal ---")
-	fmt.Println("A - Information du personnage")
-	fmt.Println("B - Accéder à l'inventaire du personnage")
-	fmt.Println("C - Accéder à l'équipement du personnage")
-	fmt.Println("D - Accéder aux sorts du personnage")
-	fmt.Println("E - Accéder au marchand")
-	fmt.Println("F - Accéder au Forgeron")
-	fmt.Println("G - Combat d'entrainement")
-	fmt.Println("H - Quitter le jeu")
+	fmt.Println("1 - Gérer le personnage")
+	fmt.Println("2 - Faire des achats")
+	fmt.Println("3 - Commencer le combat suivant")
+	fmt.Println("0 - Quitter le jeu")
 	fmt.Println()
 
 	for { // Lecture choix de menu
 		textmenu := Input()
 
 		switch textmenu {
-		case "A": // Affichage infos perso
+		case "1":
 			EffacerTerminal()
-			P1.DisplayInfo()
-			AccessInfo()
-		case "B": // Affichage inventaire perso + accès à ce dernier
+			Home()
+		case "2":
 			EffacerTerminal()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		case "C": // Affichage de l'equipement du personnage
-			EffacerTerminal()
-			P1.DisplayEquipment()
-			P1.AccessEquipment()
-		case "D": // Affichage des sorts + accès à ces derniers
-			EffacerTerminal()
-			P1.DisplaySkill()
-			P1.AccessSkill()
-		case "E": // Affichage inventaire marchand + accès à ce dernier
-			EffacerTerminal()
-			Marchand.DisplayInvMarchand()
-			P1.AccessInvMarchand()
-		case "F": // Affichage Forge
-			EffacerTerminal()
-			Forgeron.DisplayInventory()
-			P1.AccessInvForgeron()
-		case "G": // Lancement du combat d'entrainement
+			Achats()
+		case "3": // Lancement du combat d'entrainement
 			EffacerTerminal()
 			TrainingFight(&P1, &Gobelin)
-		case "H": // Sortie du jeu
+		case "0": // Sortie du jeu
 			Exit()
 		}
 	}
@@ -69,4 +47,57 @@ func RetourMenu() { // Commande retour au menu
 	fmt.Println()
 	EffacerTerminal()
 	Menu()
+}
+
+func Home() {
+	fmt.Println("Que voulez-vous faire ?")
+	fmt.Println("1 - Information du personnage")
+	fmt.Println("2 - Accéder à l'inventaire du personnage")
+	fmt.Println("3 - Accéder à l'équipement du personnage")
+	fmt.Println("4 - Accéder aux sorts du personnage")
+	fmt.Println("0 - Retour au menu principal")
+	texthome := Input()
+	switch texthome {
+	case "1": // Affichage infos perso
+		EffacerTerminal()
+		P1.DisplayInfo()
+		AccessInfo()
+	case "2": // Affichage inventaire perso + accès à ce dernier
+		EffacerTerminal()
+		P1.DisplayInventory()
+		P1.AccessInventory()
+	case "3": // Affichage de l'equipement du personnage
+		EffacerTerminal()
+		P1.DisplayEquipment()
+		P1.AccessEquipment()
+	case "4": // Affichage des sorts + accès à ces derniers
+		EffacerTerminal()
+		P1.DisplaySkill()
+		P1.AccessSkill()
+	case "0":
+		EffacerTerminal()
+		RetourMenu()
+	}
+}
+
+func Achats() {
+	fmt.Println("Que voulez-vous faire ?")
+	fmt.Println("1 - Accéder au marchand")
+	fmt.Println("2 - Accéder au Forgeron")
+	fmt.Println("0 - Retour au menu principal")
+
+	textachats := Input()
+	switch textachats {
+	case "1": // Affichage inventaire marchand + accès à ce dernier
+		EffacerTerminal()
+		Marchand.DisplayInvMarchand()
+		P1.AccessInvMarchand()
+	case "2": // Affichage Forge
+		EffacerTerminal()
+		Forgeron.DisplayInventory()
+		P1.AccessInvForgeron()
+	case "0":
+		EffacerTerminal()
+		RetourMenu()
+	}
 }
