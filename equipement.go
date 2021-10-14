@@ -39,12 +39,12 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un objet a l'equipement Tete
 	var test int
 	for i := range p.inventaire {
-		if i < len(p.inventaire) {
-			if p.inventaire[i] == obj {
-				test++
-				if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
-					P1.AddInventory(p.Equipement.tete)
-				}
+		if p.inventaire[i] == obj {
+			test++
+			if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
+				P1.AddInventory(p.Equipement.tete)
+			}
+			if obj == "Chapeau de l'aventurier" {
 				p.Equipement.tete = obj // Changement d'équipement de tête
 				p.RemoveInv(obj)        // Retirer l'item de l'inventaire
 				p.hpmax += 10           // Bonus d'équipement
@@ -61,12 +61,12 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un objet a l'equipement torse
 	var test int
 	for i := range p.inventaire {
-		if i < len(p.inventaire) {
-			if p.inventaire[i] == obj {
-				test++
-				if p.Equipement.torse != "" {
-					P1.AddInventory(p.Equipement.torse)
-				}
+		if p.inventaire[i] == obj {
+			test++
+			if p.Equipement.torse != "" {
+				P1.AddInventory(p.Equipement.torse)
+			}
+			if obj == "Tunique de l'aventurier" {
 				p.Equipement.torse = obj
 				p.RemoveInv(obj)
 				p.hpmax += 25
@@ -82,12 +82,12 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un objet a l'equipement pieds
 	var test int
 	for i := range p.inventaire {
-		if i < len(p.inventaire) {
-			if p.inventaire[i] == obj {
-				test++
-				if p.Equipement.pieds != "" {
-					P1.AddInventory(p.Equipement.pieds)
-				}
+		if p.inventaire[i] == obj {
+			test++
+			if p.Equipement.pieds != "" {
+				P1.AddInventory(p.Equipement.pieds)
+			}
+			if obj == "Bottes de l'aventurier" {
 				p.Equipement.pieds = obj
 				p.RemoveInv(obj)
 				p.hpmax += 15
