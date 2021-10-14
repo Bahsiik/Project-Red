@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func (p Personnage) DisplayEquipment() { // Fonction d'affichage de l'equipement du personnage
@@ -13,14 +14,21 @@ func (p Personnage) DisplayEquipment() { // Fonction d'affichage de l'equipement
 }
 
 func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement du personnage
-	fmt.Print("Que va faire ", p.nom, " ? (Rien)\n")
+	fmt.Println("Que va faire ", p.nom, " ?")
+	fmt.Println("0 - Retour à la gestion du personnage")
 	textequip := Input()
 	switch textequip {
-	case "Rien":
+	case "0":
+		EffacerTerminal()
+		fmt.Println("Vous allez retourner au menu précédent")
+		time.Sleep(1 * time.Second)
 		Home()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
+		time.Sleep(1 * time.Second)
+		EffacerTerminal()
+		P1.DisplayEquipment()
 		P1.AccessEquipment()
 	}
 }

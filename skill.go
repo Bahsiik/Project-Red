@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
@@ -17,16 +18,23 @@ func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 }
 
 func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
-	fmt.Println("Quel sort", p.nom, "veut utiliser ? ( Rien)")
+	fmt.Println("Quel sort", p.nom, "veut utiliser ?")
+	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textskill := Input()
 	switch textskill {
-	case "Rien":
+	case "0":
+		EffacerTerminal()
+		fmt.Println("Vous allez retourner au menu précédent")
+		time.Sleep(1 * time.Second)
 		Home()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
-		P1.AccessInventory()
+		time.Sleep(1 * time.Second)
+		EffacerTerminal()
+		P1.DisplaySkill()
+		P1.AccessSkill()
 	}
 }
 

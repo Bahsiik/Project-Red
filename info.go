@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
@@ -18,13 +19,18 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 }
 
 func AccessInfo() { // Fonction pour quitter les infos du personnage
-	fmt.Println("(Retour au menu --> Tapez Retour)")
+	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textinfo := Input()
 	switch textinfo {
-	case "Retour":
+	case "0":
+		EffacerTerminal()
+		fmt.Println("Vous allez retourner au menu précédent")
+		time.Sleep(1 * time.Second)
 		Home() // Retour au menu si le joueur tape "Retour"
 	default:
+		EffacerTerminal()
+		P1.DisplayInfo()
 		AccessInfo()
 	}
 }

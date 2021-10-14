@@ -26,6 +26,7 @@ func Menu() { // Affiche du menu de sélection
 			EffacerTerminal()
 			TrainingFight(&P1, &Gobelin)
 		case "0": // Sortie du jeu
+			EffacerTerminal()
 			Exit()
 		}
 	}

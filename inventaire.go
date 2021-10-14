@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
@@ -17,7 +18,8 @@ func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
 }
 
 func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans l'inventaire
-	fmt.Println("Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Rien)")
+	fmt.Println("Quel objet", p.nom, "veut utiliser ? (Nom de l'objet)")
+	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textinv := Input()
 	switch textinv {
@@ -55,11 +57,17 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 			fmt.Println()
 			P1.AccessInventory()
 		}
-	case "Rien": // Retour au menu
+	case "0": // Retour au menu
+		EffacerTerminal()
+		fmt.Println("Vous allez retourner au menu précédent")
+		time.Sleep(1 * time.Second)
 		Home()
 	default: // Choix d'objet invalide
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
+		time.Sleep(1 * time.Second)
+		EffacerTerminal()
+		P1.DisplayInventory()
 		P1.AccessInventory()
 	}
 }
