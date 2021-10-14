@@ -22,7 +22,7 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	textskill := Input()
 	switch textskill {
 	case "Rien":
-		RetourMenu()
+		Home()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()

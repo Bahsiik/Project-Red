@@ -40,7 +40,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 	case "Rien": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
-		RetourMenu()
+		Achats()
 	case "1": // Achat de la potion
 		if p.VerifTailleInv() {
 			if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
@@ -53,7 +53,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			}
 		} else {
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
-			RetourMenu()
+			Achats()
 		}
 	case "2": // Achat de la potion de poison
 		if (P1.money - 6) >= 0 {
@@ -146,7 +146,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
-			RetourMenu()
+			Achats()
 		}
 	}
 }

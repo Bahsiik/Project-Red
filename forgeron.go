@@ -40,7 +40,7 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 	case "Rien": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
-		RetourMenu()
+		Achats()
 	case "1": // Craft Chapeau de l'aventurier
 		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
 	case "2":
@@ -65,13 +65,13 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 		textforgeron2 := Input()
 		switch textforgeron2 {
 		case "Oui": // Continuation des achats
-			fmt.Println("Que voulez vous fabriquer d'autre ?")
+			Forgeron.DisplayInvForgeron2()
 			fmt.Println()
 			P1.AccessInvForgeron()
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
-			RetourMenu()
+			Achats()
 		}
 	}
 }
@@ -99,7 +99,26 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 { // Cas où il manque des composants
 		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
+		EchecCraft()
 	} else if p.money < prix { // Cas où il manque de l'argent
 		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
+		EchecCraft()
+	}
+}
+
+func EchecCraft() {
+	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	for {
+		textforgeronechec := Input()
+		switch textforgeronechec {
+		case "Oui": // Continuation des achats
+			Forgeron.DisplayInvForgeron2()
+			fmt.Println()
+			P1.AccessInvForgeron()
+		case "Non": // Retour au menu
+			fmt.Println("Très bien, au revoir")
+			fmt.Println()
+			Achats()
+		}
 	}
 }

@@ -23,7 +23,7 @@ func AccessInfo() { // Fonction pour quitter les infos du personnage
 	textinfo := Input()
 	switch textinfo {
 	case "Retour":
-		RetourMenu() // Retour au menu si le joueur tape "Retour"
+		Home() // Retour au menu si le joueur tape "Retour"
 	default:
 		AccessInfo()
 	}

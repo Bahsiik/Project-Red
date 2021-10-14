@@ -56,7 +56,7 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 			P1.AccessInventory()
 		}
 	case "Rien": // Retour au menu
-		RetourMenu()
+		Home()
 	default: // Choix d'objet invalide
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()

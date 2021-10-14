@@ -17,7 +17,7 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 	textequip := Input()
 	switch textequip {
 	case "Rien":
-		RetourMenu()
+		Home()
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
@@ -36,7 +36,7 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 			p.Equipement.tete = obj // Changement d'équipement de tête
 			p.RemoveInv(obj)        // Retirer l'item de l'inventaire
 			p.hpmax += 10           // Bonus d'équipement
-			fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax, " en équipant", obj)
+			fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant", obj)
 			fmt.Println()
 		}
 	}
@@ -56,7 +56,7 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 			p.Equipement.torse = obj
 			p.RemoveInv("obj")
 			p.hpmax += 25
-			fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
+			fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
 		}
 	}
 	if test == 0 {
@@ -75,7 +75,7 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 			p.Equipement.pieds = obj
 			p.RemoveInv(obj)
 			p.hpmax += 15
-			fmt.Println("Les Hp Max de, ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
+			fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
 		}
 	}
 	if test == 0 {

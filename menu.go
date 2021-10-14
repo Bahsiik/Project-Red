@@ -13,10 +13,8 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println("3 - Commencer le combat suivant")
 	fmt.Println("0 - Quitter le jeu")
 	fmt.Println()
-
 	for { // Lecture choix de menu
 		textmenu := Input()
-
 		switch textmenu {
 		case "1":
 			EffacerTerminal()
@@ -50,6 +48,7 @@ func RetourMenu() { // Commande retour au menu
 }
 
 func Home() {
+	EffacerTerminal()
 	fmt.Println("Que voulez-vous faire ?")
 	fmt.Println("1 - Information du personnage")
 	fmt.Println("2 - Accéder à l'inventaire du personnage")
@@ -77,15 +76,19 @@ func Home() {
 	case "0":
 		EffacerTerminal()
 		RetourMenu()
+	default:
+		fmt.Println("Commande invalide")
+		time.Sleep(1 * time.Second)
+		Home()
 	}
 }
 
 func Achats() {
+	EffacerTerminal()
 	fmt.Println("Que voulez-vous faire ?")
 	fmt.Println("1 - Accéder au marchand")
 	fmt.Println("2 - Accéder au Forgeron")
 	fmt.Println("0 - Retour au menu principal")
-
 	textachats := Input()
 	switch textachats {
 	case "1": // Affichage inventaire marchand + accès à ce dernier
@@ -94,10 +97,14 @@ func Achats() {
 		P1.AccessInvMarchand()
 	case "2": // Affichage Forge
 		EffacerTerminal()
-		Forgeron.DisplayInventory()
+		Forgeron.DisplayInvForgeron()
 		P1.AccessInvForgeron()
 	case "0":
 		EffacerTerminal()
 		RetourMenu()
+	default:
+		fmt.Println("Commande invalide")
+		time.Sleep(1 * time.Second)
+		Achats()
 	}
 }

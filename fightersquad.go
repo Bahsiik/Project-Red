@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entrainement
@@ -12,12 +13,17 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 		if p.hp > 0 || m.hp > 0 {
 			fmt.Println("======== Tour ", tour, " ========") // Initialisation n° de tours
 			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |||", m.nom, " :", m.hp, "/", m.hpmax, "HP")
+			fmt.Println()
 			if p.initiative >= m.initiative {
 				p.CharTurn(m)
+				time.Sleep(1 * time.Second)
 				GoblinPattern(p, m, tour)
+				time.Sleep(1 * time.Second)
 			} else {
 				GoblinPattern(p, m, tour)
+				time.Sleep(1 * time.Second)
 				p.CharTurn(m)
+				time.Sleep(1 * time.Second)
 			}
 		}
 	}
