@@ -11,6 +11,8 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 	fmt.Println("FIGHT !!!")
 	for tour := 1; ; tour++ { // Condition de fin de combat
 		if p.hp > 0 || m.hp > 0 {
+			time.Sleep(3 * time.Second)
+			EffacerTerminal()
 			fmt.Println("======== Tour ", tour, " ========") // Initialisation n° de tours
 			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |||", m.nom, " :", m.hp, "/", m.hpmax, "HP")
 			fmt.Println()
