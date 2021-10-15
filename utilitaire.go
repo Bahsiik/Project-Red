@@ -140,7 +140,7 @@ func GainExp(p *Personnage, m *Monstre) {
 	switch m.nom {
 	case "Goblin d'entrainement":
 		p.exp += 1000
-		fmt.Println(p.nom, " a gagné", p.exp, " Xp")
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	}
 }
 
