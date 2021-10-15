@@ -12,7 +12,7 @@ func MarchandInit(p *Personnage) {
 }
 
 func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
-	fmt.Println("Bonjour, que souhaitez vous acheter ?")
+	fmt.Println("çççççççç Bonjour, que souhaitez vous acheter ? çççççççç")
 	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous vendre...")
@@ -27,7 +27,7 @@ func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventai
 }
 
 func (p Personnage) DisplayInvMarchand2() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
-	fmt.Println("Que souhaitez vous acheter d'autres ? ")
+	fmt.Println("çççççççç Que souhaitez vous acheter d'autres ? çççççççç")
 	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous vendre...")
@@ -45,7 +45,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 	textmarchand := Input()
 	switch textmarchand {
 	case "0": // Retour au menu (aucun objet choisi)
-		fmt.Println("Très bien, passez une bonne journée.")
+		fmt.Println("çççççççç Très bien, passez une bonne journée. çççççççç")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Achats()
@@ -83,7 +83,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 				p.Pauvre()
 			}
 		} else {
-			fmt.Println("désolé monsieur, je ne peut pas vous fournir cet article..")
+			fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
 			P1.AccessInvMarchand()
 		}
 	case "4": // Achat de la Fourrure de Loup
@@ -142,7 +142,9 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 
 func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Tenez Monsieur")
+	fmt.Println()
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	fmt.Println()
 	P1.AddInventory(choix) // Ajout de l'objet
 	for {
 		textmarchand2 := Input()
@@ -152,6 +154,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 			fmt.Println()
 			P1.AccessInvMarchand()
 		case "Non": // Retour au menu
+			fmt.Println()
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
 			time.Sleep(1 * time.Second)
