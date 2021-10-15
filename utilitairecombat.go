@@ -59,7 +59,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 func CoupPoing(p *Personnage, m *Monstre) {
 	if p.mana >= 5 {
 		fmt.Println(p.nom, " effectue un Coup de poing")
-		m.hp -= 8
+		m.hp -= p.atk * 2
 		p.mana -= 5
 		fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
 		fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
@@ -74,7 +74,7 @@ func CoupPoing(p *Personnage, m *Monstre) {
 
 func AttaqueBasique(p *Personnage, m *Monstre) {
 	fmt.Println(p.nom, " effectue une attaque basique")
-	m.hp -= 5
+	m.hp -= p.atk
 	fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 	DeathMonstre(p, m)
 }
@@ -94,7 +94,7 @@ func BouleFeu(p *Personnage, m *Monstre) {
 			P1.CharTurn(m)
 		} else {
 			fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
-			m.hp -= 18
+			m.hp -= p.puissance * 2
 			p.mana -= 10
 			fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
 			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
