@@ -14,7 +14,8 @@ func (p Personnage) DisplayEquipment() { // Fonction d'affichage de l'equipement
 }
 
 func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement du personnage
-	fmt.Println("Que va faire ", p.nom, " ?")
+	fmt.Println("------ Que va faire ", p.nom, " ? ------")
+	fmt.Println()
 	fmt.Println("1 - Retirer de l'équipement")
 	fmt.Println("0 - Retour à la gestion du personnage")
 	textequip := Input()
@@ -23,11 +24,12 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 		DisplayRetirerEquip()
 	case "0":
 		EffacerTerminal()
-		fmt.Println("Vous allez retourner au menu précédent")
+		fmt.Println()
+		fmt.Println("------ Vous allez retourner au menu précédent ------")
 		time.Sleep(1 * time.Second)
 		Home()
 	default:
-		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println("------ ", P1.nom, "ne sais pas quoi faire.. ------")
 		fmt.Println()
 		SwipeMenuEquipement()
 	}
@@ -51,7 +53,8 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 		}
 	}
 	if test == 0 {
-		fmt.Println("Vous ne possédez pas cet équipement..")
+		fmt.Println("------ Vous ne possédez pas cet équipement.. ------")
+		fmt.Println()
 	}
 }
 
@@ -72,7 +75,8 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 		}
 	}
 	if test == 0 {
-		fmt.Println("Vous ne possédez pas cet équipement..")
+		fmt.Println("------ Vous ne possédez pas cet équipement.. ------")
+		fmt.Println()
 	}
 }
 
@@ -93,13 +97,15 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 		}
 	}
 	if test == 0 {
-		fmt.Println("Vous ne possédez pas cet équipement..")
+		fmt.Println("------ Vous ne possédez pas cet équipement.. ------")
+		fmt.Println()
 	}
 }
 
 func DisplayRetirerEquip() {
 	fmt.Println()
-	fmt.Println("Quelle partie d'équipement voulez vous retirer ?")
+	fmt.Println("------ Quelle partie d'équipement voulez vous retirer ? ------")
+	fmt.Println()
 	fmt.Println("1 - Tête")
 	fmt.Println("2 - Torse")
 	fmt.Println("3 - Pieds")
@@ -120,7 +126,8 @@ func DisplayRetirerEquip() {
 func (p *Personnage) RetirerEquipementTete() {
 	if p.VerifTailleInv() {
 		if p.Equipement.tete == "" {
-			fmt.Println("Vous n'avez rien équipé sur votre torse..")
+			fmt.Println("Vous n'avez rien équipé sur votre tête..")
+			fmt.Println()
 			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.tete == "Chapeau de l'aventurier" {
@@ -131,10 +138,12 @@ func (p *Personnage) RetirerEquipementTete() {
 					p.hp = p.hpmax
 				}
 				fmt.Println(p.nom, " perd 10 HP maximum")
+				fmt.Println()
 			}
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
+		fmt.Println()
 		SwipeMenuEquipement()
 	}
 }
@@ -143,6 +152,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 	if p.VerifTailleInv() {
 		if p.Equipement.torse == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre torse..")
+			fmt.Println()
 			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.torse == "Tunique de l'aventurier" {
@@ -153,10 +163,12 @@ func (p *Personnage) RetirerEquipementTorse() {
 					p.hp = p.hpmax
 				}
 				fmt.Println(p.nom, " perd 25 HP maximum")
+				fmt.Println()
 			}
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
+		fmt.Println()
 		SwipeMenuEquipement()
 	}
 }
@@ -165,6 +177,7 @@ func (p *Personnage) RetirerEquipementPieds() {
 	if p.VerifTailleInv() {
 		if p.Equipement.pieds == "" {
 			fmt.Println("Vous n'avez rien équipé à vos pieds..")
+			fmt.Println()
 			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.pieds == "Bottes de l'aventurier" {
@@ -175,10 +188,12 @@ func (p *Personnage) RetirerEquipementPieds() {
 					p.hp = p.hpmax
 				}
 				fmt.Println(p.nom, " perd 15 HP maximum")
+				fmt.Println()
 			}
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
+		fmt.Println()
 		SwipeMenuEquipement()
 	}
 }
