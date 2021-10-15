@@ -7,6 +7,7 @@ import (
 
 func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 	fmt.Println("--- Informations du personnage ---")
+	fmt.Println()
 	fmt.Println("Nom --> ", p.nom)
 	fmt.Println("Classe --> ", p.classe)
 	fmt.Println("Niveau --> ", p.niveau)
@@ -25,7 +26,7 @@ func AccessInfo() { // Fonction pour quitter les infos du personnage
 	switch textinfo {
 	case "0":
 		EffacerTerminal()
-		fmt.Println("Vous allez retourner au menu précédent")
+		fmt.Println("------ Vous allez retourner au menu précédent ------")
 		time.Sleep(1 * time.Second)
 		Home() // Retour au menu si le joueur tape "Retour"
 	default:
