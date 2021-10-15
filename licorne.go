@@ -5,15 +5,15 @@ import (
 	"time"
 )
 
-var Gobelin Monstre
+var Licorne Monstre
 
-func GobelinInit(m *Monstre) {
-	Gobelin.InitMonstre("Goblin d'entrainement", 40, 40, 5, 10)
+func LicorneInit(m *Monstre) {
+	Licorne.InitMonstre("Licorne", 60, 60, 10, 20)
 }
 
-func AttaqueGobelin(p *Personnage, m *Monstre) {
+func AttaqueLicorne(p *Personnage, m *Monstre) {
 	fmt.Println()
-	fmt.Println(m.nom, " attaque ", p.nom)
+	fmt.Println(m.nom, " donne un coup de sabot à ", p.nom)
 	fmt.Println()
 	p.hp -= m.atk
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
@@ -26,9 +26,9 @@ func AttaqueGobelin(p *Personnage, m *Monstre) {
 	}
 }
 
-func AttaqueCritGobelin(p *Personnage, m *Monstre) {
+func AttaqueCritLicorne(p *Personnage, m *Monstre) {
 	fmt.Println()
-	fmt.Println(m.nom, " inflige ", m.atk*2, " de dégats critique à ", p.nom)
+	fmt.Println(m.nom, " lance une Attaque arc-en-ciel et inflige ", m.atk*2, " de coup critique à ", p.nom)
 	fmt.Println()
 	p.hp -= m.atk * 2
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
@@ -41,14 +41,13 @@ func AttaqueCritGobelin(p *Personnage, m *Monstre) {
 	}
 }
 
-func GoblinPattern(p *Personnage, m *Monstre, tour int) {
-	fmt.Println()
+func LicornePattern(p *Personnage, m *Monstre, tour int) {
 	fmt.Println()
 	fmt.Println("C'est au tour du ", m.nom)
 	fmt.Println()
-	if tour%4 == 0 {
-		AttaqueCritGobelin(p, m)
+	if tour%3 == 0 {
+		AttaqueCritLicorne(p, m)
 	} else {
-		AttaqueGobelin(p, m)
+		AttaqueLicorne(p, m)
 	}
 }

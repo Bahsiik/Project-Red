@@ -24,12 +24,12 @@ func Menu() { // Affiche du menu de sélection
 		case "2":
 			EffacerTerminal()
 			Achats()
-		case "3": // Lancement du combat d'entrainement
+		case "3": // Lancement du combat
 			EffacerTerminal()
 			fmt.Println("ooooo Qui voulez-vous affrontez ? ooooo")
 			fmt.Println()
-			fmt.Println("1 - Goblin (Easy)")
-			fmt.Println("2 - Licorn (Medium)")
+			fmt.Println("1 - Gobelin (Easy)")
+			fmt.Println("2 - Licorne (Medium)")
 			fmt.Println("3 - Dragon (Hard)")
 			fmt.Println("4 - Alan (Extrême)")
 			fmt.Println("5 - Lucas (Divin)")
@@ -40,10 +40,10 @@ func Menu() { // Affiche du menu de sélection
 			switch textfight {
 			case "1":
 				EffacerTerminal()
-				TrainingFight(&P1, &Gobelin, GoblinPattern)
+				TrainingFight(&P1, &Gobelin, GobelinPattern)
 			case "2":
 				EffacerTerminal()
-				TrainingFight(&P1, &Licorn, LicornPattern)
+				TrainingFight(&P1, &Licorne, LicornePattern)
 			case "3":
 				EffacerTerminal()
 				TrainingFight(&P1, &Dragon, DragonPattern)

@@ -95,3 +95,43 @@ func (p *Personnage) TakeManaPot() { // Fonction de prise de potion de soins
 		fmt.Println(p.nom, "n'as malheureusement pas de potion de mana...")
 	}
 }
+
+func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
+	var test2 int
+	for i := range p.inventaire {
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == "Potion de poison" { // Incrémentattion du compteur de potions par rapport à l'inventaire
+				test2++
+				fmt.Println(p.nom, " utilise une potion de poison sur ", m.nom)
+				fmt.Println()
+				p.RemoveInv("Potion de poison")
+				test := 0
+				for i := 0; i < 3; i++ { // Initialisation des 3s d'effet de la potion
+					if test == 0 { // Dégats/sec
+						m.hp -= 10
+						fmt.Println()
+						fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+						fmt.Println()
+						if m.hp <= 0 {
+							fmt.Println()
+							fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
+							fmt.Println()
+							GainExp(p, m)
+							GainMoney(p, m)
+							fmt.Println()
+							m.hp = m.hpmax // Réinitialisation pv monstre
+							RetourMenu()
+						}
+						time.Sleep(1 * time.Second) // Timer dégats par secondes
+					}
+				}
+			}
+		}
+	}
+	if test2 == 0 { // Dans l'absence de potions dans l'inventaire de combat
+		fmt.Println()
+		fmt.Println(p.nom, "n'as malheureusement pas cette potion...")
+		fmt.Println()
+		p.CharTurn(m)
+	}
+}

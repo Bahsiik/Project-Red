@@ -8,7 +8,7 @@ import (
 var Dragon Monstre
 
 func DragonInit(m *Monstre) {
-	Dragon.InitMonstre("Dragon d'entrainement", 200, 200, 20, 5)
+	Dragon.InitMonstre("Dragon", 200, 200, 20, 5)
 }
 
 func AttaqueDragon(p *Personnage, m *Monstre) {

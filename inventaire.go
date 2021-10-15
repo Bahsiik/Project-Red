@@ -172,3 +172,24 @@ func (p *Personnage) UpgradeInventorySlot() { // Fonction pour augmenter la tail
 		}
 	}
 }
+
+func (p *Personnage) AccessInvFight(m *Monstre) { // Utilisation de l'inventaire en cours de combat
+	fmt.Println()
+	fmt.Println("------ Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Retour) ------")
+	fmt.Println()
+	textinvfight := Input()
+	switch textinvfight {
+	case "Potion de soin":
+		p.TakeHealPot()
+	case "Potion de mana":
+		p.TakeManaPot()
+	case "Potion de poison":
+		p.PoisonPotComb(m)
+	case "Retour":
+		p.CharTurn(m)
+	default: // Condition par défaut
+		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println()
+		p.CharTurn(m)
+	}
+}

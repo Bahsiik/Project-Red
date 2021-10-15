@@ -29,12 +29,8 @@ func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventai
 func (p Personnage) DisplayInvMarchand2() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
 	fmt.Println("çççççççç Que souhaitez vous acheter d'autres ? çççççççç")
 	fmt.Println()
-	if len(p.inventaire) == 0 {
-		fmt.Println("Désolé, je n'ai rien a vous vendre...")
-	} else {
-		for i := range p.inventaire {
-			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
-		}
+	for i := range p.inventaire {
+		fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 	}
 	fmt.Println()
 	fmt.Println("0 - Retour au menu précédent")

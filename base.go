@@ -10,7 +10,7 @@ func main() { // Fonction principale qui lance le jeu
 	MarchandInit(&Marchand) // Initialisation du marchand
 	ForgeronInit(&Forgeron) // Initialisation du forgeron
 	GobelinInit(&Gobelin)   // Initialisation du gobelin
-	LicornInit(&Licorn)     // Initialisation de la plus belle des licornes
+	LicorneInit(&Licorne)   // Initialisation de la plus belle des Licornees
 	DragonInit(&Dragon)     // Initialisation DragonBlanc aux yeux bleus
 	AlanInit(&Alan)         // Initialisation ALAN
 	LucasInit(&Lucas)       // Initialisation LUCAS
