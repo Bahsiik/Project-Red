@@ -30,14 +30,14 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 		fmt.Println("---- Vous allez retourner au menu précédent ----")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
-		Home()
+		p.Home()
 	default:
-		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println(p.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
 		EffacerTerminal()
-		P1.DisplaySkill()
-		P1.AccessSkill()
+		p.DisplaySkill()
+		p.AccessSkill()
 	}
 }
 

@@ -24,7 +24,7 @@ func CoupPoing(p *Personnage, m *Monstre) { // Initialisation fonction Coup de p
 	} else {
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }
 
@@ -41,7 +41,7 @@ func IronFist(p *Personnage, m *Monstre) { // Initialisation fonction Coup de po
 	} else {
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }
 
@@ -58,7 +58,7 @@ func ChargeBerserker(p *Personnage, m *Monstre) { // Initialisation fonction Cou
 	} else {
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }
 
@@ -74,7 +74,7 @@ func BouleFeu(p *Personnage, m *Monstre) { // Initialisation fonction Boule de F
 			fmt.Println()
 			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
 			fmt.Println()
-			P1.CharTurn(m) // Retour choix perso
+			p.CharTurn(m) // Retour choix perso
 		} else {
 			fmt.Println()
 			fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
@@ -89,7 +89,7 @@ func BouleFeu(p *Personnage, m *Monstre) { // Initialisation fonction Boule de F
 		fmt.Println()
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }
 
@@ -105,7 +105,7 @@ func Blizzard(p *Personnage, m *Monstre) { // Initialisation fonction Blizzard
 			fmt.Println()
 			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
 			fmt.Println()
-			P1.CharTurn(m) // Retour choix perso
+			p.CharTurn(m) // Retour choix perso
 		} else {
 			fmt.Println()
 			fmt.Println(p.nom, " lance un blizzard !!!!!!!!!!!!")
@@ -120,7 +120,7 @@ func Blizzard(p *Personnage, m *Monstre) { // Initialisation fonction Blizzard
 		fmt.Println()
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }
 
@@ -136,7 +136,7 @@ func DechargeEnergetique(p *Personnage, m *Monstre) { // Initialisation fonction
 			fmt.Println()
 			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
 			fmt.Println()
-			P1.CharTurn(m) // Retour choix perso
+			p.CharTurn(m) // Retour choix perso
 		} else {
 			fmt.Println()
 			fmt.Println(p.nom, " lance une décharge énergétique !!!!!!!!!!!!")
@@ -151,6 +151,6 @@ func DechargeEnergetique(p *Personnage, m *Monstre) { // Initialisation fonction
 		fmt.Println()
 		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }

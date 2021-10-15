@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func TrainingFight(p *Personnage, m *Monstre, pattern func(p *Personnage, m *Monstre, tour int)) { // Initialisation combat
+func (p *Personnage) Fight(m *Monstre, pattern func(p *Personnage, m *Monstre, tour int)) { // Initialisation combat
 	fmt.Println()
 	fmt.Println("------ ", p.nom, " engage le combat  ------")
 	fmt.Println()
@@ -87,12 +87,12 @@ func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 		case "6":
 			DechargeEnergetique(p, m)
 		case "0":
-			P1.CharTurn(m)
+			p.CharTurn(m)
 		default: // Choix d'action invalide
 			fmt.Println()
 			fmt.Println("Désolé, cette commande est invalide, veuillez faire un autre choix.")
 			fmt.Println()
-			P1.CharTurn(m)
+			p.CharTurn(m)
 		}
 	case "3":
 		p.DisplayInventory()
@@ -103,6 +103,6 @@ func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 		fmt.Println()
 		fmt.Println("Désolé, cette commande est invalide, veuillez faire un autre choix.")
 		fmt.Println()
-		P1.CharTurn(m)
+		p.CharTurn(m)
 	}
 }

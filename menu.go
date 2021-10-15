@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func Menu() { // Affiche du menu de sélection
+func (p *Personnage) Menu() { // Affiche du menu de sélection
 	fmt.Println("------ Menu Principal ------")
 	fmt.Println()
 	fmt.Println("1 - Gérer le personnage")
@@ -20,10 +20,10 @@ func Menu() { // Affiche du menu de sélection
 		switch textmenu {
 		case "1":
 			EffacerTerminal()
-			Home()
+			p.Home()
 		case "2":
 			EffacerTerminal()
-			Achats()
+			p.Achats()
 		case "3": // Lancement du combat
 			EffacerTerminal()
 			fmt.Println("ooooo Qui voulez-vous affrontez ? ooooo")
@@ -40,22 +40,22 @@ func Menu() { // Affiche du menu de sélection
 			switch textfight {
 			case "1":
 				EffacerTerminal()
-				TrainingFight(&P1, &Gobelin, GobelinPattern)
+				p.Fight(&Gobelin, GobelinPattern)
 			case "2":
 				EffacerTerminal()
-				TrainingFight(&P1, &Licorne, LicornePattern)
+				p.Fight(&Licorne, LicornePattern)
 			case "3":
 				EffacerTerminal()
-				TrainingFight(&P1, &Dragon, DragonPattern)
+				p.Fight(&Dragon, DragonPattern)
 			case "4":
 				EffacerTerminal()
-				TrainingFight(&P1, &Alan, AlanPattern)
+				p.Fight(&Alan, AlanPattern)
 			case "5":
 				EffacerTerminal()
-				TrainingFight(&P1, &Lucas, LucasPattern)
+				p.Fight(&Lucas, LucasPattern)
 			case "0":
 				EffacerTerminal()
-				Menu()
+				p.Menu()
 			}
 		case "0": // Sortie du jeu
 			EffacerTerminal()
@@ -80,10 +80,10 @@ func RetourMenu() { // Commande retour au menu
 	time.Sleep(1 * time.Second)
 	fmt.Println()
 	EffacerTerminal()
-	Menu()
+	P1.Menu()
 }
 
-func Home() {
+func (p *Personnage) Home() {
 	EffacerTerminal()
 	fmt.Println("-------- Que voulez-vous faire ? --------")
 	fmt.Println()
@@ -97,20 +97,20 @@ func Home() {
 	switch texthome {
 	case "1": // Affichage infos perso
 		EffacerTerminal()
-		P1.DisplayInfo()
-		AccessInfo()
+		p.DisplayInfo()
+		p.AccessInfo()
 	case "2": // Affichage inventaire perso + accès à ce dernier
 		EffacerTerminal()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "3": // Affichage de l'equipement du personnage
 		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		p.DisplayEquipment()
+		p.AccessEquipment()
 	case "4": // Affichage des sorts + accès à ces derniers
 		EffacerTerminal()
-		P1.DisplaySkill()
-		P1.AccessSkill()
+		p.DisplaySkill()
+		p.AccessSkill()
 	case "0":
 		EffacerTerminal()
 		RetourMenu()
@@ -118,11 +118,11 @@ func Home() {
 		fmt.Println("-------- Commande invalide --------")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
-		Home()
+		p.Home()
 	}
 }
 
-func Achats() {
+func (p *Personnage) Achats() {
 	EffacerTerminal()
 	fmt.Println("-------- Que voulez-vous faire ? --------")
 	fmt.Println()
@@ -135,11 +135,11 @@ func Achats() {
 	case "1": // Affichage inventaire marchand + accès à ce dernier
 		EffacerTerminal()
 		Marchand.DisplayInvMarchand()
-		P1.AccessInvMarchand()
+		p.AccessInvMarchand()
 	case "2": // Affichage Forge
 		EffacerTerminal()
 		Forgeron.DisplayInvForgeron()
-		P1.AccessInvForgeron()
+		p.AccessInvForgeron()
 	case "0":
 		EffacerTerminal()
 		RetourMenu()
@@ -147,6 +147,6 @@ func Achats() {
 		fmt.Println("-------- Commande invalide --------")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
-		Achats()
+		p.Achats()
 	}
 }

@@ -48,7 +48,7 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
-		Achats()
+		p.Achats()
 	case "1": // Craft Chapeau de l'aventurier
 		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
 	case "2":
@@ -60,7 +60,7 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		fmt.Print("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Désolé mais je ne comprend pas, veuillez faire un autre choix ☭☭☭☭☭☭☭☭☭☭☭☭☭☭ \n")
 		fmt.Println()
 		Forgeron.DisplayInvForgeron2()
-		Forgeron.AccessInvForgeron()
+		p.AccessInvForgeron()
 	}
 }
 
@@ -70,18 +70,18 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 	fmt.Println()
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
 	fmt.Println()
-	P1.AddInventory(choix) // Ajout de l'objet
+	p.AddInventory(choix) // Ajout de l'objet
 	for {
 		textforgeron2 := Input()
 		switch textforgeron2 {
 		case "Oui": // Continuation des achats
 			Forgeron.DisplayInvForgeron2()
 			fmt.Println()
-			P1.AccessInvForgeron()
+			p.AccessInvForgeron()
 		case "Non": // Retour au menu
 			fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Très bien, au revoir ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 			fmt.Println()
-			Achats()
+			p.Achats()
 		}
 	}
 }
@@ -109,14 +109,14 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 		p.ContinueForgeronInv(equip)
 	} else if test1 < nbr1 && test2 < nbr2 { // Cas où il manque des composants
 		fmt.Print("Je suis désolé mais tu n'as pas les composants nécessaires... \n")
-		EchecCraft()
+		p.EchecCraft()
 	} else if p.money < prix { // Cas où il manque de l'argent
 		fmt.Print("Je suis désolé mais tu n'as pas assez d'argent... \n")
-		EchecCraft()
+		p.EchecCraft()
 	}
 }
 
-func EchecCraft() { // Choix continuation achat ou non
+func (p *Personnage) EchecCraft() { // Choix continuation achat ou non
 	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Besoin d'autres choses messire ? (Oui/Non) ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	for {
 		textforgeronechec := Input()
@@ -124,12 +124,12 @@ func EchecCraft() { // Choix continuation achat ou non
 		case "Oui": // Continuation des achats
 			Forgeron.DisplayInvForgeron2()
 			fmt.Println()
-			P1.AccessInvForgeron()
+			p.AccessInvForgeron()
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
 			time.Sleep(1 * time.Second)
-			Achats()
+			p.Achats()
 		}
 	}
 }

@@ -25,101 +25,56 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 	textinv := Input()
 	switch textinv {
 	case "Potion de soin": // Utilisation de la potion
-		P1.TakeHealPot()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.TakeHealPot()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Potion de mana":
-		P1.TakeManaPot()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.TakeManaPot()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Potion de poison":
-		P1.PoisonPot()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.PoisonPot()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Chapeau de l'aventurier":
-		P1.AddEquipementTete(textinv)
+		p.AddEquipementTete(textinv)
 		fmt.Println()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Tunique de l'aventurier":
-		P1.AddEquipementTorse(textinv)
+		p.AddEquipementTorse(textinv)
 		fmt.Println()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Bottes de l'aventurier":
-		P1.AddEquipementPieds(textinv)
+		p.AddEquipementPieds(textinv)
 		fmt.Println()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Livre de sort : Iron Fist":
-		if p.VerifSpellBook("Livre de sort : Iron Fist") {
-			P1.SpellBook("Iron Fist", "Livre de sort : Iron Fist")
-			fmt.Println()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		} else {
-			fmt.Println(P1.nom, "ne sais pas quoi faire..")
-			fmt.Println()
-			P1.AccessInventory()
-		}
+		p.UseSpellBook("Iron Fist")
 	case "Livre de sort : Charge du Berserker":
-		if p.VerifSpellBook("Livre de sort : Charge du Berserker") {
-			P1.SpellBook("Charge du Berserker", "Livre de sort : Charge du Berserker")
-			fmt.Println()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		} else {
-			fmt.Println(P1.nom, "ne sais pas quoi faire..")
-			fmt.Println()
-			P1.AccessInventory()
-		}
+		p.UseSpellBook("Charge du Berserker")
 	case "Livre de sort : Boule de Feu":
-		if p.VerifSpellBook("Livre de sort : Boule de Feu") {
-			P1.SpellBook("Boule de Feu", "Livre de sort : Boule de Feu")
-			fmt.Println()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		} else {
-			fmt.Println(P1.nom, "ne sais pas quoi faire..")
-			fmt.Println()
-			P1.AccessInventory()
-		}
+		p.UseSpellBook("Boule de Feu")
 	case "Livre de sort : Blizzard":
-		if p.VerifSpellBook("Livre de sort : Blizzard") {
-			P1.SpellBook("Blizzard", "Livre de sort : Blizzard")
-			fmt.Println()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		} else {
-			fmt.Println(P1.nom, "ne sais pas quoi faire..")
-			fmt.Println()
-			P1.AccessInventory()
-		}
+		p.UseSpellBook("Blizzard")
 	case "Livre de sort : Décharge énergétique":
-		if p.VerifSpellBook("Livre de sort : Décharge énergétique") {
-			P1.SpellBook("Décharge énergétique", "Livre de sort : Décharge énergétique")
-			fmt.Println()
-			P1.DisplayInventory()
-			P1.AccessInventory()
-		} else {
-			fmt.Println(P1.nom, "ne sais pas quoi faire..")
-			fmt.Println()
-			P1.AccessInventory()
-		}
+		p.UseSpellBook("Décharge énergétique")
 	case "0": // Retour au menu
 		EffacerTerminal()
 		fmt.Println()
 		fmt.Println("-------- Vous allez retourner au menu précédent --------")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
-		Home()
+		p.Home()
 	default: // Choix d'objet invalide
-		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println(p.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
 		EffacerTerminal()
-		P1.DisplayInventory()
-		P1.AccessInventory()
+		p.DisplayInventory()
+		p.AccessInventory()
 	}
 }
 
@@ -164,7 +119,7 @@ func (p *Personnage) UpgradeInventorySlot() { // Fonction pour augmenter la tail
 		case "Oui": // Continuation des achats
 			Marchand.DisplayInvMarchand2()
 			fmt.Println()
-			P1.AccessInvMarchand()
+			p.AccessInvMarchand()
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
@@ -175,7 +130,9 @@ func (p *Personnage) UpgradeInventorySlot() { // Fonction pour augmenter la tail
 
 func (p *Personnage) AccessInvFight(m *Monstre) { // Utilisation de l'inventaire en cours de combat
 	fmt.Println()
-	fmt.Println("------ Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Retour) ------")
+	fmt.Println("------ Quel objet", p.nom, "veut utiliser ? (Nom de l'objet) ------")
+	fmt.Println()
+	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textinvfight := Input()
 	switch textinvfight {
@@ -188,8 +145,21 @@ func (p *Personnage) AccessInvFight(m *Monstre) { // Utilisation de l'inventaire
 	case "Retour":
 		p.CharTurn(m)
 	default: // Condition par défaut
-		fmt.Println(P1.nom, "ne sais pas quoi faire..")
+		fmt.Println(p.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		p.CharTurn(m)
+	}
+}
+
+func (p *Personnage) UseSpellBook(skill string) {
+	if p.VerifSpellBook("Livre de sort : " + skill) {
+		p.SpellBook(skill, "Livre de sort : "+skill)
+		fmt.Println()
+		p.DisplayInventory()
+		p.AccessInventory()
+	} else {
+		fmt.Println(p.nom, "ne sais pas quoi faire..")
+		fmt.Println()
+		p.AccessInventory()
 	}
 }

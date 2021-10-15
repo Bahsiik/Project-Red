@@ -16,10 +16,10 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 	fmt.Println("Exp actuel --> ", p.exp, " sur ", p.expmax)
 	fmt.Println("Argent actuel --> ", p.money)
 	fmt.Println()
-	AccessInfo()
+	p.AccessInfo()
 }
 
-func AccessInfo() { // Fonction pour quitter les infos du personnage
+func (p *Personnage) AccessInfo() { // Fonction pour quitter les infos du personnage
 	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
@@ -30,10 +30,10 @@ func AccessInfo() { // Fonction pour quitter les infos du personnage
 		fmt.Println()
 		fmt.Println("------ Vous allez retourner au menu précédent ------")
 		time.Sleep(1 * time.Second)
-		Home() // Retour au menu si le joueur tape "Retour"
+		p.Home() // Retour au menu si le joueur tape "Retour"
 	default:
 		EffacerTerminal()
-		P1.DisplayInfo()
-		AccessInfo()
+		p.DisplayInfo()
+		p.AccessInfo()
 	}
 }

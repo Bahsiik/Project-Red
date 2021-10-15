@@ -22,17 +22,17 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 	textequip := Input()
 	switch textequip {
 	case "1":
-		DisplayRetirerEquip()
+		p.DisplayRetirerEquip()
 	case "0":
 		EffacerTerminal()
 		fmt.Println()
 		fmt.Println("------ Vous allez retourner au menu précédent ------")
 		time.Sleep(1 * time.Second)
-		Home()
+		p.Home()
 	default:
-		fmt.Println("------ ", P1.nom, "ne sais pas quoi faire.. ------")
+		fmt.Println("------ ", p.nom, "ne sais pas quoi faire.. ------")
 		fmt.Println()
-		SwipeMenuEquipement()
+		p.SwipeMenuEquipement()
 	}
 }
 
@@ -42,7 +42,7 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 		if p.inventaire[i] == obj {
 			test++
 			if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
-				P1.AddInventory(p.Equipement.tete)
+				p.AddInventory(p.Equipement.tete)
 			}
 			if obj == "Chapeau de l'aventurier" {
 				p.Equipement.tete = obj // Changement d'équipement de tête
@@ -65,7 +65,7 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 		if p.inventaire[i] == obj {
 			test++
 			if p.Equipement.torse != "" {
-				P1.AddInventory(p.Equipement.torse)
+				p.AddInventory(p.Equipement.torse)
 			}
 			if obj == "Tunique de l'aventurier" {
 				p.Equipement.torse = obj
@@ -87,7 +87,7 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 		if p.inventaire[i] == obj {
 			test++
 			if p.Equipement.pieds != "" {
-				P1.AddInventory(p.Equipement.pieds)
+				p.AddInventory(p.Equipement.pieds)
 			}
 			if obj == "Bottes de l'aventurier" {
 				p.Equipement.pieds = obj
@@ -103,7 +103,7 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 	}
 }
 
-func DisplayRetirerEquip() {
+func (p *Personnage) DisplayRetirerEquip() {
 	fmt.Println()
 	fmt.Println("------ Quelle partie d'équipement voulez vous retirer ? ------")
 	fmt.Println()
@@ -114,14 +114,14 @@ func DisplayRetirerEquip() {
 	textretirerequip := Input()
 	switch textretirerequip {
 	case "1":
-		P1.RetirerEquipementTete()
-		SwipeMenuEquipement()
+		p.RetirerEquipementTete()
+		p.SwipeMenuEquipement()
 	case "2":
-		P1.RetirerEquipementTorse()
-		SwipeMenuEquipement()
+		p.RetirerEquipementTorse()
+		p.SwipeMenuEquipement()
 	case "3":
-		P1.RetirerEquipementPieds()
-		SwipeMenuEquipement()
+		p.RetirerEquipementPieds()
+		p.SwipeMenuEquipement()
 	}
 }
 
@@ -130,7 +130,7 @@ func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper p
 		if p.Equipement.tete == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre tête..")
 			fmt.Println()
-			SwipeMenuEquipement()
+			p.SwipeMenuEquipement()
 		} else {
 			if p.Equipement.tete == "Chapeau de l'aventurier" {
 				p.AddInventory(p.Equipement.tete)
@@ -146,7 +146,7 @@ func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper p
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
 		fmt.Println()
-		SwipeMenuEquipement()
+		p.SwipeMenuEquipement()
 	}
 }
 
@@ -155,7 +155,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 		if p.Equipement.torse == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre torse..")
 			fmt.Println()
-			SwipeMenuEquipement()
+			p.SwipeMenuEquipement()
 		} else {
 			if p.Equipement.torse == "Tunique de l'aventurier" {
 				p.AddInventory(p.Equipement.torse)
@@ -171,7 +171,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
 		fmt.Println()
-		SwipeMenuEquipement()
+		p.SwipeMenuEquipement()
 	}
 }
 
@@ -180,7 +180,7 @@ func (p *Personnage) RetirerEquipementPieds() {
 		if p.Equipement.pieds == "" {
 			fmt.Println("Vous n'avez rien équipé à vos pieds..")
 			fmt.Println()
-			SwipeMenuEquipement()
+			p.SwipeMenuEquipement()
 		} else {
 			if p.Equipement.pieds == "Bottes de l'aventurier" {
 				p.AddInventory(p.Equipement.pieds)
@@ -196,13 +196,13 @@ func (p *Personnage) RetirerEquipementPieds() {
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
 		fmt.Println()
-		SwipeMenuEquipement()
+		p.SwipeMenuEquipement()
 	}
 }
 
-func SwipeMenuEquipement() { // retour choix equipement
+func (p *Personnage) SwipeMenuEquipement() { // retour choix equipement
 	time.Sleep(1 * time.Second)
 	EffacerTerminal()
-	P1.DisplayEquipment()
-	P1.AccessEquipment()
+	p.DisplayEquipment()
+	p.AccessEquipment()
 }

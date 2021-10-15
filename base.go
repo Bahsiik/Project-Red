@@ -14,5 +14,5 @@ func main() { // Fonction principale qui lance le jeu
 	DragonInit(&Dragon)     // Initialisation DragonBlanc aux yeux bleus
 	AlanInit(&Alan)         // Initialisation ALAN
 	LucasInit(&Lucas)       // Initialisation LUCAS
-	Menu()                  // Affichage du Menu
+	P1.Menu()               // Affichage du Menu
 }
