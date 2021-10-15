@@ -11,7 +11,7 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println()
 	fmt.Println("1 - Gérer le personnage")
 	fmt.Println("2 - Faire des achats")
-	fmt.Println("3 - Commencer le combat suivant")
+	fmt.Println("3 - Aller chercher un adversaire")
 	fmt.Println()
 	fmt.Println("0 - Quitter le jeu")
 	fmt.Println()

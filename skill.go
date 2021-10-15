@@ -20,8 +20,6 @@ func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 
 func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	fmt.Println()
-	fmt.Println("Quel sort", p.nom, "veut utiliser ?")
-	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textskill := Input()
