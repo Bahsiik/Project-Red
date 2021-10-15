@@ -10,6 +10,8 @@ type Personnage struct { // Création structure Perso
 	niveau     int
 	hpmax      int
 	hp         int
+	atk        int
+	puissance  int
 	inventaire []string
 	tailleinv  int
 	skill      []string
@@ -26,12 +28,14 @@ type Personnage struct { // Création structure Perso
 	expmax     float32
 }
 
-func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int, exp float32, expmax float32) { // Paramètres à initialiser
+func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, atk int, puissance int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int, exp float32, expmax float32) { // Paramètres à initialiser
 	p.nom = nom
 	p.classe = classe
 	p.niveau = niveau
 	p.hpmax = hpmax
 	p.hp = hp
+	p.atk = atk
+	p.puissance = puissance
 	p.inventaire = inventaire
 	p.tailleinv = tailleinv
 	p.skill = skill
@@ -102,14 +106,20 @@ func (p *Personnage) CharCreation() {
 		p.hpmax = 100
 		p.initiative = 15
 		p.manamax = 50
+		p.atk = 4
+		p.puissance = 4
 	case "Elfe":
 		p.hpmax = 80
 		p.initiative = 20
 		p.manamax = 100
+		p.atk = 2
+		p.puissance = 6
 	case "Nain":
 		p.hpmax = 120
 		p.initiative = 5
 		p.manamax = 25
+		p.atk = 6
+		p.puissance = 2
 	}
 	p.niveau = 1
 	p.hp = p.hpmax / 2
