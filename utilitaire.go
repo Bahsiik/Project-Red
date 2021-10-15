@@ -163,26 +163,26 @@ func GainNiveau(p *Personnage) {
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax ------")
 		if p.classe == "Humain" {
 			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk *= 1.3
+			p.atk += 2
 			fmt.Println(p.atk)
 			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance *= 1.3
+			p.puissance += 2
 			fmt.Println(p.puissance)
 		}
 		if p.classe == "Elfe" {
 			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk *= 1.1
+			p.atk += 1
 			fmt.Println(p.atk)
 			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance *= 1.5
+			p.puissance += 3
 			fmt.Println(p.puissance)
 		}
 		if p.classe == "Nain" {
 			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk *= 1.5
+			p.atk += 3
 			fmt.Println(p.atk)
 			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance *= 1.1
+			p.puissance += 1
 			fmt.Println(p.puissance)
 		}
 		fmt.Println()

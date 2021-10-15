@@ -24,8 +24,12 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 	fmt.Println()
 	textinv := Input()
 	switch textinv {
-	case "Potion": // Utilisation de la potion
-		P1.TakePot()
+	case "Potion de soin": // Utilisation de la potion
+		P1.TakeHealPot()
+		P1.DisplayInventory()
+		P1.AccessInventory()
+	case "Potion de mana":
+		P1.TakeManaPot()
 		P1.DisplayInventory()
 		P1.AccessInventory()
 	case "Potion de poison":
