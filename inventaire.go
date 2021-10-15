@@ -62,6 +62,28 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 			fmt.Println()
 			P1.AccessInventory()
 		}
+	case "Livre de sort : Blizzard":
+		if p.VerifSpellBook("Livre de sort : Blizzard") {
+			P1.SpellBook("Blizzard", "Livre de sort : Blizzard")
+			fmt.Println()
+			P1.DisplayInventory()
+			P1.AccessInventory()
+		} else {
+			fmt.Println(P1.nom, "ne sais pas quoi faire..")
+			fmt.Println()
+			P1.AccessInventory()
+		}
+	case "Livre de sort : Décharge énergétique":
+		if p.VerifSpellBook("Livre de sort : Décharge énergétique") {
+			P1.SpellBook("Décharge énergétique", "Livre de sort : Décharge énergétique")
+			fmt.Println()
+			P1.DisplayInventory()
+			P1.AccessInventory()
+		} else {
+			fmt.Println(P1.nom, "ne sais pas quoi faire..")
+			fmt.Println()
+			P1.AccessInventory()
+		}
 	case "0": // Retour au menu
 		EffacerTerminal()
 		fmt.Println()

@@ -19,6 +19,68 @@ func CoupPoing(p *Personnage, m *Monstre) { // Initialisation fonction Coup de p
 	}
 }
 
+func Blizzard(p *Personnage, m *Monstre) { // Initialisation fonction Blizzard
+	if p.mana >= 25 {
+		verif := 0
+		for i := range p.skill {
+			if p.skill[i] == "Blizzard" {
+				verif += 1
+			}
+		}
+		if verif == 0 {
+			fmt.Println()
+			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
+			fmt.Println()
+			P1.CharTurn(m) // Retour choix perso
+		} else {
+			fmt.Println()
+			fmt.Println(p.nom, " lance un blizzard !!!!!!!!!!!!")
+			m.hp -= p.puissance * 3
+			p.mana -= 25
+			fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.") // Affichage mana perso fin tour
+			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.")         // Affichage pv monstre fin tour
+			fmt.Println()
+			DeathMonstre(p, m)
+		}
+	} else {
+		fmt.Println()
+		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
+		fmt.Println()
+		P1.CharTurn(m)
+	}
+}
+
+func DechargeEnergetique(p *Personnage, m *Monstre) { // Initialisation fonction Décharge énergétique
+	if p.mana >= 100 {
+		verif := 0
+		for i := range p.skill {
+			if p.skill[i] == "Décharge énergétique" {
+				verif += 1
+			}
+		}
+		if verif == 0 {
+			fmt.Println()
+			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
+			fmt.Println()
+			P1.CharTurn(m) // Retour choix perso
+		} else {
+			fmt.Println()
+			fmt.Println(p.nom, " lance une décharge énergétique !!!!!!!!!!!!")
+			m.hp -= p.puissance * 5
+			p.mana -= 100
+			fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.") // Affichage mana perso fin tour
+			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.")         // Affichage pv monstre fin tour
+			fmt.Println()
+			DeathMonstre(p, m)
+		}
+	} else {
+		fmt.Println()
+		fmt.Println(p.nom, " n'a pas assez de mana pour ce sort...")
+		fmt.Println()
+		P1.CharTurn(m)
+	}
+}
+
 func AttaqueBasique(p *Personnage, m *Monstre) { // Initialisation fonction  AttaqueBasique
 	fmt.Println()
 	fmt.Println(p.nom, " effectue une attaque basique")
