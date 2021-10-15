@@ -16,7 +16,7 @@ func Input() string { // Fonction pour récupérer le texte écrit dans le cmd e
 	return text
 }
 
-func IsLetter(s string) bool {
+func IsLetter(s string) bool { // Fonction vérification alphanumérique
 	phrase := []rune(s)
 	counter := 0
 	if s == "" {
@@ -30,11 +30,11 @@ func IsLetter(s string) bool {
 	return counter == len(s)
 }
 
-func Capitalize(s string) string {
+func Capitalize(s string) string { // Fonction mise en majuscule première lettre chaine de caractère
 	var resultat string
 	for i := range s {
-		if IsAlpha(string(s[i])) {
-			if IsUpper(string(s[i])) {
+		if IsAlpha(string(s[i])) { // Si lettre
+			if IsUpper(string(s[i])) { // Si majuscule
 				if i == 0 {
 					resultat = resultat + string(s[i])
 					continue
@@ -51,7 +51,7 @@ func Capitalize(s string) string {
 					resultat = resultat + string(s[i])
 					continue
 				}
-			} else if IsLower(string(s[i])) {
+			} else if IsLower(string(s[i])) { // Si minuscule
 				if i == 0 {
 					resultat = resultat + ToUpper(string(s[i]))
 					continue
@@ -71,7 +71,7 @@ func Capitalize(s string) string {
 	return resultat
 }
 
-func IsAlpha(s string) bool {
+func IsAlpha(s string) bool { // Fonction reconnsaissance si lettre
 	phrase := []rune(s)
 	counter := 0
 	for i := 0; i < len(phrase); i++ {
@@ -82,7 +82,7 @@ func IsAlpha(s string) bool {
 	return counter == len(s)
 }
 
-func IsLower(s string) bool {
+func IsLower(s string) bool { // Fonction reconnsaissance minuscule
 	phrase := []rune(s)
 	counter := 0
 	for i := 0; i < len(s); i++ {
@@ -93,7 +93,7 @@ func IsLower(s string) bool {
 	return counter == len(s)
 }
 
-func IsUpper(s string) bool {
+func IsUpper(s string) bool { // Fonction reconnsaissance majuscule
 	phrase := []rune(s)
 	counter := 0
 	for i := 0; i < len(s); i++ {
@@ -104,7 +104,7 @@ func IsUpper(s string) bool {
 	return counter == len(s)
 }
 
-func ToLower(s string) string {
+func ToLower(s string) string { // Mise en minuscule
 	phrase := []rune(s)
 	for i := 0; i < len(s); i++ {
 		if phrase[i] >= 65 && phrase[i] <= 90 {
@@ -114,7 +114,7 @@ func ToLower(s string) string {
 	return string(phrase)
 }
 
-func ToUpper(s string) string {
+func ToUpper(s string) string { // Mise en majuscule
 	phrase := []rune(s)
 	for i := 0; i < len(s); i++ {
 		if phrase[i] >= 97 && phrase[i] <= 122 {
@@ -124,12 +124,12 @@ func ToUpper(s string) string {
 	return string(phrase)
 }
 
-func DeathMonstre(p *Personnage, m *Monstre) {
+func DeathMonstre(p *Personnage, m *Monstre) { // Condition mort du monstre
 	if m.hp <= 0 {
 		fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
-		GainExp(p, m)
-		GainNiveau(p)
-		GainMoney(p, m)
+		GainExp(p, m)                                                      // Gain EXp
+		GainNiveau(p)                                                      // Gain Niveau suivant Exp
+		GainMoney(p, m)                                                    // Gain d'argent
 		time.Sleep(1 * time.Second)
 		fmt.Println()
 		m.hp = m.hpmax // Réinitialisation pv monstre
@@ -137,7 +137,7 @@ func DeathMonstre(p *Personnage, m *Monstre) {
 	}
 }
 
-func GainExp(p *Personnage, m *Monstre) {
+func GainExp(p *Personnage, m *Monstre) { // Gain Exp suivant les monstres vaincus
 	switch m.nom {
 	case "Goblin":
 		p.exp += 25
@@ -157,7 +157,7 @@ func GainExp(p *Personnage, m *Monstre) {
 	}
 }
 
-func GainMoney(p *Personnage, m *Monstre) {
+func GainMoney(p *Personnage, m *Monstre) { // Gain Money suivant les monstres vaincus
 	switch m.nom {
 	case "Goblin":
 		p.money += 10
@@ -177,21 +177,21 @@ func GainMoney(p *Personnage, m *Monstre) {
 	}
 }
 
-func GainNiveau(p *Personnage) {
+func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 	if p.exp == p.expmax {
 		p.niveau += 1
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " ------")
 		time.Sleep(1 * time.Second)
 		p.expmax *= 1.5
 		p.exp = 0
-	} else if p.exp > p.expmax {
+	} else if p.exp > p.expmax { // Condition si excédent de gain d'exp
 		p.niveau += 1
 		a := p.exp - p.expmax
 		p.exp = 0
 		p.exp += a
 		p.expmax *= 1.5
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax ------")
-		if p.classe == "Humain" {
+		if p.classe == "Humain" { // Gain niveau donne bonus suivant classe
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 2
 			fmt.Println(p.atk)
@@ -199,7 +199,7 @@ func GainNiveau(p *Personnage) {
 			p.puissance += 2
 			fmt.Println(p.puissance)
 		}
-		if p.classe == "Elfe" {
+		if p.classe == "Elfe" { // Gain niveau donne bonus suivant classe
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 1
 			fmt.Println(p.atk)
@@ -207,7 +207,7 @@ func GainNiveau(p *Personnage) {
 			p.puissance += 3
 			fmt.Println(p.puissance)
 		}
-		if p.classe == "Nain" {
+		if p.classe == "Nain" { // Gain niveau donne bonus suivant classe
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 3
 			fmt.Println(p.atk)

@@ -61,15 +61,14 @@ func (p *Personnage) Death() { // Système de mort et de résurection
 	}
 }
 
-func (p *Personnage) Pauvre() {
+func (p *Personnage) Pauvre() { // Système de pauvreté
 	if p.money <= 0 {
 		fmt.Println("Vous n'avez plus d'argent...")
 		fmt.Println()
 	}
 }
 
-func NameCreation() string {
-
+func NameCreation() string { // Système de création de nom
 	fmt.Println("***** Veuillez choisir votre nom : *****")
 	fmt.Println()
 	textnom := Input()
@@ -83,7 +82,7 @@ func NameCreation() string {
 	return Capitalize(textnom)
 }
 
-func (p *Personnage) ClassChoice() {
+func (p *Personnage) ClassChoice() { // Système de choix de classe
 	fmt.Println()
 	fmt.Println("***** Veuillez choisir votre classe : *****")
 	fmt.Println()
@@ -108,7 +107,7 @@ func (p *Personnage) ClassChoice() {
 	EffacerTerminal()
 }
 
-func (p *Personnage) CharCreation() {
+func (p *Personnage) CharCreation() { // Fonction de création de perso selon classe
 	p.nom = NameCreation()
 	p.ClassChoice()
 	switch p.classe {

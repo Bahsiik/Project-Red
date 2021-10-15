@@ -116,7 +116,7 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 	}
 }
 
-func EchecCraft() {
+func EchecCraft() { // Choix continuation achat ou non
 	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Besoin d'autres choses messire ? (Oui/Non) ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	for {
 		textforgeronechec := Input()

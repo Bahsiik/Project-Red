@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func (p *Personnage) CharTurn(m *Monstre) {
+func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 	fmt.Println()
 	fmt.Println("C'est à ", p.nom, "d'agir")
 	fmt.Println("Que va faire ", p.nom, " ?")
@@ -17,7 +17,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println("0 - Abandonner")
 	fmt.Println()
 	textmenucharturn := Input()
-	switch textmenucharturn {
+	switch textmenucharturn { // Choix perso a effectué
 	case "1":
 		AttaqueBasique(p, m)
 		fmt.Println()
@@ -58,7 +58,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	}
 }
 
-func (p *Personnage) AccessInvFight(m *Monstre) {
+func (p *Personnage) AccessInvFight(m *Monstre) { // Utilisation de l'inventaire en cours de combat
 	fmt.Println()
 	fmt.Println("------ Quel objet", p.nom, "veut utiliser ? (Nom de l'objet / Retour) ------")
 	fmt.Println()
@@ -72,7 +72,7 @@ func (p *Personnage) AccessInvFight(m *Monstre) {
 		p.PoisonPotComb(m)
 	case "Retour":
 		p.CharTurn(m)
-	default:
+	default: // Condition par défaut
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		p.CharTurn(m)

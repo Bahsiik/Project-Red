@@ -8,7 +8,7 @@ type Monstre struct { // Création structure monstre
 	initiative int
 }
 
-func (m *Monstre) InitMonstre(nom string, hpmax int, hp int, atk int, init int) {
+func (m *Monstre) InitMonstre(nom string, hpmax int, hp int, atk int, init int) { // Initialisation monstre
 	m.nom = nom
 	m.hpmax = hpmax
 	m.hp = hp
