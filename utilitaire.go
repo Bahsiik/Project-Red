@@ -148,14 +148,14 @@ func GainNiveau(p *Personnage) {
 	if p.exp == p.expmax {
 		p.niveau += 1
 		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau)
-		p.expmax *= 2
+		p.expmax *= 1.5
 		p.exp = 0
 	} else if p.exp > p.expmax {
 		p.niveau += 1
 		a := p.exp - p.expmax
 		p.exp = 0
 		p.exp += a
-		p.expmax *= 2
+		p.expmax *= 1.5
 		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax")
 		if p.exp > p.expmax {
 			GainNiveau(p)

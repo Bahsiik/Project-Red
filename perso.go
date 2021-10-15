@@ -22,11 +22,11 @@ type Personnage struct { // Création structure Perso
 	initiative int
 	mana       int
 	manamax    int
-	exp        int
-	expmax     int
+	exp        float32
+	expmax     float32
 }
 
-func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int, exp int, expmax int) { // Paramètres à initialiser
+func (p *Personnage) Init(nom string, classe string, niveau int, hpmax int, hp int, inventaire []string, tailleinv int, skill []string, money int, init int, mana int, manamax int, exp float32, expmax float32) { // Paramètres à initialiser
 	p.nom = nom
 	p.classe = classe
 	p.niveau = niveau
