@@ -144,6 +144,9 @@ func GainExp(p *Personnage, m *Monstre) {
 	case "Licorn d'entrainement":
 		p.exp += 150
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
+	case "Dragon d'entrainement":
+		p.exp += 300
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	}
 }
 

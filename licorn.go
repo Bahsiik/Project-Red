@@ -21,11 +21,10 @@ func AttaqueLicorn(p *Personnage, m *Monstre) {
 }
 
 func AttaqueCritLicorn(p *Personnage, m *Monstre) {
-	m.atk *= 2
 	fmt.Println()
-	fmt.Println(m.nom, " lance une Attaque arc-en-ciel et inflige ", m.atk, " de coup critique à ", p.nom)
+	fmt.Println(m.nom, " lance une Attaque arc-en-ciel et inflige ", m.atk*2, " de coup critique à ", p.nom)
 	fmt.Println()
-	p.hp -= m.atk
+	p.hp -= m.atk * 2
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
 	fmt.Println()
 	if p.hp <= 0 { // Condition pv à 0 du perso
