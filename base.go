@@ -10,5 +10,6 @@ func main() { // Fonction principale qui lance le jeu
 	MarchandInit(&Marchand) // Initialisation du marchand
 	ForgeronInit(&Forgeron) // Initialisation du forgeron
 	GobelinInit(&Gobelin)   // Initialisation du gobelin
+	LicornInit(&Licorn)     // Initialisation de la plus belle des licornes
 	Menu()                  // Affichage du Menu
 }

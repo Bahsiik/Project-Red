@@ -12,6 +12,7 @@ func Menu() { // Affiche du menu de sélection
 	fmt.Println("1 - Gérer le personnage")
 	fmt.Println("2 - Faire des achats")
 	fmt.Println("3 - Commencer le combat suivant")
+	fmt.Println()
 	fmt.Println("0 - Quitter le jeu")
 	fmt.Println()
 	for { // Lecture choix de menu
@@ -25,7 +26,25 @@ func Menu() { // Affiche du menu de sélection
 			Achats()
 		case "3": // Lancement du combat d'entrainement
 			EffacerTerminal()
-			TrainingFight(&P1, &Gobelin)
+			fmt.Println("ooooo Qui voulez-vous affrontez ? ooooo")
+			fmt.Println()
+			fmt.Println("1 - Goblin (Easy)")
+			fmt.Println("2 - Licorn (Medium)")
+			fmt.Println()
+			fmt.Println("0 - Retour")
+			fmt.Println()
+			textfight := Input() // Choix opposant
+			switch textfight {
+			case "1":
+				EffacerTerminal()
+				TrainingFight(&P1, &Gobelin, GoblinPattern)
+			case "2":
+				EffacerTerminal()
+				TrainingFight(&P1, &Licorn, LicornPattern)
+			case "0":
+				EffacerTerminal()
+				Menu()
+			}
 		case "0": // Sortie du jeu
 			EffacerTerminal()
 			Exit()

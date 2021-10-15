@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entrainement
+func TrainingFight(p *Personnage, m *Monstre, pattern func(p *Personnage, m *Monstre, tour int)) { // Initialisation combat d'entrainement
 	fmt.Println()
 	fmt.Println("------ ", p.nom, " engage le combat d'entrainement ------")
 	fmt.Println()
@@ -23,10 +23,10 @@ func TrainingFight(p *Personnage, m *Monstre) { // Initialisation combat d'entra
 			if p.initiative >= m.initiative {
 				p.CharTurn(m)
 				time.Sleep(1 * time.Second)
-				GoblinPattern(p, m, tour)
+				pattern(p, m, tour)
 				time.Sleep(1 * time.Second)
 			} else {
-				GoblinPattern(p, m, tour)
+				pattern(p, m, tour)
 				time.Sleep(1 * time.Second)
 				p.CharTurn(m)
 				time.Sleep(1 * time.Second)
