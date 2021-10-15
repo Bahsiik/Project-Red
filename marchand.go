@@ -78,28 +78,39 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			Achats()
 		}
 	case "3": // Achat de la potion de poison
-		if (P1.money - 6) >= 0 {
-			P1.money -= 6
-			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-			fmt.Println()
-			ContinueMarchandInv("Potion de poison")
-		} else {
-			p.Pauvre()
-		}
-	case "4": // Achat du skill "Boule de Feu"
-		if !p.VerifSpellBook("Livre de sort : Boule de Feu") && !p.VerifSkill("Boule de Feu") {
-			if (P1.money - 25) >= 0 {
-				P1.money -= 25
+		if p.VerifTailleInv() {
+			if (P1.money - 6) >= 0 {
+				P1.money -= 6
 				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 				fmt.Println()
-				ContinueMarchandInv("Livre de sort : Boule de Feu")
+				ContinueMarchandInv("Potion de poison")
 			} else {
 				p.Pauvre()
 			}
 		} else {
-			fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
-			P1.AccessInvMarchand()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
+	case "4": // Achat du skill "Boule de Feu"
+		if p.VerifTailleInv() {
+			if !p.VerifSpellBook("Livre de sort : Boule de Feu") && !p.VerifSkill("Boule de Feu") {
+				if (P1.money - 25) >= 0 {
+					P1.money -= 25
+					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+					fmt.Println()
+					ContinueMarchandInv("Livre de sort : Boule de Feu")
+				} else {
+					p.Pauvre()
+				}
+			} else {
+				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
+				P1.AccessInvMarchand()
+			}
+		} else {
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
+		}
+<<<<<<< HEAD
 	case "5": // Achat du skill "Blizzard"
 		if !p.VerifSpellBook("Livre de sort : Blizzard") && !p.VerifSkill("Blizzard") {
 			if (P1.money - 200) >= 0 {
@@ -134,44 +145,113 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Fourrure de Loup")
+=======
+	case "5": // Achat de la Fourrure de Loup
+		if p.VerifTailleInv() {
+			if (P1.money - 4) >= 0 {
+				P1.money -= 4
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandInv("Fourrure de Loup")
+			} else {
+				p.Pauvre()
+			}
+>>>>>>> f468b78bed614db57eb524f3946ce7a03c63cc77
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
+<<<<<<< HEAD
 	case "12": // Achat de la Peau de troll
 		if (P1.money - 7) >= 0 {
 			P1.money -= 7
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Peau de Troll")
+=======
+	case "6": // Achat de la Peau de troll
+		if p.VerifTailleInv() {
+			if (P1.money - 7) >= 0 {
+				P1.money -= 7
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandInv("Peau de Troll")
+			} else {
+				p.Pauvre()
+			}
+>>>>>>> f468b78bed614db57eb524f3946ce7a03c63cc77
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
+<<<<<<< HEAD
 	case "13": // Achat du Cuir de Sanglier
 		if (P1.money - 3) >= 0 {
 			P1.money -= 3
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Cuir de Sanglier")
+=======
+	case "7": // Achat du Cuir de Sanglier
+		if p.VerifTailleInv() {
+			if (P1.money - 3) >= 0 {
+				P1.money -= 3
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandInv("Cuir de Sanglier")
+			} else {
+				p.Pauvre()
+			}
+>>>>>>> f468b78bed614db57eb524f3946ce7a03c63cc77
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
+<<<<<<< HEAD
 	case "14": // Achat de la Plume de Corbeau
 		if (P1.money - 1) >= 0 {
 			P1.money -= 1
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			ContinueMarchandInv("Plume de Corbeau")
+=======
+	case "8": // Achat de la Plume de Corbeau
+		if p.VerifTailleInv() {
+			if (P1.money - 1) >= 0 {
+				P1.money -= 1
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				ContinueMarchandInv("Plume de Corbeau")
+			} else {
+				p.Pauvre()
+			}
+>>>>>>> f468b78bed614db57eb524f3946ce7a03c63cc77
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
+<<<<<<< HEAD
 	case "15": // Achat d'une sacoche (augmentation de l'inventaire, limité a 3 achats)
 		if (P1.money - 30) >= 0 {
 			P1.money -= 30
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
 			fmt.Println()
 			P1.UpgradeInventorySlot()
+=======
+	case "9": // Achat d'une sacoche (augmentation de l'inventaire, limité a 3 achats)
+		if p.VerifTailleInv() {
+			if (P1.money - 30) >= 0 {
+				P1.money -= 30
+				fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+				fmt.Println()
+				P1.UpgradeInventorySlot()
+			} else {
+				p.Pauvre()
+			}
+>>>>>>> f468b78bed614db57eb524f3946ce7a03c63cc77
 		} else {
-			p.Pauvre()
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
 		}
 	default: // Choix d'objet à acheter invalide
 		fmt.Println()
