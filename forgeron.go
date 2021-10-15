@@ -12,7 +12,7 @@ func ForgeronInit(p *Personnage) {
 }
 
 func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
-	fmt.Println("Bonjour, que souhaitez vous crafter ?")
+	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Bonjour, que souhaitez vous crafter ? ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous proposer...")
@@ -27,7 +27,7 @@ func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventai
 }
 
 func (p Personnage) DisplayInvForgeron2() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
-	fmt.Println("Que souhaitez vous crafter d'autres ?")
+	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Que souhaitez vous crafter d'autres ? ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous proposer...")
@@ -57,7 +57,7 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 1, 1, 5, "Bottes de l'aventurier")
 	default:
 		fmt.Println()
-		fmt.Print("Désolé mais je ne comprend pas, veuillez faire un autre choix \n")
+		fmt.Print("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Désolé mais je ne comprend pas, veuillez faire un autre choix ☭☭☭☭☭☭☭☭☭☭☭☭☭☭ \n")
 		fmt.Println()
 		Forgeron.DisplayInvForgeron2()
 		Forgeron.AccessInvForgeron()
@@ -67,7 +67,9 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l'objet choisi dans l'inventaire + choix de continuer les achats ou non
 	fmt.Println("Et voilà monsieur, c'est prêt !")
 	fmt.Print("Il reste ", p.money, " ç à ", p.nom, "\n")
+	fmt.Println()
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	fmt.Println()
 	P1.AddInventory(choix) // Ajout de l'objet
 	for {
 		textforgeron2 := Input()
@@ -77,7 +79,7 @@ func (p Personnage) ContinueForgeronInv(choix string) { // Fonction d'ajout de l
 			fmt.Println()
 			P1.AccessInvForgeron()
 		case "Non": // Retour au menu
-			fmt.Println("Très bien, au revoir")
+			fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Très bien, au revoir ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 			fmt.Println()
 			Achats()
 		}
@@ -115,7 +117,7 @@ func (p *Personnage) CraftItem(elem1 string, elem2 string, nbr1 int, nbr2 int, p
 }
 
 func EchecCraft() {
-	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Besoin d'autres choses messire ? (Oui/Non) ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	for {
 		textforgeronechec := Input()
 		switch textforgeronechec {

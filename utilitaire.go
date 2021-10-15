@@ -126,7 +126,7 @@ func ToUpper(s string) string {
 
 func DeathMonstre(p *Personnage, m *Monstre) {
 	if m.hp <= 0 {
-		fmt.Println(p.nom, "a gagné le combat :))) uwu") // Message fin de game
+		fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
 		GainExp(p, m)
 		GainNiveau(p)
 		time.Sleep(1 * time.Second)
@@ -147,7 +147,7 @@ func GainExp(p *Personnage, m *Monstre) {
 func GainNiveau(p *Personnage) {
 	if p.exp == p.expmax {
 		p.niveau += 1
-		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau)
+		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " ------")
 		p.expmax *= 1.5
 		p.exp = 0
 	} else if p.exp > p.expmax {
@@ -156,7 +156,7 @@ func GainNiveau(p *Personnage) {
 		p.exp = 0
 		p.exp += a
 		p.expmax *= 1.5
-		fmt.Println(p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax")
+		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax ------")
 		if p.exp > p.expmax {
 			GainNiveau(p)
 		}

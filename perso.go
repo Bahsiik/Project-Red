@@ -52,7 +52,7 @@ var P1 Personnage
 
 func (p *Personnage) Death() { // Système de mort et de résurection
 	if p.hp <= 0 {
-		fmt.Println("Wasted ! Retente ta chance chacal..")
+		fmt.Println("******* Wasted ! Retente ta chance chacal.. *******")
 		p.hp = p.hpmax / 2
 		fmt.Println("Grâce à John Cena,", p.nom, "a réssucité avec", p.hp, "HP")
 	}
@@ -66,7 +66,7 @@ func (p *Personnage) Pauvre() {
 
 func NameCreation() string {
 
-	fmt.Println("Veuillez choisir votre nom :")
+	fmt.Println("******* Veuillez choisir votre nom : *******")
 	textnom := Input()
 	if !IsLetter(textnom) {
 		fmt.Println("Ce nom n'est pas valide, choisissez en un autre")
@@ -77,7 +77,8 @@ func NameCreation() string {
 }
 
 func (p *Personnage) ClassChoice() {
-	fmt.Println("Veuillez choisir votre classe :")
+	fmt.Println("******* Veuillez choisir votre classe : *******")
+	fmt.Println()
 	fmt.Println("1 - Humain")
 	fmt.Println("2 - Elfe")
 	fmt.Println("3 - Nain")

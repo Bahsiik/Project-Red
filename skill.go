@@ -9,6 +9,7 @@ func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 	fmt.Print("--- Les sorts de ", p.nom, " sont ---  \n")
 	if len(p.skill) == 0 {
 		fmt.Println(" ", p.nom, "ne possède pas de sorts...")
+		fmt.Println()
 	} else {
 		for i := range p.skill {
 			fmt.Print(" Sort ", i+1, " : ", p.skill[i], "\n")
@@ -18,7 +19,9 @@ func (p Personnage) DisplaySkill() { // Affichage des sorts possédés
 }
 
 func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
+	fmt.Println()
 	fmt.Println("Quel sort", p.nom, "veut utiliser ?")
+	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textskill := Input()
@@ -26,6 +29,7 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	case "0":
 		EffacerTerminal()
 		fmt.Println("Vous allez retourner au menu précédent")
+		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Home()
 	default:
@@ -41,10 +45,12 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 func (p *Personnage) SpellBook(sort string, livre string) { // Initialisation livre de sorts
 	if !p.VerifSkill(sort) {
 		p.skill = append(p.skill, sort)
-		fmt.Println(p.nom, "a appris le sort", sort)
+		fmt.Println("----- ", p.nom, "a appris le sort", sort, " -----")
+		fmt.Println()
 		p.RemoveInv(livre)
 	} else {
 		fmt.Println(p.nom, "connait déjà ce sort..")
+		fmt.Println()
 	}
 }
 
