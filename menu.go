@@ -59,7 +59,11 @@ func (p *Personnage) Menu() { // Affiche du menu de sélection
 				p.Menu()
 			}
 		case "4":
+			EffacerTerminal()
 			fmt.Print("Il s'agit du groupe ABBA et du réalisateur Steven Spielberg !")
+			time.Sleep(4 * time.Second)
+			EffacerTerminal()
+			p.Menu()
 		case "0": // Sortie du jeu
 			EffacerTerminal()
 			Exit()
