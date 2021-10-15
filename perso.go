@@ -64,15 +64,19 @@ func (p *Personnage) Death() { // Système de mort et de résurection
 func (p *Personnage) Pauvre() {
 	if p.money <= 0 {
 		fmt.Println("Vous n'avez plus d'argent...")
+		fmt.Println()
 	}
 }
 
 func NameCreation() string {
 
-	fmt.Println("Veuillez choisir votre nom :")
+	fmt.Println("***** Veuillez choisir votre nom : *****")
+	fmt.Println()
 	textnom := Input()
 	if !IsLetter(textnom) {
+		fmt.Println()
 		fmt.Println("Ce nom n'est pas valide, choisissez en un autre")
+		fmt.Println()
 		return NameCreation()
 	}
 	EffacerTerminal()
@@ -80,10 +84,13 @@ func NameCreation() string {
 }
 
 func (p *Personnage) ClassChoice() {
-	fmt.Println("Veuillez choisir votre classe :")
+	fmt.Println()
+	fmt.Println("***** Veuillez choisir votre classe : *****")
+	fmt.Println()
 	fmt.Println("1 - Humain")
 	fmt.Println("2 - Elfe")
 	fmt.Println("3 - Nain")
+	fmt.Println()
 	textclass := Input()
 	switch textclass {
 	case "1":
@@ -95,6 +102,7 @@ func (p *Personnage) ClassChoice() {
 	default:
 		fmt.Println()
 		fmt.Println("Choix de classe invalide, refaites votre choix")
+		fmt.Println()
 		p.ClassChoice()
 	}
 	EffacerTerminal()

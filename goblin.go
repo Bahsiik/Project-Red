@@ -27,11 +27,10 @@ func AttaqueGobelin(p *Personnage, m *Monstre) {
 }
 
 func AttaqueCritGobelin(p *Personnage, m *Monstre) {
-	m.atk *= 2
 	fmt.Println()
-	fmt.Println(m.nom, " inflige ", m.atk, " de dégats critique à ", p.nom)
+	fmt.Println(m.nom, " inflige ", m.atk*2, " de dégats critique à ", p.nom)
 	fmt.Println()
-	p.hp -= m.atk
+	p.hp -= m.atk * 2
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
 	fmt.Println()
 	if p.hp <= 0 { // Condition pv à 0 du perso

@@ -12,5 +12,6 @@ func main() { // Fonction principale qui lance le jeu
 	GobelinInit(&Gobelin)   // Initialisation du gobelin
 	LicornInit(&Licorn)     // Initialisation de la plus belle des licornes
 	LucasInit(&Lucas)
-	Menu() // Affichage du Menu
+	DragonInit(&Dragon) // Initialisation DragonBlanc aux yeux bleus
+	Menu()              // Affichage du Menu
 }
