@@ -17,6 +17,7 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 	fmt.Println("------ Que va faire ", p.nom, " ? ------")
 	fmt.Println()
 	fmt.Println("1 - Retirer de l'équipement")
+	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	textequip := Input()
 	switch textequip {
@@ -109,6 +110,7 @@ func DisplayRetirerEquip() {
 	fmt.Println("1 - Tête")
 	fmt.Println("2 - Torse")
 	fmt.Println("3 - Pieds")
+	fmt.Println()
 	textretirerequip := Input()
 	switch textretirerequip {
 	case "1":

@@ -28,7 +28,8 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	switch textskill {
 	case "0":
 		EffacerTerminal()
-		fmt.Println("Vous allez retourner au menu précédent")
+		fmt.Println()
+		fmt.Println("---- Vous allez retourner au menu précédent ----")
 		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Home()

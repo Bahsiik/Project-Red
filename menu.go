@@ -60,6 +60,7 @@ func Home() {
 	fmt.Println("2 - Accéder à l'inventaire du personnage")
 	fmt.Println("3 - Accéder à l'équipement du personnage")
 	fmt.Println("4 - Accéder aux sorts du personnage")
+	fmt.Println()
 	fmt.Println("0 - Retour au menu principal")
 	texthome := Input()
 	switch texthome {
@@ -96,6 +97,7 @@ func Achats() {
 	fmt.Println()
 	fmt.Println("1 - Accéder au marchand")
 	fmt.Println("2 - Accéder au Forgeron")
+	fmt.Println()
 	fmt.Println("0 - Retour au menu principal")
 	textachats := Input()
 	switch textachats {

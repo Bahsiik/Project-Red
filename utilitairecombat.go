@@ -8,11 +8,13 @@ import (
 func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println()
 	fmt.Println("C'est à ", p.nom, "d'agir")
+	fmt.Println()
 	fmt.Println("Que va faire ", p.nom, " ?")
 	fmt.Println()
 	fmt.Println("1 - Attaquer")
 	fmt.Println("2 - Utiliser un sort")
 	fmt.Println("3 - Inventaire")
+	fmt.Println()
 	fmt.Println("0 - Abandonner")
 	fmt.Println()
 	textmenucharturn := Input()
@@ -23,6 +25,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	case "2":
 		fmt.Println()
 		fmt.Println("0 - Retour")
+		fmt.Println()
 		fmt.Println("1 - Coup de poing")
 		fmt.Println()
 		verif := 0

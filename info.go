@@ -20,12 +20,14 @@ func (p Personnage) DisplayInfo() { // Affichage des informations du personnages
 }
 
 func AccessInfo() { // Fonction pour quitter les infos du personnage
+	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textinfo := Input()
 	switch textinfo {
 	case "0":
 		EffacerTerminal()
+		fmt.Println()
 		fmt.Println("------ Vous allez retourner au menu précédent ------")
 		time.Sleep(1 * time.Second)
 		Home() // Retour au menu si le joueur tape "Retour"

@@ -82,6 +82,7 @@ func (p *Personnage) ClassChoice() {
 	fmt.Println("1 - Humain")
 	fmt.Println("2 - Elfe")
 	fmt.Println("3 - Nain")
+	fmt.Println()
 	textclass := Input()
 	switch textclass {
 	case "1":
