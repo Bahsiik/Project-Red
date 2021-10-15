@@ -8,7 +8,7 @@ import (
 var Marchand Personnage
 
 func MarchandInit(p *Personnage) {
-	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, 0, 777, []string{"Potion de soin : 3ç", "Potion de mana : 3ç", "Potion de poison : 6ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç", "Sacoche de l'aventurier : 30ç"}, 10, []string{"Coup de poing"}, 999, 20, 999, 999, 0, 100)
+	Marchand.Init("Jeff Besos", "Marchand", 777, 777, 777, 0, 777, []string{"Potion de soin : 3ç", "Potion de mana : 3ç", "Potion de poison : 6ç", "Livre de sort: Iron Fist : 150ç", "Livre de sort: Charge de Berserker : 500ç", "Livre de sort: Boule de feu : 25ç", "Fourrure de Loup : 4ç", "Peau de troll : 7ç", "Cuir de Sanglier : 3ç", "Plume de Corbeau : 1ç", "Sacoche de l'aventurier : 30ç"}, 10, []string{"Coup de poing"}, 999, 20, 999, 999, 0, 100)
 }
 
 func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
@@ -49,7 +49,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Achats()
-	case "1": // Achat de la potion
+	case "1": // Achat de la potion de vie
 		if p.VerifTailleInv() {
 			if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
 				P1.money -= 3
@@ -63,7 +63,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "2": // Achat de la potion
+	case "2": // Achat de la potion de mana
 		if p.VerifTailleInv() {
 			if (P1.money - 3) >= 0 { // Retrait cout d'achats pour personnage
 				P1.money -= 3
@@ -86,6 +86,44 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 				ContinueMarchandInv("Potion de poison")
 			} else {
 				p.Pauvre()
+			}
+		} else {
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
+		}
+	case "10": // Achat du skill "Iron Fist"
+		if p.VerifTailleInv() {
+			if !p.VerifSpellBook("Livre de sort : Iron Fist") && !p.VerifSkill("Iron Fist") {
+				if (P1.money - 150) >= 0 {
+					P1.money -= 150
+					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+					fmt.Println()
+					ContinueMarchandInv("Livre de sort : Iron Fist")
+				} else {
+					p.Pauvre()
+				}
+			} else {
+				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
+				P1.AccessInvMarchand()
+			}
+		} else {
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
+		}
+	case "11": // Achat du skill "Charge de Berserker"
+		if p.VerifTailleInv() {
+			if !p.VerifSpellBook("Livre de sort : Charge de Berserker") && !p.VerifSkill("Charge de Berserker") {
+				if (P1.money - 500) >= 0 {
+					P1.money -= 500
+					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+					fmt.Println()
+					ContinueMarchandInv("Livre de sort : Charge de Berserker")
+				} else {
+					p.Pauvre()
+				}
+			} else {
+				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
+				P1.AccessInvMarchand()
 			}
 		} else {
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
