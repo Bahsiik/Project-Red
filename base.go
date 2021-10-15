@@ -11,7 +11,8 @@ func main() { // Fonction principale qui lance le jeu
 	ForgeronInit(&Forgeron) // Initialisation du forgeron
 	GobelinInit(&Gobelin)   // Initialisation du gobelin
 	LicornInit(&Licorn)     // Initialisation de la plus belle des licornes
+	DragonInit(&Dragon)     // Initialisation DragonBlanc aux yeux bleus
+	AlanInit(&Alan)
 	LucasInit(&Lucas)
-	DragonInit(&Dragon) // Initialisation DragonBlanc aux yeux bleus
-	Menu()              // Affichage du Menu
+	Menu() // Affichage du Menu
 }

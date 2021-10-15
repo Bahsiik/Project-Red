@@ -30,8 +30,9 @@ func Menu() { // Affiche du menu de sélection
 			fmt.Println()
 			fmt.Println("1 - Goblin (Easy)")
 			fmt.Println("2 - Licorn (Medium)")
-			fmt.Println("5 - Lucas (Divin)")
 			fmt.Println("3 - Dragon (Hard)")
+			fmt.Println("4 - Alan (Extrême)")
+			fmt.Println("5 - Lucas (Divin)")
 			fmt.Println()
 			fmt.Println("0 - Retour")
 			fmt.Println()
@@ -43,12 +44,15 @@ func Menu() { // Affiche du menu de sélection
 			case "2":
 				EffacerTerminal()
 				TrainingFight(&P1, &Licorn, LicornPattern)
-			case "5":
-				EffacerTerminal()
-				TrainingFight(&P1, &Lucas, LucasPattern)
 			case "3":
 				EffacerTerminal()
 				TrainingFight(&P1, &Dragon, DragonPattern)
+			case "4":
+				EffacerTerminal()
+				TrainingFight(&P1, &Alan, AlanPattern)
+			case "5":
+				EffacerTerminal()
+				TrainingFight(&P1, &Lucas, LucasPattern)
 			case "0":
 				EffacerTerminal()
 				Menu()
