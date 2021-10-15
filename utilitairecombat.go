@@ -99,7 +99,8 @@ func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
 							fmt.Println()
 							fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
 							fmt.Println()
-							p.exp += 10
+							GainExp(p, m)
+							GainMoney(p, m)
 							fmt.Println()
 							m.hp = m.hpmax // Réinitialisation pv monstre
 							RetourMenu()

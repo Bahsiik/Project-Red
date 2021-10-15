@@ -129,6 +129,7 @@ func DeathMonstre(p *Personnage, m *Monstre) {
 		fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
 		GainExp(p, m)
 		GainNiveau(p)
+		GainMoney(p, m)
 		time.Sleep(1 * time.Second)
 		fmt.Println()
 		m.hp = m.hpmax // Réinitialisation pv monstre
@@ -138,15 +139,29 @@ func DeathMonstre(p *Personnage, m *Monstre) {
 
 func GainExp(p *Personnage, m *Monstre) {
 	switch m.nom {
-	case "Goblin d'entrainement":
+	case "Goblin":
 		p.exp += 100
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
-	case "Licorn d'entrainement":
+	case "Licorn":
 		p.exp += 150
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
-	case "Dragon d'entrainement":
+	case "Dragon":
 		p.exp += 300
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
+	}
+}
+
+func GainMoney(p *Personnage, m *Monstre) {
+	switch m.nom {
+	case "Goblin":
+		p.money += 10
+		fmt.Println("------ ", p.nom, " a gagné", p.money, " ç ------")
+	case "Licorn":
+		p.money += 25
+		fmt.Println("------ ", p.nom, " a gagné", p.money, " ç ------")
+	case "Dragon":
+		p.money += 50
+		fmt.Println("------ ", p.nom, " a gagné", p.money, " ç ------")
 	}
 }
 
