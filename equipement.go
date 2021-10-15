@@ -47,9 +47,14 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 			if obj == "Chapeau de l'aventurier" {
 				p.Equipement.tete = obj // Changement d'équipement de tête
 				p.RemoveInv(obj)        // Retirer l'item de l'inventaire
-				p.hpmax += 10           // Bonus d'équipement
-				fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant", obj)
-				fmt.Println()
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(15, 10, 5, 5)
+			}
+			if obj == "Casque de Dieu-Roi" {
+				p.Equipement.tete = obj // Changement d'équipement de tête
+				p.RemoveInv(obj)        // Retirer l'item de l'inventaire
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(150, 100, 15, 15)
 			}
 		}
 	}
@@ -70,8 +75,14 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 			if obj == "Tunique de l'aventurier" {
 				p.Equipement.torse = obj
 				p.RemoveInv(obj)
-				p.hpmax += 25
-				fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(25, 25, 10, 10)
+			}
+			if obj == "Armure de Dieu-Roi" {
+				p.Equipement.torse = obj
+				p.RemoveInv(obj)
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(250, 250, 20, 20)
 			}
 		}
 	}
@@ -92,8 +103,15 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 			if obj == "Bottes de l'aventurier" {
 				p.Equipement.pieds = obj
 				p.RemoveInv(obj)
-				p.hpmax += 15
-				fmt.Println("Les Hp Max de ", p.nom, " passe à ", p.hpmax, " en équipant ", obj)
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(10, 15, 5, 5)
+			}
+			if obj == "Jambières de Dieu-Roi" {
+				p.Equipement.pieds = obj
+				p.RemoveInv(obj)
+				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
+				p.GainStats(100, 150, 15, 15)
+
 			}
 		}
 	}
