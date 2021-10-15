@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 var Forgeron Personnage
@@ -11,35 +12,42 @@ func ForgeronInit(p *Personnage) {
 }
 
 func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
-	fmt.Println("Bonjour, que souhaitez vous crafter ? (Numéro d'article / Rien)")
+	fmt.Println("Bonjour, que souhaitez vous crafter ?")
+	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous proposer...")
 	} else {
 		for i := range p.inventaire {
-			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 		}
 	}
+	fmt.Println()
+	fmt.Println("0 - Retour au menu précédent")
 	fmt.Println()
 }
 
 func (p Personnage) DisplayInvForgeron2() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
-	fmt.Println("Que souhaitez vous crafter d'autres ? (Numéro d'article / Rien)")
+	fmt.Println("Que souhaitez vous crafter d'autres ?")
+	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous proposer...")
 	} else {
 		for i := range p.inventaire {
-			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 		}
 	}
+	fmt.Println()
+	fmt.Println("0 - Retour au menu précédent")
 	fmt.Println()
 }
 
 func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 	textforgeron := Input()
 	switch textforgeron {
-	case "Rien": // Retour au menu (aucun objet choisi)
+	case "0": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
+		time.Sleep(1 * time.Second)
 		Achats()
 	case "1": // Craft Chapeau de l'aventurier
 		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
@@ -118,6 +126,7 @@ func EchecCraft() {
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
+			time.Sleep(1 * time.Second)
 			Achats()
 		}
 	}

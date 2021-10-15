@@ -11,7 +11,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	fmt.Println("1 - Attaquer")
 	fmt.Println("2 - Utiliser un sort")
 	fmt.Println("3 - Inventaire")
-	fmt.Println("4 - Fuir")
+	fmt.Println("0 - Abandonner")
 	fmt.Println()
 	textmenucharturn := Input()
 	switch textmenucharturn {

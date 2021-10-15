@@ -29,10 +29,7 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 	default:
 		fmt.Println(P1.nom, "ne sais pas quoi faire..")
 		fmt.Println()
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	}
 }
 
@@ -110,22 +107,13 @@ func DisplayRetirerEquip() {
 	switch textretirerequip {
 	case "1":
 		P1.RetirerEquipementTete()
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	case "2":
 		P1.RetirerEquipementTorse()
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	case "3":
 		P1.RetirerEquipementPieds()
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	}
 }
 
@@ -133,10 +121,7 @@ func (p *Personnage) RetirerEquipementTete() {
 	if p.VerifTailleInv() {
 		if p.Equipement.tete == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre torse..")
-			time.Sleep(1 * time.Second)
-			EffacerTerminal()
-			P1.DisplayEquipment()
-			P1.AccessEquipment()
+			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.tete == "Chapeau de l'aventurier" {
 				p.AddInventory(p.Equipement.tete)
@@ -150,10 +135,7 @@ func (p *Personnage) RetirerEquipementTete() {
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	}
 }
 
@@ -161,10 +143,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 	if p.VerifTailleInv() {
 		if p.Equipement.torse == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre torse..")
-			time.Sleep(1 * time.Second)
-			EffacerTerminal()
-			P1.DisplayEquipment()
-			P1.AccessEquipment()
+			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.torse == "Tunique de l'aventurier" {
 				p.AddInventory(p.Equipement.torse)
@@ -178,10 +157,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	}
 }
 
@@ -189,10 +165,7 @@ func (p *Personnage) RetirerEquipementPieds() {
 	if p.VerifTailleInv() {
 		if p.Equipement.pieds == "" {
 			fmt.Println("Vous n'avez rien équipé à vos pieds..")
-			time.Sleep(1 * time.Second)
-			EffacerTerminal()
-			P1.DisplayEquipment()
-			P1.AccessEquipment()
+			SwipeMenuEquipement()
 		} else {
 			if p.Equipement.pieds == "Bottes de l'aventurier" {
 				p.AddInventory(p.Equipement.pieds)
@@ -206,9 +179,13 @@ func (p *Personnage) RetirerEquipementPieds() {
 		}
 	} else {
 		fmt.Println("Vous devez d'abord vider votre inventaire..")
-		time.Sleep(1 * time.Second)
-		EffacerTerminal()
-		P1.DisplayEquipment()
-		P1.AccessEquipment()
+		SwipeMenuEquipement()
 	}
+}
+
+func SwipeMenuEquipement() {
+	time.Sleep(1 * time.Second)
+	EffacerTerminal()
+	P1.DisplayEquipment()
+	P1.AccessEquipment()
 }

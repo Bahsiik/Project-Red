@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 var Marchand Personnage
@@ -11,35 +12,42 @@ func MarchandInit(p *Personnage) {
 }
 
 func (p Personnage) DisplayInvMarchand() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
-	fmt.Println("Bonjour, que souhaitez vous acheter ? (Numéro d'article / Rien)")
+	fmt.Println("Bonjour, que souhaitez vous acheter ?")
+	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous vendre...")
 	} else {
 		for i := range p.inventaire {
-			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 		}
 	}
+	fmt.Println()
+	fmt.Println("0 - Retour au menu précédent")
 	fmt.Println()
 }
 
 func (p Personnage) DisplayInvMarchand2() { // Fonction d'affichage de l'inventaire du marchand (Articles du magasin)
-	fmt.Println("Que souhaitez vous acheter d'autres ? (Numéro d'article / Rien)")
+	fmt.Println("Que souhaitez vous acheter d'autres ? ")
+	fmt.Println()
 	if len(p.inventaire) == 0 {
 		fmt.Println("Désolé, je n'ai rien a vous vendre...")
 	} else {
 		for i := range p.inventaire {
-			fmt.Print(" Article ", i+1, " : ", p.inventaire[i], "\n")
+			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 		}
 	}
+	fmt.Println()
+	fmt.Println("0 - Retour au menu précédent")
 	fmt.Println()
 }
 
 func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 	textmarchand := Input()
 	switch textmarchand {
-	case "Rien": // Retour au menu (aucun objet choisi)
+	case "0": // Retour au menu (aucun objet choisi)
 		fmt.Println("Très bien, passez une bonne journée.")
 		fmt.Println()
+		time.Sleep(1 * time.Second)
 		Achats()
 	case "1": // Achat de la potion
 		if p.VerifTailleInv() {
@@ -146,6 +154,7 @@ func ContinueMarchandInv(choix string) { // Fonction d'ajout de l'objet choisi d
 		case "Non": // Retour au menu
 			fmt.Println("Très bien, au revoir")
 			fmt.Println()
+			time.Sleep(1 * time.Second)
 			Achats()
 		}
 	}

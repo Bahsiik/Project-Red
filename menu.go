@@ -7,7 +7,7 @@ import (
 )
 
 func Menu() { // Affiche du menu de sélection
-	fmt.Println("--- Menu Principal ---")
+	fmt.Println("------ Menu Principal ------")
 	fmt.Println("1 - Gérer le personnage")
 	fmt.Println("2 - Faire des achats")
 	fmt.Println("3 - Commencer le combat suivant")
