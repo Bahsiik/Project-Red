@@ -24,9 +24,9 @@ func (p *Personnage) CharTurn(m *Monstre) {
 		fmt.Println()
 	case "2":
 		fmt.Println()
-		fmt.Println("0 - Retour")
-		fmt.Println()
 		fmt.Println("1 - Coup de poing")
+		fmt.Println()
+		fmt.Println("0 - Retour")
 		fmt.Println()
 		verif := 0
 		for i := range p.skill {
