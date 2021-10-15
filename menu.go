@@ -12,6 +12,7 @@ func (p *Personnage) Menu() { // Affiche du menu de sélection
 	fmt.Println("1 - Gérer le personnage")
 	fmt.Println("2 - Faire des achats")
 	fmt.Println("3 - Aller chercher un adversaire")
+	fmt.Println("4 - Mais qui sont-ils ?")
 	fmt.Println()
 	fmt.Println("0 - Quitter le jeu")
 	fmt.Println()
@@ -57,6 +58,8 @@ func (p *Personnage) Menu() { // Affiche du menu de sélection
 				EffacerTerminal()
 				p.Menu()
 			}
+		case "4":
+			fmt.Print("Il s'agit du groupe ABBA et du réalisateur Steven Spielberg !")
 		case "0": // Sortie du jeu
 			EffacerTerminal()
 			Exit()
