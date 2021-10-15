@@ -120,7 +120,7 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 	case "Elfe":
 		p.hpmax = 80
 		p.initiative = 20
-		p.manamax = 100
+		p.manamax = 100000
 		p.atk = 2
 		p.puissance = 6
 	case "Nain":
@@ -135,7 +135,7 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 	p.inventaire = []string{"Potion de soin", "Potion de soin", "Potion de mana"}
 	p.tailleinv = 10
 	p.skill = []string{"Coup de poing"}
-	p.money = 100
+	p.money = 10000
 	p.mana = p.manamax
 	p.exp = 0
 	p.expmax = 100
