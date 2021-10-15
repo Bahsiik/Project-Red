@@ -5,9 +5,9 @@ import (
 	"time"
 )
 
-var Alan Monstre
+var Alan Monstre // Déclaration monstre Alan
 
-func AlanInit(m *Monstre) {
+func AlanInit(m *Monstre) { // Init Alan
 	Alan.InitMonstre("Alan", 500, 500, 40, 25)
 }
 
@@ -45,7 +45,7 @@ func AlanPattern(p *Personnage, m *Monstre, tour int) {
 	fmt.Println()
 	fmt.Println("C'est au tour du ", m.nom, ", bonne chance...")
 	fmt.Println()
-	if tour%3 == 0 {
+	if tour%3 == 0 { // Init condition ocup critique
 		AttaqueCritAlan(p, m)
 	} else {
 		AttaqueAlan(p, m)

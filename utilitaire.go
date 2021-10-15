@@ -223,6 +223,6 @@ func GainNiveau(p *Personnage) {
 	}
 }
 
-func EffacerTerminal() {
+func EffacerTerminal() { // Commande d'effacement du terminal
 	os.Stdout.WriteString("\x1b[3;J\x1b[H\x1b[2J")
 }

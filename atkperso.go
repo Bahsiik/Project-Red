@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func CoupPoing(p *Personnage, m *Monstre) {
+func CoupPoing(p *Personnage, m *Monstre) { // Initialisation fonction Coup de poing
 	if p.mana >= 5 {
 		fmt.Println()
 		fmt.Println(p.nom, " effectue un Coup de poing")
@@ -19,7 +19,7 @@ func CoupPoing(p *Personnage, m *Monstre) {
 	}
 }
 
-func AttaqueBasique(p *Personnage, m *Monstre) {
+func AttaqueBasique(p *Personnage, m *Monstre) { // Initialisation fonction  AttaqueBasique
 	fmt.Println()
 	fmt.Println(p.nom, " effectue une attaque basique")
 	m.hp -= p.atk
@@ -28,7 +28,7 @@ func AttaqueBasique(p *Personnage, m *Monstre) {
 	DeathMonstre(p, m)
 }
 
-func BouleFeu(p *Personnage, m *Monstre) {
+func BouleFeu(p *Personnage, m *Monstre) { // Initialisation fonction Boule de Feu
 	if p.mana >= 10 {
 		verif := 0
 		for i := range p.skill {
@@ -38,16 +38,16 @@ func BouleFeu(p *Personnage, m *Monstre) {
 		}
 		if verif == 0 {
 			fmt.Println()
-			fmt.Println(p.nom, " ne possède pas ce sort...")
+			fmt.Println(p.nom, " ne possède pas ce sort...") // Cas absence de ce sort en notre possession
 			fmt.Println()
-			P1.CharTurn(m)
+			P1.CharTurn(m) // Retour choix perso
 		} else {
 			fmt.Println()
 			fmt.Println(p.nom, " lance une boule de feu !!!!!!!!!!!!")
 			m.hp -= p.puissance * 2
 			p.mana -= 10
-			fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.")
-			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
+			fmt.Println(p.nom, " a maintenant ", p.mana, "Mana sur", p.manamax, "Mana.") // Affichage mana perso fin tour
+			fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.")         // Affichage pv monstre fin tour
 			fmt.Println()
 			DeathMonstre(p, m)
 		}

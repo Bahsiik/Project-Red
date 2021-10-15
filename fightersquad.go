@@ -20,12 +20,12 @@ func TrainingFight(p *Personnage, m *Monstre, pattern func(p *Personnage, m *Mon
 			fmt.Println()
 			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |||", m.nom, " :", m.hp, "/", m.hpmax, "HP")
 			fmt.Println()
-			if p.initiative >= m.initiative {
+			if p.initiative >= m.initiative { // Condition perso commence le fight
 				p.CharTurn(m)
 				time.Sleep(1 * time.Second)
-				pattern(p, m, tour)
+				pattern(p, m, tour) // Suivant le monstre choisi, initie les données de combat
 				time.Sleep(1 * time.Second)
-			} else {
+			} else { // Condition monstre commence le fight
 				pattern(p, m, tour)
 				time.Sleep(1 * time.Second)
 				p.CharTurn(m)

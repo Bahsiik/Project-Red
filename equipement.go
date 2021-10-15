@@ -125,7 +125,7 @@ func DisplayRetirerEquip() {
 	}
 }
 
-func (p *Personnage) RetirerEquipementTete() {
+func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper pour le mettre dans inventaire si place dispo
 	if p.VerifTailleInv() {
 		if p.Equipement.tete == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre tête..")
@@ -200,7 +200,7 @@ func (p *Personnage) RetirerEquipementPieds() {
 	}
 }
 
-func SwipeMenuEquipement() {
+func SwipeMenuEquipement() { // retour choix equipement
 	time.Sleep(1 * time.Second)
 	EffacerTerminal()
 	P1.DisplayEquipment()
