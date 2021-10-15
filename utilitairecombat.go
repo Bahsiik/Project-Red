@@ -26,7 +26,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 		fmt.Println()
 		fmt.Println("1 - Coup de poing")
 		fmt.Println()
-		if p.VerifSkill("Boule de Feu") {
+		if p.VerifSkill("Boule de eu") {
 			fmt.Println("2 - Boule de Feu")
 		}
 		fmt.Println()
@@ -152,8 +152,10 @@ func (p *Personnage) AccessInvFight(m *Monstre) {
 	fmt.Println()
 	textinvfight := Input()
 	switch textinvfight {
-	case "Potion":
-		p.TakePot()
+	case "Potion de soin":
+		p.TakeHealPot()
+	case "Potion de mana":
+		p.TakeManaPot()
 	case "Potion de poison":
 		p.PoisonPotComb(m)
 	case "Retour":
