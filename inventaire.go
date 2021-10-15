@@ -18,7 +18,8 @@ func (p Personnage) DisplayInventory() { // Fonction affichage de l'inventaire
 }
 
 func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans l'inventaire
-	fmt.Println("Quel objet", p.nom, "veut utiliser ? (Nom de l'objet)")
+	fmt.Println("----- Quel objet", p.nom, "veut utiliser ? (Nom de l'objet) -----")
+	fmt.Println()
 	fmt.Println("0 - Retour à la gestion du personnage")
 	fmt.Println()
 	textinv := Input()
@@ -59,7 +60,9 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		}
 	case "0": // Retour au menu
 		EffacerTerminal()
-		fmt.Println("Vous allez retourner au menu précédent")
+		fmt.Println()
+		fmt.Println("-------- Vous allez retourner au menu précédent --------")
+		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Home()
 	default: // Choix d'objet invalide
@@ -98,11 +101,15 @@ func (p *Personnage) VerifTailleInv() bool { // Fonction pour vérifier la taill
 func (p *Personnage) UpgradeInventorySlot() { // Fonction pour augmenter la taille de l'inventaire
 	if p.tailleinv < 40 {
 		p.tailleinv += 10
-		fmt.Println(p.nom, "a acheté une nouvelle sacoche. Il peut désormais transporté 10 objets supplémentaires !")
+		fmt.Println(p.nom, "a acheté une nouvelle sacoche Gucci. Il peut désormais transporté 10 objets supplémentaires !")
+		fmt.Println()
 	} else {
 		fmt.Println("Je suis désolé mais vous ne pouvez pas porter une sacoche de plus..")
+		fmt.Println()
 	}
+	fmt.Println()
 	fmt.Println("Besoin d'autres choses messire ? (Oui/Non)")
+	fmt.Println()
 	for {
 		textmarchand2 := Input()
 		switch textmarchand2 {
