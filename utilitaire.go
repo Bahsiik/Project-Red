@@ -140,13 +140,19 @@ func DeathMonstre(p *Personnage, m *Monstre) {
 func GainExp(p *Personnage, m *Monstre) {
 	switch m.nom {
 	case "Goblin":
-		p.exp += 100
+		p.exp += 25
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	case "Licorn":
-		p.exp += 150
+		p.exp += 100
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	case "Dragon":
 		p.exp += 300
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
+	case "Alan":
+		p.exp += 500
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
+	case "Lucas":
+		p.exp += 1000
 		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	}
 }
@@ -160,8 +166,14 @@ func GainMoney(p *Personnage, m *Monstre) {
 		p.money += 25
 		fmt.Println("------ ", p.nom, " a gagné", p.money, " ç ------")
 	case "Dragon":
-		p.money += 50
+		p.money += 75
 		fmt.Println("------ ", p.nom, " a gagné", p.money, " ç ------")
+	case "Alan":
+		p.money += 100
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
+	case "Lucas":
+		p.money += 200
+		fmt.Println("------ ", p.nom, " a gagné", p.exp, " Xp ------")
 	}
 }
 
