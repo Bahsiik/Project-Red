@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+var Licorn Monstre
+
+func LicornInit(m *Monstre) {
+	Licorn.InitMonstre("Licorne d'entrainement", 60, 60, 10, 20)
+}
+
 func AttaqueLicorn(p *Personnage, m *Monstre) {
 	fmt.Println()
 	fmt.Println(m.nom, " donne un coup de sabot à ", p.nom)

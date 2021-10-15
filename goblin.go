@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+var Gobelin Monstre
+
+func GobelinInit(m *Monstre) {
+	Gobelin.InitMonstre("Goblin d'entrainement", 40, 40, 5, 10)
+}
+
 func AttaqueGobelin(p *Personnage, m *Monstre) {
 	fmt.Println()
 	fmt.Println(m.nom, " attaque ", p.nom)

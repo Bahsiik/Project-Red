@@ -24,16 +24,11 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	case "2":
 		fmt.Println()
 		fmt.Println("1 - Coup de poing")
-<<<<<<< HEAD
-		if p.VerifSkill("Boule de Feu") {
-=======
 		fmt.Println()
-		if p.VerifSkill("Boule de eu") {
->>>>>>> 8a9c1cb043826892f8fe75aab20a63cb82918cf9
+		if p.VerifSkill("Boule de Feu") {
 			fmt.Println("2 - Boule de Feu")
 			fmt.Println()
 		}
-		fmt.Println()
 		fmt.Println("0 - Retour")
 		fmt.Println()
 		textattcharturn := Input()

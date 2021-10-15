@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 type Personnage struct { // Création structure Perso
@@ -53,8 +54,10 @@ var P1 Personnage
 func (p *Personnage) Death() { // Système de mort et de résurection
 	if p.hp <= 0 {
 		fmt.Println("Wasted ! Retente ta chance chacal..")
+		time.Sleep(1 * time.Second)
 		p.hp = p.hpmax / 2
 		fmt.Println("Grâce à John Cena,", p.nom, "a réssucité avec", p.hp, "HP")
+		time.Sleep(1 * time.Second)
 	}
 }
 
