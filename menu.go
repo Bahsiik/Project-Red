@@ -8,6 +8,7 @@ import (
 
 func Menu() { // Affiche du menu de sélection
 	fmt.Println("------ Menu Principal ------")
+	fmt.Println()
 	fmt.Println("1 - Gérer le personnage")
 	fmt.Println("2 - Faire des achats")
 	fmt.Println("3 - Commencer le combat suivant")
@@ -33,7 +34,9 @@ func Menu() { // Affiche du menu de sélection
 }
 
 func Exit() { // Commande sortie du jeu
-	fmt.Println("Vous allez quitter le jeu")
+	fmt.Println()
+	fmt.Println("-------- Vous allez quitter le jeu --------")
+	fmt.Println()
 	time.Sleep(1 * time.Second)
 	fmt.Println()
 	EffacerTerminal()
@@ -41,7 +44,8 @@ func Exit() { // Commande sortie du jeu
 }
 
 func RetourMenu() { // Commande retour au menu
-	fmt.Println("Vous allez retourner au menu principal")
+	fmt.Println()
+	fmt.Println("-------- Vous allez retourner au menu principal --------")
 	time.Sleep(1 * time.Second)
 	fmt.Println()
 	EffacerTerminal()
@@ -50,7 +54,8 @@ func RetourMenu() { // Commande retour au menu
 
 func Home() {
 	EffacerTerminal()
-	fmt.Println("Que voulez-vous faire ?")
+	fmt.Println("-------- Que voulez-vous faire ? --------")
+	fmt.Println()
 	fmt.Println("1 - Information du personnage")
 	fmt.Println("2 - Accéder à l'inventaire du personnage")
 	fmt.Println("3 - Accéder à l'équipement du personnage")
@@ -78,7 +83,8 @@ func Home() {
 		EffacerTerminal()
 		RetourMenu()
 	default:
-		fmt.Println("Commande invalide")
+		fmt.Println("-------- Commande invalide --------")
+		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Home()
 	}
@@ -86,7 +92,8 @@ func Home() {
 
 func Achats() {
 	EffacerTerminal()
-	fmt.Println("Que voulez-vous faire ?")
+	fmt.Println("-------- Que voulez-vous faire ? --------")
+	fmt.Println()
 	fmt.Println("1 - Accéder au marchand")
 	fmt.Println("2 - Accéder au Forgeron")
 	fmt.Println("0 - Retour au menu principal")
@@ -104,7 +111,8 @@ func Achats() {
 		EffacerTerminal()
 		RetourMenu()
 	default:
-		fmt.Println("Commande invalide")
+		fmt.Println("-------- Commande invalide --------")
+		fmt.Println()
 		time.Sleep(1 * time.Second)
 		Achats()
 	}
