@@ -54,59 +54,35 @@ func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 		p.expmax *= 1.5
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " (", p.exp, "/", p.expmax, ") ------")
 		if p.classe == "Humain" { // Gain niveau donne bonus suivant classe
-			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
-			p.hpmax += 15
-			fmt.Println(p.hpmax, " (+15)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("ManaMax : ", p.manamax, " >>> ")
-			p.manamax += 15
-			fmt.Println(p.manamax, " (+15)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk += 3
-			fmt.Println(p.atk, " (+3)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance += 3
-			fmt.Println(p.puissance, " (+3)")
+			p.GainStats(15, 15, 3, 3)
 		}
 		if p.classe == "Elfe" { // Gain niveau donne bonus suivant classe
-			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
-			p.hpmax += 10
-			fmt.Println(p.hpmax, " (+10)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("ManaMax : ", p.manamax, " >>> ")
-			p.manamax += 20
-			fmt.Println(p.manamax, " (+20)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk += 2
-			fmt.Println(p.atk, " (+2)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance += 4
-			fmt.Println(p.puissance, " (+4)")
+			p.GainStats(10, 20, 2, 4)
 		}
 		if p.classe == "Nain" { // Gain niveau donne bonus suivant classe
-			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
-			p.hpmax += 20
-			fmt.Println(p.hpmax, " (+20)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("ManaMax : ", p.manamax, " >>> ")
-			p.manamax += 10
-			fmt.Println(p.manamax, " (+10)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Attaque : ", p.atk, " >>> ")
-			p.atk += 4
-			fmt.Println(p.atk, " (+4)")
-			time.Sleep(1 * time.Second)
-			fmt.Print("Puissance : ", p.puissance, " >>> ")
-			p.puissance += 2
-			fmt.Println(p.puissance, " (+2)")
+			p.GainStats(20, 10, 4, 2)
 		}
 		fmt.Println()
 		if p.exp > p.expmax {
 			GainNiveau(p)
 		}
 	}
+}
+
+func (p *Personnage) GainStats(ghp int, gmana int, gatk int, gpuissance int) {
+	fmt.Print("HPMAX : ", p.hpmax, " >>> ")
+	p.hpmax += ghp
+	fmt.Println(p.hpmax, " (+", ghp, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("ManaMax : ", p.manamax, " >>> ")
+	p.manamax += gmana
+	fmt.Println(p.manamax, " (+", gmana, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("Attaque : ", p.atk, " >>> ")
+	p.atk += gatk
+	fmt.Println(p.atk, " (+", gatk, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("Puissance : ", p.puissance, " >>> ")
+	p.puissance += gpuissance
+	fmt.Println(p.puissance, " (+", gpuissance, ")")
 }
