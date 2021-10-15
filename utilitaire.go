@@ -158,6 +158,31 @@ func GainNiveau(p *Personnage) {
 		p.exp += a
 		p.expmax *= 1.5
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax ------")
+		if p.classe == "Humain" {
+			fmt.Print("Attaque : ", p.atk, " >>> ")
+			p.atk *= 1.3
+			fmt.Println(p.atk)
+			fmt.Print("Puissance : ", p.puissance, " >>> ")
+			p.puissance *= 1.3
+			fmt.Println(p.puissance)
+		}
+		if p.classe == "Elfe" {
+			fmt.Print("Attaque : ", p.atk, " >>> ")
+			p.atk *= 1.1
+			fmt.Println(p.atk)
+			fmt.Print("Puissance : ", p.puissance, " >>> ")
+			p.puissance *= 1.5
+			fmt.Println(p.puissance)
+		}
+		if p.classe == "Nain" {
+			fmt.Print("Attaque : ", p.atk, " >>> ")
+			p.atk *= 1.5
+			fmt.Println(p.atk)
+			fmt.Print("Puissance : ", p.puissance, " >>> ")
+			p.puissance *= 1.1
+			fmt.Println(p.puissance)
+		}
+		fmt.Println()
 		time.Sleep(1 * time.Second)
 		if p.exp > p.expmax {
 			GainNiveau(p)
