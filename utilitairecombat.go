@@ -46,7 +46,7 @@ func (p *Personnage) CharTurn(m *Monstre) {
 	case "3":
 		p.DisplayInventory()
 		p.AccessInvFight(m)
-	case "4":
+	case "0":
 		RetourMenu()
 	default: // Choix d'action invalide
 		fmt.Println()
