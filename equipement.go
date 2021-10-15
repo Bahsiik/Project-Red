@@ -39,22 +39,24 @@ func (p *Personnage) AccessEquipment() { // Fonction pour modifier l'equipement 
 func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un objet a l'equipement Tete
 	var test int
 	for i := range p.inventaire {
-		if p.inventaire[i] == obj {
-			test++
-			if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
-				p.AddInventory(p.Equipement.tete)
-			}
-			if obj == "Chapeau de l'aventurier" {
-				p.Equipement.tete = obj // Changement d'équipement de tête
-				p.RemoveInv(obj)        // Retirer l'item de l'inventaire
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(15, 10, 5, 5)
-			}
-			if obj == "Casque de Dieu-Roi" {
-				p.Equipement.tete = obj // Changement d'équipement de tête
-				p.RemoveInv(obj)        // Retirer l'item de l'inventaire
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(150, 100, 15, 15)
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == obj {
+				test++
+				if p.Equipement.tete != "" { // Ajout à l'inventaire de l'item précédent
+					p.RetirerEquipementTete()
+				}
+				if obj == "Chapeau de l'aventurier" {
+					p.Equipement.tete = obj // Changement d'équipement de tête
+					p.RemoveInv(obj)        // Retirer l'item de l'inventaire
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(15, 10, 5, 5)
+				}
+				if obj == "Casque de Dieu-Roi" {
+					p.Equipement.tete = obj // Changement d'équipement de tête
+					p.RemoveInv(obj)        // Retirer l'item de l'inventaire
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(150, 100, 15, 15)
+				}
 			}
 		}
 	}
@@ -67,22 +69,24 @@ func (p *Personnage) AddEquipementTete(obj string) { // Fonction d'ajout d'un ob
 func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un objet a l'equipement torse
 	var test int
 	for i := range p.inventaire {
-		if p.inventaire[i] == obj {
-			test++
-			if p.Equipement.torse != "" {
-				p.AddInventory(p.Equipement.torse)
-			}
-			if obj == "Tunique de l'aventurier" {
-				p.Equipement.torse = obj
-				p.RemoveInv(obj)
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(25, 25, 10, 10)
-			}
-			if obj == "Armure de Dieu-Roi" {
-				p.Equipement.torse = obj
-				p.RemoveInv(obj)
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(250, 250, 20, 20)
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == obj {
+				test++
+				if p.Equipement.torse != "" {
+					p.RetirerEquipementTorse()
+				}
+				if obj == "Tunique de l'aventurier" {
+					p.Equipement.torse = obj
+					p.RemoveInv(obj)
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(25, 25, 10, 10)
+				}
+				if obj == "Armure de Dieu-Roi" {
+					p.Equipement.torse = obj
+					p.RemoveInv(obj)
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(250, 250, 20, 20)
+				}
 			}
 		}
 	}
@@ -95,23 +99,24 @@ func (p *Personnage) AddEquipementTorse(obj string) { // Fonction d'ajout d'un o
 func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un objet a l'equipement pieds
 	var test int
 	for i := range p.inventaire {
-		if p.inventaire[i] == obj {
-			test++
-			if p.Equipement.pieds != "" {
-				p.AddInventory(p.Equipement.pieds)
-			}
-			if obj == "Bottes de l'aventurier" {
-				p.Equipement.pieds = obj
-				p.RemoveInv(obj)
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(10, 15, 5, 5)
-			}
-			if obj == "Jambières de Dieu-Roi" {
-				p.Equipement.pieds = obj
-				p.RemoveInv(obj)
-				fmt.Println("En équipant ", obj, ", ", p.nom, "à augmenté ses stats :")
-				p.GainStats(100, 150, 15, 15)
-
+		if i < len(p.inventaire) {
+			if p.inventaire[i] == obj {
+				test++
+				if p.Equipement.pieds != "" {
+					p.RetirerEquipementPieds()
+				}
+				if obj == "Bottes de l'aventurier" {
+					p.Equipement.pieds = obj
+					p.RemoveInv(obj)
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(10, 15, 5, 5)
+				}
+				if obj == "Jambières de Dieu-Roi" {
+					p.Equipement.pieds = obj
+					p.RemoveInv(obj)
+					fmt.Println("En équipant ", obj, " ", p.nom, "à augmenté ses stats :")
+					p.GainStats(100, 150, 15, 15)
+				}
 			}
 		}
 	}
@@ -153,11 +158,13 @@ func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper p
 			if p.Equipement.tete == "Chapeau de l'aventurier" {
 				p.AddInventory(p.Equipement.tete)
 				p.Equipement.tete = ""
-				p.hpmax -= 10
-				if p.hp > p.hpmax {
-					p.hp = p.hpmax
-				}
-				fmt.Println(p.nom, " perd 10 HP maximum")
+				p.PerteStats(15, 10, 5, 5)
+				fmt.Println()
+			}
+			if p.Equipement.tete == "Casque de Dieu-Roi" {
+				p.AddInventory(p.Equipement.tete)
+				p.Equipement.tete = ""
+				p.PerteStats(150, 100, 15, 15)
 				fmt.Println()
 			}
 		}
@@ -178,11 +185,13 @@ func (p *Personnage) RetirerEquipementTorse() {
 			if p.Equipement.torse == "Tunique de l'aventurier" {
 				p.AddInventory(p.Equipement.torse)
 				p.Equipement.torse = ""
-				p.hpmax -= 25
-				if p.hp > p.hpmax {
-					p.hp = p.hpmax
-				}
-				fmt.Println(p.nom, " perd 25 HP maximum")
+				p.PerteStats(15, 10, 5, 5)
+				fmt.Println()
+			}
+			if p.Equipement.torse == "Armure de Dieu-Roi" {
+				p.AddInventory(p.Equipement.torse)
+				p.Equipement.torse = ""
+				p.PerteStats(150, 100, 15, 15)
 				fmt.Println()
 			}
 		}
@@ -203,11 +212,13 @@ func (p *Personnage) RetirerEquipementPieds() {
 			if p.Equipement.pieds == "Bottes de l'aventurier" {
 				p.AddInventory(p.Equipement.pieds)
 				p.Equipement.pieds = ""
-				p.hpmax -= 25
-				if p.hp > p.hpmax {
-					p.hp = p.hpmax
-				}
-				fmt.Println(p.nom, " perd 15 HP maximum")
+				p.PerteStats(10, 15, 5, 5)
+				fmt.Println()
+			}
+			if p.Equipement.pieds == "Jambières de Dieu-Roi" {
+				p.AddInventory(p.Equipement.pieds)
+				p.Equipement.pieds = ""
+				p.PerteStats(100, 150, 15, 15)
 				fmt.Println()
 			}
 		}

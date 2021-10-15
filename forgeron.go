@@ -8,18 +8,14 @@ import (
 var Forgeron Personnage
 
 func ForgeronInit(p *Personnage) {
-	Forgeron.Init("Mickey", "Forgeron", 666, 666, 666, 666, 0, []string{"Chapeau de l'aventurier : 5ç (1 Plume de Corbeau / 1 Cuir de Sanglier)", "Tunique de l'aventurier : 5ç (2 Fourrure de Loup / 1 Peau de Troll)", "Bottes de l'aventurier : 5ç (1 Fourrure de Loup / 1 Cuir de Sanglier)"}, 100, []string{"Coup de poing"}, 666, 5, 666, 666, 0, 100)
+	Forgeron.Init("Mickey", "Forgeron", 666, 666, 666, 666, 0, []string{"Chapeau de l'aventurier : 10ç (1 Plume de Corbeau / 1 Cuir de Sanglier)", "Tunique de l'aventurier : 20ç (2 Fourrure de Loup / 1 Peau de Troll)", "Bottes de l'aventurier : 10ç (1 Fourrure de Loup / 1 Cuir de Sanglier)", "Casque de Dieu-Roi : 100ç (5 Plume de Corbeau / 5 Cuir de Sanglier)", "Armure de Dieu-Roi : 200ç (10 Fourrure de Loup / 10 Peau de Troll)", "Jambières de Dieu-Roi : 100ç (5 Fourrure de Loup / 5 Cuir de Sanglier)"}, 100, []string{"Coup de poing"}, 666, 5, 666, 666, 0, 100)
 }
 
 func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
 	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Bonjour, que souhaitez vous crafter ? ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	fmt.Println()
-	if len(p.inventaire) == 0 {
-		fmt.Println("Désolé, je n'ai rien a vous proposer...")
-	} else {
-		for i := range p.inventaire {
-			fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
-		}
+	for i := range p.inventaire {
+		fmt.Print("Article ", i+1, " : ", p.inventaire[i], "\n")
 	}
 	fmt.Println()
 	fmt.Println("0 - Retour au menu précédent")
@@ -50,11 +46,17 @@ func (p *Personnage) AccessInvForgeron() { //Fonction craft d'objet
 		time.Sleep(1 * time.Second)
 		p.Achats()
 	case "1": // Craft Chapeau de l'aventurier
-		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 5, "Chapeau de l'aventurier")
+		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 1, 1, 10, "Chapeau de l'aventurier")
 	case "2":
-		p.CraftItem("Fourrure de Loup", "Peau de Troll", 2, 1, 5, "Tunique de l'aventurier")
+		p.CraftItem("Fourrure de Loup", "Peau de Troll", 2, 1, 20, "Tunique de l'aventurier")
 	case "3":
-		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 1, 1, 5, "Bottes de l'aventurier")
+		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 1, 1, 10, "Bottes de l'aventurier")
+	case "4":
+		p.CraftItem("Plume de Corbeau", "Cuir de Sanglier", 5, 5, 100, "Casque de Dieu-Roi")
+	case "5":
+		p.CraftItem("Fourrure de Loup", "Peau de Troll", 7, 5, 200, "Armure de Dieu-Roi")
+	case "6":
+		p.CraftItem("Fourrure de Loup", "Cuir de Sanglier", 5, 5, 100, "Jambières de Dieu-Roi")
 	default:
 		fmt.Println()
 		fmt.Print("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Désolé mais je ne comprend pas, veuillez faire un autre choix ☭☭☭☭☭☭☭☭☭☭☭☭☭☭ \n")

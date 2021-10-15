@@ -57,7 +57,7 @@ func (p *Personnage) Death() { // Système de mort et de résurection
 		time.Sleep(1 * time.Second)
 		p.hp = p.hpmax / 2
 		fmt.Println("Grâce à John Cena,", p.nom, "a réssucité avec", p.hp, "HP")
-		time.Sleep(1 * time.Second)
+		time.Sleep(3 * time.Second)
 	}
 }
 
@@ -120,7 +120,7 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 	case "Elfe":
 		p.hpmax = 80
 		p.initiative = 20
-		p.manamax = 100000
+		p.manamax = 75
 		p.atk = 2
 		p.puissance = 6
 	case "Nain":
@@ -132,10 +132,10 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 	}
 	p.niveau = 1
 	p.hp = p.hpmax / 2
-	p.inventaire = []string{"Potion de soin", "Potion de mana"}
+	p.inventaire = []string{"Potion de soin", "Potion de soin", "Potion de mana"}
 	p.tailleinv = 10
 	p.skill = []string{"Coup de poing"}
-	p.money = 10000
+	p.money = 20
 	p.mana = p.manamax
 	p.exp = 0
 	p.expmax = 100

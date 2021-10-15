@@ -86,3 +86,27 @@ func (p *Personnage) GainStats(ghp int, gmana int, gatk int, gpuissance int) {
 	p.puissance += gpuissance
 	fmt.Println(p.puissance, " (+", gpuissance, ")")
 }
+
+func (p *Personnage) PerteStats(php int, pmana int, patk int, ppuissance int) {
+	fmt.Print("HPMAX : ", p.hpmax, " >>> ")
+	p.hpmax -= php
+	if p.hp > p.hpmax {
+		p.hp = p.hpmax
+	}
+	fmt.Println(p.hpmax, " (-", php, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("ManaMax : ", p.manamax, " >>> ")
+	p.manamax -= pmana
+	if p.mana > p.manamax {
+		p.mana = p.manamax
+	}
+	fmt.Println(p.manamax, " (-", pmana, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("Attaque : ", p.atk, " >>> ")
+	p.atk -= patk
+	fmt.Println(p.atk, " (-", patk, ")")
+	time.Sleep(1 * time.Second)
+	fmt.Print("Puissance : ", p.puissance, " >>> ")
+	p.puissance -= ppuissance
+	fmt.Println(p.puissance, " (-", ppuissance, ")")
+}

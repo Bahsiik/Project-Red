@@ -51,6 +51,22 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		fmt.Println()
 		p.DisplayInventory()
 		p.AccessInventory()
+	case "Casque de Dieu-Roi":
+		p.AddEquipementTete(textinv)
+		fmt.Println("TESST")
+		fmt.Println()
+		p.DisplayInventory()
+		p.AccessInventory()
+	case "Armure de Dieu-Roi":
+		p.AddEquipementTorse(textinv)
+		fmt.Println()
+		p.DisplayInventory()
+		p.AccessInventory()
+	case "Jambières de Dieu-Roi":
+		p.AddEquipementPieds(textinv)
+		fmt.Println()
+		p.DisplayInventory()
+		p.AccessInventory()
 	case "Livre de sort : Iron Fist":
 		p.UseSpellBook("Iron Fist")
 	case "Livre de sort : Charge du Berserker":
