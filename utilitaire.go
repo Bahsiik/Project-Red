@@ -192,6 +192,12 @@ func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 		p.expmax *= 1.5
 		fmt.Println("------ ", p.nom, " est maintenant niveau : ", p.niveau, " et a ", p.exp, " Xp sur ", p.expmax, " XpMax ------")
 		if p.classe == "Humain" { // Gain niveau donne bonus suivant classe
+			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
+			p.hpmax += 15
+			fmt.Println(p.hpmax)
+			fmt.Print("ManaMax : ", p.manamax, " >>> ")
+			p.manamax += 15
+			fmt.Println(p.manamax)
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 2
 			fmt.Println(p.atk)
@@ -200,6 +206,12 @@ func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 			fmt.Println(p.puissance)
 		}
 		if p.classe == "Elfe" { // Gain niveau donne bonus suivant classe
+			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
+			p.hpmax += 10
+			fmt.Println(p.hpmax)
+			fmt.Print("ManaMax : ", p.manamax, " >>> ")
+			p.manamax += 20
+			fmt.Println(p.manamax)
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 1
 			fmt.Println(p.atk)
@@ -208,6 +220,12 @@ func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 			fmt.Println(p.puissance)
 		}
 		if p.classe == "Nain" { // Gain niveau donne bonus suivant classe
+			fmt.Print("HPMAX : ", p.hpmax, " >>> ")
+			p.hpmax += 20
+			fmt.Println(p.hpmax)
+			fmt.Print("ManaMax : ", p.manamax, " >>> ")
+			p.manamax += 10
+			fmt.Println(p.manamax)
 			fmt.Print("Attaque : ", p.atk, " >>> ")
 			p.atk += 3
 			fmt.Println(p.atk)

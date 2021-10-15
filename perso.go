@@ -132,7 +132,7 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 	}
 	p.niveau = 1
 	p.hp = p.hpmax / 2
-	p.inventaire = []string{"Potion de soin", "Potion de soin", "Potion de mana"}
+	p.inventaire = []string{"Potion de soin", "Potion de mana"}
 	p.tailleinv = 10
 	p.skill = []string{"Coup de poing"}
 	p.money = 10000
