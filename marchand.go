@@ -91,44 +91,6 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "10": // Achat du skill "Iron Fist"
-		if p.VerifTailleInv() {
-			if !p.VerifSpellBook("Livre de sort : Iron Fist") && !p.VerifSkill("Iron Fist") {
-				if (P1.money - 150) >= 0 {
-					P1.money -= 150
-					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-					fmt.Println()
-					ContinueMarchandInv("Livre de sort : Iron Fist")
-				} else {
-					p.Pauvre()
-				}
-			} else {
-				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
-				P1.AccessInvMarchand()
-			}
-		} else {
-			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
-			Achats()
-		}
-	case "11": // Achat du skill "Charge de Berserker"
-		if p.VerifTailleInv() {
-			if !p.VerifSpellBook("Livre de sort : Charge de Berserker") && !p.VerifSkill("Charge de Berserker") {
-				if (P1.money - 500) >= 0 {
-					P1.money -= 500
-					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
-					fmt.Println()
-					ContinueMarchandInv("Livre de sort : Charge de Berserker")
-				} else {
-					p.Pauvre()
-				}
-			} else {
-				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
-				P1.AccessInvMarchand()
-			}
-		} else {
-			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
-			Achats()
-		}
 	case "4": // Achat du skill "Boule de Feu"
 		if p.VerifTailleInv() {
 			if !p.VerifSpellBook("Livre de sort : Boule de Feu") && !p.VerifSkill("Boule de Feu") {
@@ -148,7 +110,26 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "5": // Achat du skill "Blizzard"
+	case "5": // Achat du skill "Iron Fist"
+		if p.VerifTailleInv() {
+			if !p.VerifSpellBook("Livre de sort : Iron Fist") && !p.VerifSkill("Iron Fist") {
+				if (P1.money - 150) >= 0 {
+					P1.money -= 150
+					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+					fmt.Println()
+					ContinueMarchandInv("Livre de sort : Iron Fist")
+				} else {
+					p.Pauvre()
+				}
+			} else {
+				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
+				P1.AccessInvMarchand()
+			}
+		} else {
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
+		}
+	case "6": // Achat du skill "Blizzard"
 		if !p.VerifSpellBook("Livre de sort : Blizzard") && !p.VerifSkill("Blizzard") {
 			if (P1.money - 200) >= 0 {
 				P1.money -= 200
@@ -162,7 +143,26 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
 			P1.AccessInvMarchand()
 		}
-	case "6": // Achat du skill "Décharge énergétique"
+	case "7": // Achat du skill "Charge de Berserker"
+		if p.VerifTailleInv() {
+			if !p.VerifSpellBook("Livre de sort : Charge du Berserker") && !p.VerifSkill("Charge du Berserker") {
+				if (P1.money - 500) >= 0 {
+					P1.money -= 500
+					fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
+					fmt.Println()
+					ContinueMarchandInv("Livre de sort : Charge du Berserker")
+				} else {
+					p.Pauvre()
+				}
+			} else {
+				fmt.Println("Désolé monsieur, je ne peut pas vous fournir cet article..")
+				P1.AccessInvMarchand()
+			}
+		} else {
+			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
+			Achats()
+		}
+	case "8": // Achat du skill "Décharge énergétique"
 		if !p.VerifSpellBook("Livre de sort : Décharge énergétique") && !p.VerifSkill("Décharge énergétique") {
 			if (P1.money - 750) >= 0 {
 				P1.money -= 750
@@ -186,7 +186,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "12": // Achat de la Peau de troll
+	case "10": // Achat de la Peau de troll
 		if (P1.money - 7) >= 0 {
 			P1.money -= 7
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
@@ -196,7 +196,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "13": // Achat du Cuir de Sanglier
+	case "11": // Achat du Cuir de Sanglier
 		if (P1.money - 3) >= 0 {
 			P1.money -= 3
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
@@ -206,7 +206,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "14": // Achat de la Plume de Corbeau
+	case "12": // Achat de la Plume de Corbeau
 		if (P1.money - 1) >= 0 {
 			P1.money -= 1
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")
@@ -216,7 +216,7 @@ func (p *Personnage) AccessInvMarchand() { // Fonction d'achat d'objet
 			fmt.Println("Désolez mais vous ne pouvez rien transporter de plus..")
 			Achats()
 		}
-	case "15": // Achat d'une sacoche (augmentation de l'inventaire, limité a 3 achats)
+	case "13": // Achat d'une sacoche (augmentation de l'inventaire, limité a 3 achats)
 		if (P1.money - 30) >= 0 {
 			P1.money -= 30
 			fmt.Println("Argent restant : ", P1.money, " Cacas d'or")

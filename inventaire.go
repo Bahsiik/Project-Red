@@ -51,6 +51,28 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 		fmt.Println()
 		P1.DisplayInventory()
 		P1.AccessInventory()
+	case "Livre de sort : Iron Fist":
+		if p.VerifSpellBook("Livre de sort : Iron Fist") {
+			P1.SpellBook("Iron Fist", "Livre de sort : Iron Fist")
+			fmt.Println()
+			P1.DisplayInventory()
+			P1.AccessInventory()
+		} else {
+			fmt.Println(P1.nom, "ne sais pas quoi faire..")
+			fmt.Println()
+			P1.AccessInventory()
+		}
+	case "Livre de sort : Charge du Berserker":
+		if p.VerifSpellBook("Livre de sort : Charge du Berserker") {
+			P1.SpellBook("Charge du Berserker", "Livre de sort : Charge du Berserker")
+			fmt.Println()
+			P1.DisplayInventory()
+			P1.AccessInventory()
+		} else {
+			fmt.Println(P1.nom, "ne sais pas quoi faire..")
+			fmt.Println()
+			P1.AccessInventory()
+		}
 	case "Livre de sort : Boule de Feu":
 		if p.VerifSpellBook("Livre de sort : Boule de Feu") {
 			P1.SpellBook("Boule de Feu", "Livre de sort : Boule de Feu")

@@ -27,11 +27,17 @@ func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 		if p.VerifSkill("Boule de Feu") {
 			fmt.Println("2 - Boule de Feu")
 		}
+		if p.VerifSkill("Iron Fist") {
+			fmt.Println("3 - Iron Fist")
+		}
 		if p.VerifSkill("Blizzard") {
-			fmt.Println("3 - Blizzard")
+			fmt.Println("4 - Blizzard")
+		}
+		if p.VerifSkill("Charge du Berserker") {
+			fmt.Println("5 - Charge du Berserker")
 		}
 		if p.VerifSkill("Décharge énergétique") {
-			fmt.Println("4 - Décharge énergétique")
+			fmt.Println("6 - Décharge énergétique")
 		}
 		fmt.Println()
 		fmt.Println("0 - Retour")
@@ -43,8 +49,12 @@ func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 		case "2":
 			BouleFeu(p, m)
 		case "3":
-			Blizzard(p, m)
+			IronFist(p, m)
 		case "4":
+			Blizzard(p, m)
+		case "5":
+			ChargeBerserker(p, m)
+		case "6":
 			DechargeEnergetique(p, m)
 		case "0":
 			P1.CharTurn(m)
