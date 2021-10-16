@@ -8,7 +8,7 @@ import (
 var Licorne Monstre // declaration licorne
 
 func LicorneInit(m *Monstre) { // initalisation licorne
-	Licorne.InitMonstre("Licorne", 60, 60, 10, 20)
+	Licorne.InitMonstre("Licorne", 100, 100, 10, 20)
 }
 
 func AttaqueLicorne(p *Personnage, m *Monstre) { //script attaque 1 licorne

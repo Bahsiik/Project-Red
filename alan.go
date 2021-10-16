@@ -8,7 +8,7 @@ import (
 var Alan Monstre // Déclaration Alan
 
 func AlanInit(m *Monstre) { // Initialisation Alan
-	Alan.InitMonstre("Alan", 500, 500, 40, 25)
+	Alan.InitMonstre("Alan", 1000, 1000, 40, 25)
 }
 
 func AttaqueAlan(p *Personnage, m *Monstre) { // Script Attaque 1 Alan
@@ -26,9 +26,9 @@ func AttaqueAlan(p *Personnage, m *Monstre) { // Script Attaque 1 Alan
 }
 
 func AttaqueCritAlan(p *Personnage, m *Monstre) { // Script Attaque 2 Alan
-	fmt.Println(m.nom, " force ", p.nom, " à  utiliser Go Playground... Cela inflige ", m.atk, " points de dégats")
+	fmt.Println(m.nom, " force ", p.nom, " à  utiliser Go Playground... Cela inflige ", m.atk*3, " points de dégats")
 	time.Sleep(1 * time.Second)
-	p.hp -= m.atk * 2
+	p.hp -= m.atk * 3
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
 	fmt.Println()
 	if p.hp <= 0 { // Condition pv à 0 du perso

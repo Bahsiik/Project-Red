@@ -8,7 +8,7 @@ import (
 var Gobelin Monstre // déclaration gobelin
 
 func GobelinInit(m *Monstre) { // initialisation gobelin
-	Gobelin.InitMonstre("Gobelin", 40, 40, 5, 10)
+	Gobelin.InitMonstre("Gobelin", 50, 50, 5, 10)
 }
 
 func AttaqueGobelin(p *Personnage, m *Monstre) { // script attaque 1 gobelin

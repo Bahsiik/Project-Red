@@ -8,7 +8,7 @@ import (
 var Lucas Monstre //déclaration lucas
 
 func LucasInit(m *Monstre) { //initialisation lucas
-	Lucas.InitMonstre("Lucas", 1000, 1000, 1, 15)
+	Lucas.InitMonstre("Lucas", 5000, 5000, 1, 15)
 }
 
 func AttaqueLucas(p *Personnage, m *Monstre) { // script attaque Lucas

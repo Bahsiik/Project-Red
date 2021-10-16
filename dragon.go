@@ -8,7 +8,7 @@ import (
 var Dragon Monstre // Declaration monstre dragon
 
 func DragonInit(m *Monstre) { // Initialisation Dragon
-	Dragon.InitMonstre("Dragon", 200, 200, 20, 5)
+	Dragon.InitMonstre("Dragon", 500, 500, 20, 5)
 }
 
 func AttaqueDragon(p *Personnage, m *Monstre) { //Script attaque1 dragon
