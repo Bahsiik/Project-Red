@@ -5,16 +5,15 @@ import (
 	"time"
 )
 
-var Lucas Monstre
+var Lucas Monstre //déclaration lucas
 
-func LucasInit(m *Monstre) {
+func LucasInit(m *Monstre) { //initialisation lucas
 	Lucas.InitMonstre("Lucas", 1000, 1000, 1, 15)
 }
 
-func AttaqueLucas(p *Personnage, m *Monstre) {
-	fmt.Println()
-	fmt.Println(m.nom, " demande à ", p.nom, "de faire un exercice Ytrack")
-	fmt.Println()
+func AttaqueLucas(p *Personnage, m *Monstre) { // script attaque Lucas
+	fmt.Println(m.nom, " demande à ", p.nom, "de faire un exercice Ytrack. Cela inflige ", m.atk, " points de dégats")
+	time.Sleep(1 * time.Second)
 	p.hp -= m.atk
 	fmt.Println(p.nom, " a maintenant ", p.hp, "HP sur", p.hpmax, "HP.") // Affichage pv perso fin tour
 	fmt.Println()
@@ -34,9 +33,10 @@ func AttaqueLucas(p *Personnage, m *Monstre) {
 	}
 }
 
-func LucasPattern(p *Personnage, m *Monstre, tour int) {
+func LucasPattern(p *Personnage, m *Monstre, tour int) { // pattern lucas
 	fmt.Println()
 	fmt.Println("C'est au tour du ", m.nom, ", bonne chance...")
 	fmt.Println()
+	time.Sleep(1 * time.Second)
 	AttaqueLucas(p, m)
 }

@@ -115,7 +115,7 @@ func (p *Personnage) CharCreation() { // Fonction de création de perso selon cl
 		p.hpmax = 100
 		p.initiative = 15
 		p.manamax = 50
-		p.atk = 100
+		p.atk = 4
 		p.puissance = 4
 	case "Elfe":
 		p.hpmax = 80

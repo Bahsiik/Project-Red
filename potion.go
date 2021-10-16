@@ -65,20 +65,20 @@ func (p *Personnage) PoisonPot() { // Fonction potion de poison
 	}
 }
 
-func (p *Personnage) TakeManaPot() { // Fonction de prise de potion de soins
+func (p *Personnage) TakeManaPot() { // Fonction de prise de potion de mana
 	var test int
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
 			if p.inventaire[i] == "Potion de mana" { // Incrémentattion du compteur de potions par rapport à l'inventaire
 				test++
-				if p.hp == p.hpmax { // Condition de non prise de potion en cas de FullHp
+				if p.hp == p.hpmax { // Condition de non prise de potion en cas de Fullmana
 					fmt.Println("Le mana de", p.nom, " est déjà plein !")
 					fmt.Println()
 				} else {
 					fmt.Println("----- ", p.nom, "prend une potion de mana -----")
 					p.RemoveInv("Potion de mana") // Retrait de la potion de l'inventaire après son utilisation
-					p.hp += 50                    // Gain de santé par potion
-					if p.mana >= p.manamax {      // Condition en cas d'excédent de soin
+					p.hp += 50                    // Gain de mana par potion
+					if p.mana >= p.manamax {      // Condition en cas d'excédent demana
 						p.hp = 100
 						fmt.Println("----- ", p.nom, "est maintenant full mana ! -----")
 						fmt.Println()
@@ -96,7 +96,7 @@ func (p *Personnage) TakeManaPot() { // Fonction de prise de potion de soins
 	}
 }
 
-func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
+func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison en combat
 	var test2 int
 	for i := range p.inventaire {
 		if i < len(p.inventaire) {
@@ -112,16 +112,8 @@ func (p *Personnage) PoisonPotComb(m *Monstre) { // Fonction potion de poison
 						fmt.Println()
 						fmt.Println(m.nom, " a maintenant ", m.hp, "HP sur", m.hpmax, "HP.") // Affichage pv monstre fin tour
 						fmt.Println()
-						if m.hp <= 0 {
-							fmt.Println()
-							fmt.Println("👑👑👑👑👑👑 ", p.nom, "a gagné le combat :))) uwu 👑👑👑👑👑👑") // Message fin de game
-							fmt.Println()
-							GainExp(p, m)
-							GainMoney(p, m)
-							fmt.Println()
-							m.hp = m.hpmax // Réinitialisation pv monstre
-							RetourMenu()
-						}
+						fmt.Println()
+						DeathMonstre(p, m)
 						time.Sleep(1 * time.Second) // Timer dégats par secondes
 					}
 				}

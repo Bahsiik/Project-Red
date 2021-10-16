@@ -69,7 +69,7 @@ func GainNiveau(p *Personnage) { // Gain Niveau suivant les monstres vaincus
 	}
 }
 
-func (p *Personnage) GainStats(ghp int, gmana int, gatk int, gpuissance int) {
+func (p *Personnage) GainStats(ghp int, gmana int, gatk int, gpuissance int) { // Gain de stats
 	fmt.Print("HPMAX : ", p.hpmax, " >>> ")
 	p.hpmax += ghp
 	fmt.Println(p.hpmax, " (+", ghp, ")")
@@ -87,7 +87,7 @@ func (p *Personnage) GainStats(ghp int, gmana int, gatk int, gpuissance int) {
 	fmt.Println(p.puissance, " (+", gpuissance, ")")
 }
 
-func (p *Personnage) PerteStats(php int, pmana int, patk int, ppuissance int) {
+func (p *Personnage) PerteStats(php int, pmana int, patk int, ppuissance int) { // Perte de stats
 	fmt.Print("HPMAX : ", p.hpmax, " >>> ")
 	p.hpmax -= php
 	if p.hp > p.hpmax {

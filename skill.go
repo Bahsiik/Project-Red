@@ -41,7 +41,7 @@ func (p *Personnage) AccessSkill() { // Commande d'accès aux sorts
 	}
 }
 
-func (p *Personnage) SpellBook(sort string, livre string) { // Initialisation livre de sorts
+func (p *Personnage) SpellBook(sort string, livre string) { // maitrise du sort contenu dans le livre
 	if !p.VerifSkill(sort) {
 		p.skill = append(p.skill, sort)
 		fmt.Println("----- ", p.nom, "a appris le sort", sort, " -----")
@@ -69,4 +69,17 @@ func (p *Personnage) VerifSkill(sort string) bool { // Vérification si le sort 
 		}
 	}
 	return false
+}
+
+func (p *Personnage) UseSpellBook(skill string) { // utilisation objet livre de sort dans l'inventaire
+	if p.VerifSpellBook("Livre de sort : " + skill) {
+		p.SpellBook(skill, "Livre de sort : "+skill)
+		fmt.Println()
+		p.DisplayInventory()
+		p.AccessInventory()
+	} else {
+		fmt.Println(p.nom, "ne sais pas quoi faire..")
+		fmt.Println()
+		p.AccessInventory()
+	}
 }

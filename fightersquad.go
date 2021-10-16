@@ -18,7 +18,8 @@ func (p *Personnage) Fight(m *Monstre, pattern func(p *Personnage, m *Monstre, t
 			fmt.Println()
 			fmt.Println("======== Tour ", tour, " ========") // Initialisation n° de tours
 			fmt.Println()
-			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |||", m.nom, " :", m.hp, "/", m.hpmax, "HP")
+			fmt.Println(p.nom, " :", p.hp, "/", p.hpmax, "HP  |", p.mana, "/", p.manamax, "Mana")
+			fmt.Println(m.nom, " :", m.hp, "/", m.hpmax, "HP")
 			fmt.Println()
 			if p.initiative >= m.initiative { // Condition perso commence le fight
 				p.CharTurn(m)
@@ -50,8 +51,8 @@ func (p *Personnage) CharTurn(m *Monstre) { // Initialisation tour personnage
 	switch textmenucharturn { // Choix perso a effectué
 	case "1":
 		AttaqueBasique(p, m)
-		fmt.Println()
 	case "2":
+		fmt.Println("Quel sort ", p.nom, " va utiliser ?")
 		fmt.Println()
 		fmt.Println("1 - Coup de poing")
 		if p.VerifSkill("Boule de Feu") {

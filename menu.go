@@ -90,7 +90,7 @@ func RetourMenu() { // Commande retour au menu
 	P1.Menu()
 }
 
-func (p *Personnage) Home() {
+func (p *Personnage) Home() { // fonction d'acces a la gestion de personnage
 	EffacerTerminal()
 	fmt.Println("-------- Que voulez-vous faire ? --------")
 	fmt.Println()
@@ -129,7 +129,7 @@ func (p *Personnage) Home() {
 	}
 }
 
-func (p *Personnage) Achats() {
+func (p *Personnage) Achats() { // fonction d'acces aux "magasins"
 	EffacerTerminal()
 	fmt.Println("-------- Que voulez-vous faire ? --------")
 	fmt.Println()

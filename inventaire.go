@@ -24,7 +24,7 @@ func (p *Personnage) AccessInventory() { // Fonction d'utilisation d'objet dans 
 	fmt.Println()
 	textinv := Input()
 	switch textinv {
-	case "Potion de soin": // Utilisation de la potion
+	case "Potion de soin":
 		p.TakeHealPot()
 		p.DisplayInventory()
 		p.AccessInventory()
@@ -164,18 +164,5 @@ func (p *Personnage) AccessInvFight(m *Monstre) { // Utilisation de l'inventaire
 		fmt.Println(p.nom, "ne sais pas quoi faire..")
 		fmt.Println()
 		p.CharTurn(m)
-	}
-}
-
-func (p *Personnage) UseSpellBook(skill string) {
-	if p.VerifSpellBook("Livre de sort : " + skill) {
-		p.SpellBook(skill, "Livre de sort : "+skill)
-		fmt.Println()
-		p.DisplayInventory()
-		p.AccessInventory()
-	} else {
-		fmt.Println(p.nom, "ne sais pas quoi faire..")
-		fmt.Println()
-		p.AccessInventory()
 	}
 }

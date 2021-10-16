@@ -126,7 +126,7 @@ func (p *Personnage) AddEquipementPieds(obj string) { // Fonction d'ajout d'un o
 	}
 }
 
-func (p *Personnage) DisplayRetirerEquip() {
+func (p *Personnage) DisplayRetirerEquip() { //Fonction navigation pour retirer equipement
 	fmt.Println()
 	fmt.Println("------ Quelle partie d'équipement voulez vous retirer ? ------")
 	fmt.Println()
@@ -148,7 +148,7 @@ func (p *Personnage) DisplayRetirerEquip() {
 	}
 }
 
-func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper pour le mettre dans inventaire si place dispo
+func (p *Personnage) RetirerEquipementTete() { // Retrait équipement tete
 	if p.VerifTailleInv() {
 		if p.Equipement.tete == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre tête..")
@@ -175,7 +175,7 @@ func (p *Personnage) RetirerEquipementTete() { // Retrait équipement équiper p
 	}
 }
 
-func (p *Personnage) RetirerEquipementTorse() {
+func (p *Personnage) RetirerEquipementTorse() { // Retrait équipement torse
 	if p.VerifTailleInv() {
 		if p.Equipement.torse == "" {
 			fmt.Println("Vous n'avez rien équipé sur votre torse..")
@@ -202,7 +202,7 @@ func (p *Personnage) RetirerEquipementTorse() {
 	}
 }
 
-func (p *Personnage) RetirerEquipementPieds() {
+func (p *Personnage) RetirerEquipementPieds() { // Retrait équipement pieds
 	if p.VerifTailleInv() {
 		if p.Equipement.pieds == "" {
 			fmt.Println("Vous n'avez rien équipé à vos pieds..")

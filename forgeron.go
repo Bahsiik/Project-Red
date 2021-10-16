@@ -22,7 +22,7 @@ func (p Personnage) DisplayInvForgeron() { // Fonction d'affichage de l'inventai
 	fmt.Println()
 }
 
-func (p Personnage) DisplayInvForgeron2() { // Fonction d'affichage de l'inventaire du forgeron (Articles du magasin)
+func (p Personnage) DisplayInvForgeron2() { // Fonction d'affichage de l'inventaire du forgeron apres achats (Articles du magasin)
 	fmt.Println("☭☭☭☭☭☭☭☭☭☭☭☭☭☭ Que souhaitez vous crafter d'autres ? ☭☭☭☭☭☭☭☭☭☭☭☭☭☭")
 	fmt.Println()
 	if len(p.inventaire) == 0 {

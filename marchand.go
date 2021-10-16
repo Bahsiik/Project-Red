@@ -110,7 +110,7 @@ func (p *Personnage) ContinueMarchandInv(choix string) { // Fonction d'ajout de 
 	}
 }
 
-func (p *Personnage) AchatItem(prix int, item string) {
+func (p *Personnage) AchatItem(prix int, item string) { // fonction d'achat d'un objet
 	if p.VerifTailleInv() {
 		if (p.money - prix) >= 0 { // Retrait cout d'achats pour personnage
 			p.money -= prix
@@ -126,7 +126,7 @@ func (p *Personnage) AchatItem(prix int, item string) {
 	}
 }
 
-func (p *Personnage) AchatSkill(prix int, skill string) {
+func (p *Personnage) AchatSkill(prix int, skill string) { // fonction d'achat d'un livre de sort
 	if p.VerifTailleInv() {
 		if !p.VerifSpellBook("Livre de sort : "+skill) && !p.VerifSkill(skill) {
 			if (p.money - prix) >= 0 {
