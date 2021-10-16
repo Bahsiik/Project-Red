@@ -62,10 +62,10 @@ func (p *Personnage) Death() { // Système de mort et de résurection
 }
 
 func (p *Personnage) Pauvre() { // Système de pauvreté
-	if p.money <= 0 {
-		fmt.Println("Vous n'avez plus d'argent...")
-		fmt.Println()
-	}
+	fmt.Println("Vous n'avez pas assez d'argent...")
+	fmt.Println()
+	time.Sleep(2 * time.Second)
+	p.Achats()
 }
 
 func NameCreation() string { // Système de création de nom
